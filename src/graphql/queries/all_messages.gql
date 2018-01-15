@@ -1,0 +1,6 @@
+query people {
+  people {
+    firstName,
+    lastName
+  }
+}
