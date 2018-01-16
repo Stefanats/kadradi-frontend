@@ -1,8 +1,8 @@
 import React from 'react';
-import css from '../styles/styles.scss';
-import Navigation from '../navigation';
-import DownStore from '../downStore';
-import Hamburger from '../hamburger';
+import css from './styles/styles.scss';
+import Navigation from './navigation';
+import DownStore from './downStore';
+import Hamburger from './hamburger';
 
 class AddObject extends React.Component{
   render(){

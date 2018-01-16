@@ -1,16 +1,16 @@
 import React from 'react';
-import css from '../styles/styles.scss';
+import css from './styles/styles.scss';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router'
-import DownStore from '../downStore';
-import Categories from '../categories';
-import InputBox from '../inputBox';
-import Navigation from '../navigation';
-import AllCategories from '../allCategories';
-import Hamburger from '../hamburger';
+import DownStore from './downStore';
+import Categories from './categories';
+import InputBox from './inputBox';
+import Navigation from './navigation';
+import AllCategories from './allCategories';
+import Hamburger from './hamburger';
 
 //import imgs
-import KadRadi_logo from '../../images/KadRadi-Logo-1.png';
+import KadRadi_logo from '../images/KadRadi-Logo-1.png';
 
 // let paths = ['/about', '/addobject', '/']
 class Home extends React.Component{

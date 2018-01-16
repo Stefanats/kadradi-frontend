@@ -55,12 +55,12 @@ import ReduxCounter from 'components/redux';
 import Stats from 'components/stats';
 
 //import pages
-import NotFound from '../pages/notFound';
-import WhenWorks from '../pages/whenWorks';
-import AddObject from '../pages/addObject';
-import About from '../pages/about';
+import NotFound from '../notFound';
+import WhenWorks from '../whenWorks';
+import AddObject from '../addObject';
+import About from '../about';
 
-import Home from '../pages/home';
+import Home from '../home';
 
 
 

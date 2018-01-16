@@ -1,7 +1,10 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
+import clock from '../images/clock.png';
+
 let niz = ['apoteke', 'meljacnice', 'kafici', 'restorani', 'banke', 'jebarnici'];
-const AnyReactComponent = ({ text }) => <div >{text}</div>;
+
+const AnyReactComponent = ({ text }) => <div><img style={{width:"50px"}} src={clock}/></div>;
 
 class WhenWorks extends React.Component{
   static defaultProps = {
@@ -24,7 +27,7 @@ class WhenWorks extends React.Component{
   render(){
     return(
       <div >
-        <div style={{height:"400px",width:"500px"}}>
+        <div style={{height:"500px",width:"50%"}}>
         <GoogleMapReact
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
@@ -34,7 +37,6 @@ class WhenWorks extends React.Component{
     }}
         >
           <AnyReactComponent
-          
             lat={59.955413}
             lng={30.337844}
             text={'Kreyser Avrora'}
