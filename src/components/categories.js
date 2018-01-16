@@ -10,7 +10,7 @@ let niz = [
 		slika: medical
 	},
 	{
-		ime: 'Meljacnice',
+		ime: 'Menjacnice',
 		slika: medical
 	},
 	{
@@ -26,7 +26,7 @@ let niz = [
 		slika: medical
 	},
 	{
-		ime: 'Jebarnici',
+		ime: 'Laboratorije',
 		slika: medical
 	},
 	{
@@ -34,7 +34,7 @@ let niz = [
 		slika: medical
 	},
 	{
-		ime: 'Meljacnice',
+		ime: 'Menjacnice',
 		slika: medical
 	},
 	{
@@ -50,7 +50,7 @@ let niz = [
 		slika: medical
 	},
 	{
-		ime: 'Jebarnici',
+		ime: 'Laboratorije',
 		slika: medical
 	},
 ]
