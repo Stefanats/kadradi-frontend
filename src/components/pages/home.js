@@ -38,7 +38,9 @@ class Home extends React.Component{
 		return(
 			<div>
 				<div className={css.header}>
-					<Hamburger />
+					<div className={css.hamburgerWrapper}>
+						<Hamburger />
+					</div>
 					<Navigation />
 					<div style={{display:"flex",margin:"20px auto"}} >
 						<img style={{margin:"auto"}} src={KadRadi_logo} />
