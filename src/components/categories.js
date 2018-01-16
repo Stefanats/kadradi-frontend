@@ -77,9 +77,9 @@ class Categories extends React.Component {
     return(
       <div className={css.categories}>
         <div className={css.categoriesHeader}>
-					<h2>Sve Karegorije</h2>
+					<h2>Popularne Karegorije</h2>
 				</div>
-				<div className={css.allCategories}>
+				<div className={css.popularCategories}>
 					{singleCategorie}
 				</div>
       </div>

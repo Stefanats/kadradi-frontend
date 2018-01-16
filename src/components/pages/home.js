@@ -6,12 +6,31 @@ import DownStore from '../downStore';
 import Categories from '../categories';
 import InputBox from '../inputBox';
 import Navigation from '../navigation';
+import AllCategories from '../allCategories';
 
 //import imgs
 import KadRadi_logo from '../../images/KadRadi-Logo-1.png';
 
 // let paths = ['/about', '/addobject', '/']
 class Home extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			switch: true
+		}
+	}
+	componentWillMount(){
+		window.scroll(0,0);
+		
+		this.setState({
+			switch: true
+		})
+	}
+	clickHandler(){
+		this.setState({
+			switch: false
+		})
+	}
   render(){
 		console.log('iz homa', this.props.location.pathname)
 		// if(paths.indexOf(this.props.location.pathname) > -1){
@@ -30,7 +49,19 @@ class Home extends React.Component{
 					<InputBox />
 					<DownStore />
 				</div>
-				<Categories />
+				<div style={{display:`${this.state.switch == true ? 'block' : 'none'}`}}>
+					<Categories />
+				</div>
+				<div 
+					style={{display:`${this.state.switch == true ? 'flex' : 'none'}`}}
+					className={css.categoriesButtonWrapper}>
+        	<div onClick={() => this.clickHandler()} className={css.categoriesButton}>
+          	Sve kategorije
+        	</div>
+      	</div>
+				<div style={{display:`${this.state.switch == false ? 'block' : 'none'}`}}>
+					<AllCategories />
+				</div>
 			</div>
 		)
   }
