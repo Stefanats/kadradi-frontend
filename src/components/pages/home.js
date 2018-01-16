@@ -7,6 +7,7 @@ import Categories from '../categories';
 import InputBox from '../inputBox';
 import Navigation from '../navigation';
 import AllCategories from '../allCategories';
+import Hamburger from '../hamburger';
 
 //import imgs
 import KadRadi_logo from '../../images/KadRadi-Logo-1.png';
@@ -21,7 +22,7 @@ class Home extends React.Component{
 	}
 	componentWillMount(){
 		window.scroll(0,0);
-		
+
 		this.setState({
 			switch: true
 		})
@@ -37,6 +38,7 @@ class Home extends React.Component{
 		return(
 			<div>
 				<div className={css.header}>
+					<Hamburger />
 					<Navigation />
 					<div style={{display:"flex",margin:"20px auto"}} >
 						<img style={{margin:"auto"}} src={KadRadi_logo} />
