@@ -1,6 +1,8 @@
 import React from 'react';
 import Map from './map';
 import css from './styles/styles.scss';
+import WhenWorksList from './whenWorksList';
+import WhenWorksHeader from './whenWorksHeader';
 
 let niz = ['apoteke', 'meljacnice', 'kafici', 'restorani', 'banke', 'jebarnici'];
 
@@ -24,7 +26,11 @@ class WhenWorks extends React.Component{
   render(){
     return(
       <div className={css.whenWorks}>
-        <Map />
+        <WhenWorksHeader />
+        <div className={css.whenWorksBody}>
+          <WhenWorksList />
+          <Map />
+        </div>
       </div>
     )
   }

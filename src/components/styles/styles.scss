@@ -256,7 +256,18 @@ a:visited {
 // END ABOUT
 .whenWorks{
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
+}
+.whenWorksHeader{
+  display: flex;
+  background-color: rgb(255, 0, 0);
+}
+.whenWorksBody{
+  display: flex;
+}
+.whenWorksList{
+  width: 50%;
+  height: 100vh;
 }
 .map{
   width: 50%;
