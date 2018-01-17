@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700&subset=cyrillic-ext');
-
+$red : rgb(207, 66, 66);
 .lukaCar{
   max-width: 1440px;
   margin: 0 auto;
@@ -254,26 +254,236 @@ a:visited {
   position: relative;
 }
 // END ABOUT
+
+// WHENWORKS
 .whenWorks{
   display: flex;
   flex-direction: column;
 }
 .whenWorksHeader{
   display: flex;
-  background-color: rgb(255, 0, 0);
+  flex-direction: row;
+  background-color: $red;
 }
-.whenWorksBody{
+.whenWorksLogo{
+  width: 100%;
+}
+.whenWorksInputWrapper{
   display: flex;
 }
+.whenWorksInputHolder{
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  background-color: rgba(255,255,255,.3);
+  border-radius: 50px;
+  margin: 10px 50px;
+}
+.whenWorksInput{
+  background-color: rgba(255,255,255,0);
+  border: none;
+  width: 250px;
+  color: #fff;
+  font-size: 16px;
+}
+.whenWorksInput::placeholder{
+  color: #fff;
+}
+.whenWorksInput:focus{
+  outline: none;
+}
+.whenWorksButton{
+  padding: 10px;
+  background-color: rgb(0, 151, 151);
+  color: #fff;
+  border-radius: 7px;
+  margin: 0 0 0 auto;
+}
+.whenWorksNavigation{
+  flex: 1;
+  display: flex;
+}
+.whenWorksNavigation ul{
+  margin: auto;
+}
+.whenWorksNavigation li{
+  display: inline-block;
+  margin: 0 30px;
+}
+.whenWorksBodyMiddleR{
+  display: flex;
+  position: relative;
+  .leftHolder{
+    background-color: #fff;
+    transition: 1s;
+    position: absolute;
+    margin-right: auto;
+    width: 50%;
+    top: 0;
+    left: 0;
+  }
+  .rightHolder{
+    margin-left: auto;
+    transition: 1s;
+    position: absolute;
+    width: 50%;
+    top: 0;
+    right: 0;
+  }
+}
+.whenWorksBodyMiddleL{
+  display: flex;
+  position: relative;
+  .leftHolder{
+    background-color: #fff;
+    transition: 1s;
+    position: absolute;
+    margin-right: auto;
+    width: 50%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  .rightHolder{
+    margin-left: auto;
+    transition: 1s;
+    position: absolute;
+    width: 50%;
+    top: 0;
+    right: 0;
+  }
+}
+.whenWorksBodyLeft{
+  display: flex;
+  position: relative;
+  .leftHolder{
+    background-color: #fff;
+    margin-right: auto;
+    transition: 1s;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  .rightHolder{
+    margin-left: auto;
+    transition: 1s;
+    position: absolute;
+    width: 50%;
+    top: 0;
+    right: 0;
+  }
+}
+.whenWorksBodyRight{
+  display: flex;
+  position: relative;
+  .leftHolder{
+    background-color: #fff;
+    margin-right: auto;
+    transition: 1s;
+    position: absolute;
+    width: 50%;
+    top: 0;
+    left: 0;
+  }
+  .rightHolder{
+    margin-left: auto;
+    transition: 1s;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+  }
+}
 .whenWorksList{
-  width: 50%;
-  height: 100vh;
+  width: 100%;
+  height: calc(100vh - 88px);
+  position: relative;
+}
+.whenWorksListArrow{
+  width: 30px;
+  height: 30px;
+  border-radius: 20px 0 0 20px;
+  background-color: #fff;
+  position: absolute;
+  cursor: pointer;
+  top: 100px;
+  right: 0;
+  border: 1px solid rgb(219, 219, 219);
+  border-right: none;
+}
+.wwListHeader{
+  display: flex;
+  background-color: rgb(238, 238, 238);
+  padding: 10px;
+  flex-direction: row;
+  border-bottom: 1px rgb(153, 153, 153) solid;
+}
+.wwListNow{
+  background-color: $red;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+.wwListClose{
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  color: gray;
+  border: 1px gray solid;
+  cursor: pointer;
+}
+.wwListHeader select{
+  margin: auto 0 auto auto;
+  direction: rtl;
+  border: none;
+  background-color: rgba(255,255,255,0);
+  color: rgb(0, 151, 151);
+  font-size: 16px;
+  cursor: pointer;
+}
+.wwListHeader select:focus{
+  outline: none;
 }
 .map{
-  width: 50%;
-  height: 100vh;
+  width: calc(100%-1px);
+  height: calc(100vh-88px);
+  position: relative;
+  border-left: 1px rgb(219, 219, 219) solid;
+  transition:  2s;
+  margin-left: auto;
 }
-// WHENWORKS
+.leftArrow{
+  position: absolute;
+  top: 100px;
+  right: 0;
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px 0 0 20px;
+  border: 1px solid rgb(180, 180, 180);
+}
+.leftArrow div{
+  margin-top: 4px;
+  margin-left: 6px;
+}
+.rightArrow{
+  position: absolute;
+  top: 100px;
+  left: 0;
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 0 20px 20px 0;
+  border: 1px solid rgb(180, 180, 180);
+}
+.rightArrow div{
+  margin-top: 4px;
+  margin-left: 6px;
+}
 
 // END WHENWORKS
 
