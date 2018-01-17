@@ -245,6 +245,7 @@ a:visited {
   position: absolute;
 }
 //END HOME
+
 // ABOUT
 .about{
   display: flex;
@@ -253,6 +254,18 @@ a:visited {
   position: relative;
 }
 // END ABOUT
+.whenWorks{
+  display: flex;
+  flex-direction: row-reverse;
+}
+.map{
+  width: 50%;
+  height: 100vh;
+}
+// WHENWORKS
+
+// END WHENWORKS
+
 // ADDOBJECT
 .addObject{
   display: flex;
