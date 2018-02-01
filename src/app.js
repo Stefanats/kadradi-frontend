@@ -22,6 +22,8 @@ import config from 'kit/config';
 
 // Example counter reducer.  This simply increments the counter by +1
 import counterReducer from 'reducers/counter';
+import filterReducer from 'reducers/filter';
+import categoriesIdReducer from 'reducers/categoriesId';
 
 // Main component -- i.e. the 'root' React component in our app
 import Main from 'components/main';
@@ -29,6 +31,7 @@ import Main from 'components/main';
 // Init global styles.  These will be added to the resulting CSS automatically
 // without any class hashing.  Use this to include default or framework CSS.
 import './styles.global.css';
+import categories from './components/categories';
 
 // ----------------------
 
@@ -39,7 +42,8 @@ import './styles.global.css';
 // `seamless-immutable` by the kit's Redux init code, so plain objects are
 // automatically immutable by default
 config.addReducer('counter', counterReducer, { count: 0 });
-
+config.addReducer('filter', filterReducer, { filter: 'name' });
+config.addReducer('categoriesId', categoriesIdReducer, { categoriesId: 0 });
 /* GRAPHQL */
 config.setGraphQLEndpoint('https://kadradi-backend.herokuapp.com/graphql');
 // Enable the internal GraphQL server.  This will do two things:

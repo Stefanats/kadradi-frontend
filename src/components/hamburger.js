@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './styles/styles.scss';
-import {HamburgerButton} from 'react-hamburger-button';
+import { HamburgerButton } from 'react-hamburger-button';
 import { Link } from 'react-router-dom';
 
 class Hamburger extends React.Component{

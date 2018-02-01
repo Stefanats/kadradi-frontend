@@ -5,8 +5,12 @@ import WhenWorksList from './whenWorksList';
 import WhenWorksHeader from './whenWorksHeader';
 import FaAngleRight from 'react-icons/lib/fa/angle-right';
 import FaAngleLeft from 'react-icons/lib/fa/angle-left';
+import { setTimeout } from 'timers';
 
-let niz = ['apoteke', 'meljacnice', 'kafici', 'restorani', 'banke', 'jebarnici'];
+
+
+let niz = ['apoteke', 'meljacnice', 'kafici', 'restorani', 'banke', 'dsadsadaa'];
+
 
 
 
@@ -15,7 +19,8 @@ class WhenWorks extends React.Component{
     super(props);
       this.state = {
         broj: 1,
-        klasa: css.whenWorksBodyMiddleR
+        klasa: css.whenWorksBodyMiddleR,
+        click: 'auto'
       }
   }
 //   render(){
@@ -34,16 +39,28 @@ class WhenWorks extends React.Component{
   clickHanderRight(){
     this.setState({
       broj: this.state.broj + 1,
-      klasa: this.state.broj == 0 ? css.whenWorksBodyMiddleR : this.state.broj == 1 ?css.whenWorksBodyLeft : null
+      klasa: this.state.broj == 0 ? css.whenWorksBodyMiddleR : this.state.broj == 1 ?css.whenWorksBodyLeft : null,
+      click: 'none'
     })
+    setTimeout(() => {
+      this.setState({click: 'auto'});
+    }, 1000)
+  }
+  proba(){
+    this.forceUpdate();
   }
   clickHandlerLeft(){
     this.setState({
       broj: this.state.broj - 1,
-      klasa: this.state.broj == 2 ? css.whenWorksBodyMiddleL : this.state.broj == 1 ?css.whenWorksBodyRight : null
+      klasa: this.state.broj == 2 ? css.whenWorksBodyMiddleL : this.state.broj == 1 ?css.whenWorksBodyRight : null,
+      click: 'none'
     })
+    setTimeout(() => {
+      this.setState({click: 'auto'});
+    }, 1000)
   }
   render(){
+
     return(
       <div className={css.whenWorks}>
         <WhenWorksHeader />
@@ -51,15 +68,15 @@ class WhenWorks extends React.Component{
          className={this.state.klasa}>
           <div  className={css.leftHolder}>
             <WhenWorksList />
-            <div onClick={() => this.clickHandlerLeft()} className={css.leftArrow}>
+            <div style={{pointerEvents:`${this.state.click}`}} onClick={() => this.clickHandlerLeft()} className={css.leftArrow}>
               <div>
                 <FaAngleLeft />
               </div>
             </div>
           </div>
-          <div   className={css.rightHolder}>
+          <div  style={{overflow:"hidden"}}  className={css.rightHolder}>
             <Map />
-            <div onClick={()=>this.clickHanderRight()} className={css.rightArrow}>
+            <div style={{pointerEvents:`${this.state.click}`}} onClick={()=> this.clickHanderRight()} className={css.rightArrow}>
               <div>
                 <FaAngleRight />
               </div>

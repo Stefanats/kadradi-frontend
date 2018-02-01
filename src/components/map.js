@@ -4,10 +4,10 @@ import clock from '../images/clock.png';
 import css from './styles/styles.scss';
 
 const AnyReactComponent = ({ text }) => <div><img style={{width:"50px"}} src={clock}/></div>;
-
+// lng + 0.25 to center
 class Map extends React.Component{
   static defaultProps = {
-    center: {lat: 59.95, lng: 30.33},
+    center: {lat: 44.774707, lng: 20.60},
     zoom: 11
   };
   render(){
@@ -22,9 +22,9 @@ class Map extends React.Component{
           }}
         >
           <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text={'Kreyser Avrora'}
+            lat={44.774707}
+            lng={20.35}
+            text={'Sava Bien'}
           />
         </GoogleMapReact>
     </div>

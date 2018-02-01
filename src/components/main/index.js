@@ -61,7 +61,7 @@ import AddObject from '../addObject';
 import About from '../about';
 
 import Home from '../home';
-
+import ObjectProfile from '../objectProfile';
 
 
 // Styles
@@ -92,6 +92,7 @@ export default () => (
       <Route path="/addobject" component={AddObject} />
       <Route path="/about" component={About} />
       <Route path="/view" component={WhenWorks} />
+      <Route path="/profile/123" component={ObjectProfile} />
       <Route component={NotFound} />
     </Switch>
   </div>
