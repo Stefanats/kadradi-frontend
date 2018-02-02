@@ -3,28 +3,16 @@ import css from './styles/styles.scss';
 import { history } from 'kit/lib/routing';
 
 let niz = [
-  {"name": "a"},
-  {"name": "as"},
-  {"name": "stefan"},
-  {"name": "jagoda"},
-  {"name": "zorana"},
-  {"name": "ana"},
-  {"name": "stefan"},
-  {"name": "jagoda"},
-  {"name": "zorana"},
-  {"name": "ana"},
-  {"name": "stefan"},
-  {"name": "jagoda"},
-  {"name": "zorana"},
-  {"name": "ana"},
-  {"name": "stefan"},
-  {"name": "jagoda"},
-  {"name": "zorana"},
-  {"name": "ana"},
-  {"name": "stefan"},
-  {"name": "jagoda"},
-  {"name": "zorana"},
-  {"name": "ana"},
+  {"name": "Lilly apoteke"},
+  {"name": "Gradska apoteka"},
+  {"name": "Lukina apoteka"},
+  {"name": "Bakijeva apoteka"},
+  {"name": "Bajina apoteka"},
+  {"name": "Stevina apoteka"},
+  {"name": "Sanetova apoteka"},
+  {"name": "Elvisova apoteka"},
+  {"name": "Cicina apoteka"},
+  {"name": "Jelenina apoteka"},
 ]
 
 class InputBox extends React.Component {
@@ -33,6 +21,9 @@ class InputBox extends React.Component {
     this.state = {
       updatedlist: [],
     }
+  }
+  sane(item){
+    console.log("SANEEEEEE", item.name)
   }
   search(){
     history.push('/profile/123');
@@ -61,44 +52,27 @@ class InputBox extends React.Component {
     })
   }
   render() {
-    let styles = {
-      position: "absolute",
-      display: `${this.state.focus}`,
-      flexDirection: "column",
-      top: 'calc(100% + 10px)',
-      left: '50px',
-      background: 'white',
-      zIndex: "1000",
-      boxShadow: '0 6px 12px rgba(0,0,0,.175)',
-      border: '1px solid silver',
-      borderRadius: '5px',
-      overflowY: 'scroll',
-      maxHeight: '300px',
-    
-    
-    }
-    let styleItem = {
-      padding: '10px',
-      background: 'white',
-    }
-    console.log('iz stejta', this.state.updatedlist)
     let dropDown = this.state.updatedlist.map((item, key) => {
       return(
-        <div style={styleItem} key={key}>
-          {item.name}
+        <div 
+          onClick={() => this.sane(item)}
+          className={css.dropDownItem}
+          key={key}>
+            {item.name}
         </div>
       )
     })
     return(
       <div className={css.whatWhere}>
         <div className={css.whatWrapper}>
-          <div style={styles}>
-            {dropDown}
+          <div 
+            style={{display: `${this.state.focus}`}}
+            className={css.dropDownWrapper}>
+              {dropDown}
           </div>
           <div className={css.what}>Sta</div>
           <input
             onFocus={() => this.focusOn()}
-            onBlur={() => this.focusOff()}
             onChange={(event) => this.updateList(event)}
             type="text"
             className={css.search}
@@ -121,15 +95,3 @@ class InputBox extends React.Component {
   }
 }
 export default InputBox;
-
-          {/* <datalist id="options">
-            <select>
-                <option value="option 1" />
-                <option>option 2</option>
-                <option value="option value 3">option label 3</option>
-                <option value="option value 4" label="option label 4" />
-                <option>aaaaaaaaabbbbbbbbbcccccccc</option>
-                <option>aaaaaaaaabbbbb</option>
-                <option>aaaaaaaa</option>
-            </select>
-          </datalist> */}

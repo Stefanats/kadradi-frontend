@@ -247,6 +247,23 @@ a:visited {
 .hamburger{
   position: absolute;
 }
+.dropDownWrapper{
+  position: absolute;
+  flex-direction: column;
+  top: calc(100% + 10px);
+  left: 50px;
+  background: white;
+  z-index: 1000;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  border: 1px solid silver;
+  border-radius: 5px;
+  overflow-y: scroll;
+  max-height: 300px;
+}
+.dropDownItem{
+  padding: 10px;
+  background: white;
+}
 //END HOME
 
 // ABOUT

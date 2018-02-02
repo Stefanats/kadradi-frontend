@@ -92,7 +92,7 @@ export default () => (
       <Route path="/addobject" component={AddObject} />
       <Route path="/about" component={About} />
       <Route path="/view" component={WhenWorks} />
-      <Route path="/profile/123" component={ObjectProfile} />
+      <Route path="/profile/" component={ObjectProfile} />
       <Route component={NotFound} />
     </Switch>
   </div>

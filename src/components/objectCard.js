@@ -62,19 +62,22 @@ class ObjectCard extends React.Component{
       this.setState({niz: nextProps.data.objectCl})
     }
   }
+  slugify(text){
+    return text.toString().toLowerCase()
+      .replace(/\s+/g, '-')           // Replace spaces with -
+      .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+      .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+      .replace(/^-+/, '')             // Trim - from start of text
+      .replace(/-+$/, '');            // Trim - from end of text
+  }
   componentWillMount(){
     
   }
   render(){
-    console.log('objekat', this.props)
     let { filter } = this.props.filter;
     let objects = [].concat(this.state.niz);
     let orderBy = _.orderBy(objects, [filter], [filter=='name' ? 'asc' : 'desc']);
-
-
     // asc
-
-
     let nesto = orderBy
     .map((item, key) =>
         <div className={css.objectCardItem} key={key}>
@@ -83,7 +86,7 @@ class ObjectCard extends React.Component{
           </div>
           <div className={css.objectInfoWrapper} >
             <div className={css.objectName} >
-              {item.name}
+              <Link to={`/profile/${this.slugify(item.name)}`}>{item.name}</Link>
             </div>
             <div className={css.objectRating} >
             <Rating
