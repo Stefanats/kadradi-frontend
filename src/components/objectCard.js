@@ -41,6 +41,7 @@ import { connect } from 'react-redux';
  } `,
   {
     options: (props) => {
+      console.log('OVO JE ', props)
       return ({
         variables: {
           objectCategoryId: props.categoriesId.categoriesId,
@@ -86,7 +87,7 @@ class ObjectCard extends React.Component{
           </div>
           <div className={css.objectInfoWrapper} >
             <div className={css.objectName} >
-              <Link to={`/profile/${this.slugify(item.name)}`}>{item.name}</Link>
+              <Link to={`/profile/${this.slugify(item.name)}/${item.id}`}>{item.name}</Link>
             </div>
             <div className={css.objectRating} >
             <Rating
