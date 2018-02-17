@@ -75,7 +75,7 @@ class WhenWorks extends React.Component{
             </div>
           </div>
           <div  style={{overflow:"hidden"}}  className={css.rightHolder}>
-            <Map />
+            <Map css='map' />
             <div style={{pointerEvents:`${this.state.click}`}} onClick={()=> this.clickHanderRight()} className={css.rightArrow}>
               <div>
                 <FaAngleRight />

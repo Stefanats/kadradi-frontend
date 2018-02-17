@@ -11,8 +11,10 @@ class Map extends React.Component{
     zoom: 11
   };
   render(){
+    console.log('IZ MAPA', this.props.css)
+    let csss = this.props.css == 'map' ? css.map : css.map1
     return(
-      <div className={css.map}>
+      <div className={csss}>
         <GoogleMapReact
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
@@ -20,7 +22,12 @@ class Map extends React.Component{
             key: 'AIzaSyBnrw9kCAw02vx5ElmZCrrPkgab8IOHLxM',
             language: 'en'
           }}
-        >
+        >         
+         <AnyReactComponent
+        lat={44.774707}
+        lng={20.30}
+        text={'proba'}
+      />
           <AnyReactComponent
             lat={44.774707}
             lng={20.35}

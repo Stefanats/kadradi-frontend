@@ -24,12 +24,14 @@ import { connect } from 'react-redux';
     name
     ratingCount
     avgRating
-    isWorking
+    workingTimeInfo{
+      isWorking
+    }
     objectLocations {
       city
     }
     objectCategory {
-      name
+      nameJ
     }
     images {
       profileImage {
@@ -41,7 +43,6 @@ import { connect } from 'react-redux';
  } `,
   {
     options: (props) => {
-      console.log('OVO JE ', props)
       return ({
         variables: {
           objectCategoryId: props.categoriesId.categoriesId,
@@ -75,6 +76,9 @@ class ObjectCard extends React.Component{
     
   }
   render(){
+    let red ={
+      color: 'red'
+    }
     let { filter } = this.props.filter;
     let objects = [].concat(this.state.niz);
     let orderBy = _.orderBy(objects, [filter], [filter=='name' ? 'asc' : 'desc']);
@@ -98,10 +102,10 @@ class ObjectCard extends React.Component{
             </div>
             <div className={css.isWorkingWrapper}>
               <div className={css.objectInfo} >
-                {item.objectCategory.name} pa ide grad
+                {item.objectCategory.nameJ} pa ide grad
               </div>
               <div className={css.isWorking}>
-                {item.isWorking == true ? 'radi' : 'ne radi'}
+                {item.workingTimeInfo.isWorking == true ? 'radi' : 'ne radi'}
               </div>
             </div>
           </div>

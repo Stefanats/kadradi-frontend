@@ -8,15 +8,12 @@ import ProfileImpressions from './profileImpressions';
 
 class ObjectProfile extends React.Component{
   render(){
-    console.log('props', this.props)
     return(
       <div>
-        
-        <WhenWorksHeader />
-        <ProfileHome />
-        <ProfileWorkTime />
-        <ProfileGallery />
-        <ProfileImpressions />
+          <ProfileHome/>  
+          <ProfileWorkTime/>
+          {/* <ProfileGallery /> 
+          <ProfileImpressions /> */}
       </div>
     )
   }
