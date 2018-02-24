@@ -6,7 +6,9 @@ import Proba from '../proba';
 class ProfileWorkClock extends React.Component{
   render(){
     return(
-      <div style={{display:'flex'}}>
+
+      <div style={{flex:'1',display:'flex',justifyContent:'center'}}>
+      <div style={{display:'flex',flex:'1',maxWidth:'1440px'}}>
         <div style={{position:'relative',flex:'1', paddingBottom:'50%'}}>
           <div className={css.blueCircle}>
             <div style={{margin:"auto"}}>
@@ -18,6 +20,7 @@ class ProfileWorkClock extends React.Component{
           <div className={css.orangeCircle}>
           </div>
         </div>
+      </div>
       </div>
     )
   }

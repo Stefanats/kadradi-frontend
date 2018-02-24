@@ -16,12 +16,12 @@ class ObjectWorkTime extends React.Component{
             <div className={css.objectWorkTimeBox}> 
                 <div className={css.restaurantWorkTime}>
                   <div className={css.restaurantWorkTimeBox}>
-                    <h4 
-                      style={{color:'green', marginBottom:'10px'}}>Restoran 
+                    <h4 className={css.workTimeType}>
+                      Restoran 
                       <img src={okay} style={{width:"20px"}}/>
                     </h4>
-                    <p style={{marginBottom:'5px'}}>(pon,petak 9.00-12.39)</p>
-                    <p>(pon,petak 9.00-12.39)</p>
+                    <p style={{fontSize:'20px',marginBottom:'5px'}}>(pon,petak 9.00-12.39)</p>
+                    <p style={{fontSize:'20px'}}>(pon,petak 9.00-12.39)</p>
                   </div>
                 </div>
               <div className={css.kitchenWorkTime}>

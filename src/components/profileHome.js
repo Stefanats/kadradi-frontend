@@ -5,6 +5,8 @@ import Rating from 'react-rating';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { withRouter } from 'react-router';
+import pun from '../images/Ocena14.png';
+import prazan from '../images/Ocena13.png';
 
 let stajl = {
   display: "flex",
@@ -63,6 +65,8 @@ let stylez = {
 
 class ProfileHome extends React.Component{
   render(){
+
+
     let result = this.props.data.objectCl || [];
     let [objectCl] = result;
     let splitedVremeOd = objectCl != undefined ?
@@ -121,8 +125,16 @@ class ProfileHome extends React.Component{
                 <div className={css.profileRatingSecond}>
                   <div className={css.ratingBox}>
                     <Rating
-                    placeholder={false}
-                      stop={5}
+                      readonly
+                      emptySymbol={
+                        <img style={{width:'30px'}}
+                        src={prazan}
+                        className="icon"/>}
+                        fullSymbol={
+                        <img style={{width:'30px'}}
+                        src={pun}
+                        className="icon"/>}
+                        stop={5}
                       initialRating={objectCl.avgRating}
                     />
                   </div>

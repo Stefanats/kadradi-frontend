@@ -1,6 +1,6 @@
 import React from 'react';
 import css from '../styles/styles.scss';
-import Map from '../map';
+import GoogleMap from '../map';
 import FaMailForward from 'react-icons/lib/fa/mail-forward';
 
 class ProfileMap extends React.Component{
@@ -8,7 +8,7 @@ class ProfileMap extends React.Component{
     return(
       <div className={css.profileMap}>
         <div className={css.profileMapWrapper}>
-          <Map
+          <GoogleMap
             css='map1'/>
         </div>
         <div className={css.profileMapBar}>

@@ -99,5 +99,3 @@ export default () => (
     </Switch>
   </div>
 );
-
-// /view:postId

@@ -66,11 +66,9 @@ class Proba extends React.Component{
     let days = day.map((item, key) => {
       return <div key={key} style={{width:"40px",height:"20px",fontSize:'10px',textAlign:'center'}}>{item}</div>
     }) //renderuje dane u nedelji
-
     let yearMonth = moment().format('YYYY-MM');
     let dayInMonth = moment().format('DD');
     let daysInMonth = moment(yearMonth, "YYYY-MM").daysInMonth(); //vraca broj dana u mesecu
-
     let dayInWeek = moment(`${yearMonth}-01`);
     let x = dayInWeek.day();//dan u nedelji
     let emptyDivs = x - 1;//odredjuje prvi-dan u nedelji
@@ -79,7 +77,6 @@ class Proba extends React.Component{
     let stef = emptyWithDays.map((item, key)=>{
       return <div key={key} style={{color:'#fff',marginTop:'5px',width:"40px",height:"20px",fontSize:'20px',textAlign:'center'}}>{item}</div>
     })
-
     let stylez = {
       display:"flex",
       flexDirection: 'row',
@@ -95,7 +92,6 @@ class Proba extends React.Component{
       top: '0',
       left: '-20px',
       letterSpacing: '1px'
-
     }
     let stylezzz = {
       color: '#fff',

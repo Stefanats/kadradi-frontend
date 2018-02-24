@@ -40,7 +40,7 @@ class ProfileWorkTime extends React.Component{
     return(
       <div>
         {
-          this.props.data.loadin ?
+          this.props.data.loading ?
           <p style={{color:'red',fontSize:'50px'}}>loading</p> :
           objectCl == undefined ? '' :
         <div>
@@ -60,8 +60,10 @@ class ProfileWorkTime extends React.Component{
           <ProfileCalendar />
         </div>
         <div className={css.profileWorkTimeThirth}>
-          <ProfileInfo />
-          <ProfileMap />
+          <div className={css.profileWorkTimeThirthBox}>
+            <ProfileInfo />
+            <ProfileMap />
+          </div>
         </div>
         </div>
         }

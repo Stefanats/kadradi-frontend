@@ -14,6 +14,7 @@ import brzaHrana from '../images/Brza-Hrana.png';
 import marketi from '../images/Marketi.png';
 import hoteli from '../images/Hoteli.png';
 import operateri from '../images/Operateri.png';
+import laboratorije from '../images/Laboratorije.png';
 import { connect } from 'react-redux';
 
 
@@ -25,54 +26,24 @@ let niz = [
 	},
 	{
 		id: 2,
+		name: "Laboratorije",
+		slika: laboratorije
+	},
+	{
+		id: 3,
 		name: "Klinike",
 		slika: klinike
 	},
 	{
-		id: 3,
+		id: 4,
 		name: "Banke",
 		slika: banke
 	},
 	{
-		id: 4,
+		id: 5,
 		name: "Menjačnice",
 		slika: menjacnice
 	},
-	{
-		id: 5,
-		name: "Bankomati",
-		slika: bankomati
-	},
-	{
-		id: 6,
-		name: "Restorani",
-		slika: restorani
-	},
-	{
-		id: 7,
-		name: "Kafići",
-		slika: kafici
-	},
-	{
-		id: 8,
-		name: "Brza hrana",
-		slika: brzaHrana
-	},
-	{
-		id: 9,
-		name: "Marketi",
-		slika: marketi
-	},
-	{
-		id: 10,
-		name: "Hoteli",
-		slika: hoteli
-	},
-	{
-		id: 11,
-		name: "Operateri",
-		slika: operateri
-	}
 ]
 
 @connect(state => ({ filter: state.filter }))
@@ -93,7 +64,7 @@ class Categories extends React.Component {
 					key={key}
 					className={css.singleCategorie}
 					onClick={() => this.sendCategoriesId(item)}>
-					<Link  to={`/view/${item.name.toLowerCase()}`}>
+					<Link  to={`/view/${item.name.toLowerCase()}/${item.id}`}>
 						<div className={css.singleAbsolute}>
 							<div className={css.singleFlex}>
 								<div className={css.singleImg}>

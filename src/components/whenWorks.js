@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from './map';
+import GoogleMap from './map';
 import css from './styles/styles.scss';
 import WhenWorksList from './whenWorksList';
 import WhenWorksHeader from './whenWorksHeader';
@@ -8,6 +8,7 @@ import FaAngleLeft from 'react-icons/lib/fa/angle-left';
 import { setTimeout } from 'timers';
 
 
+import { connect } from 'react-redux';
 
 let niz = ['apoteke', 'meljacnice', 'kafici', 'restorani', 'banke', 'dsadsadaa'];
 
@@ -36,6 +37,7 @@ class WhenWorks extends React.Component{
 //     }
 //   }
 // }
+
   clickHanderRight(){
     this.setState({
       broj: this.state.broj + 1,
@@ -64,9 +66,8 @@ class WhenWorks extends React.Component{
     return(
       <div className={css.whenWorks}>
         <WhenWorksHeader />
-        <div
-         className={this.state.klasa}>
-          <div  className={css.leftHolder}>
+        <div className={this.state.klasa}>
+          <div className={css.leftHolder}>
             <WhenWorksList />
             <div style={{pointerEvents:`${this.state.click}`}} onClick={() => this.clickHandlerLeft()} className={css.leftArrow}>
               <div>
@@ -75,7 +76,7 @@ class WhenWorks extends React.Component{
             </div>
           </div>
           <div  style={{overflow:"hidden"}}  className={css.rightHolder}>
-            <Map css='map' />
+            <GoogleMap css='map' />
             <div style={{pointerEvents:`${this.state.click}`}} onClick={()=> this.clickHanderRight()} className={css.rightArrow}>
               <div>
                 <FaAngleRight />

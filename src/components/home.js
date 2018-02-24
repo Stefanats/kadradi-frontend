@@ -8,6 +8,7 @@ import InputBox from './inputBox';
 import Navigation from './navigation';
 import AllCategories from './allCategories';
 import Hamburger from './hamburger';
+import GeoLocation from './geoLocation';
 
 //import imgs
 import KadRadi_logo from '../images/KadRadi-Logo-1.png';
@@ -33,11 +34,11 @@ class Home extends React.Component{
 		})
 	}
   render(){
-		console.log('iz homa', this.props.location.pathname)
 		// if(paths.indexOf(this.props.location.pathname) > -1){
 		return(
 			<div>
 				<div className={css.header}>
+					<GeoLocation />
 					<Hamburger />
 					<Navigation />
 					<div style={{display:"flex",margin:"20px auto"}} >
