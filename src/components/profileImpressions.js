@@ -5,7 +5,7 @@ class ProfileImpressions extends React.Component{
   render(){
     return(
       <div>
-        improssions
+        
       </div>
     )
   }
