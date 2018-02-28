@@ -24,7 +24,7 @@ import satRadiVip from '../images/Sat-radi-placeno.png';
 
 @graphql(gql`
  query objectCl($objectCategoryId: Int) {
-  objectCl(page: 1, objectCategoryId: $objectCategoryId) {
+  objectCl(objectCategoryId: $objectCategoryId) {
     id
     verified
     name
