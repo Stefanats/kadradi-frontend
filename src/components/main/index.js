@@ -60,7 +60,7 @@ import WhenWorks from '../whenWorks';
 import AddObject from '../addObject';
 import About from '../about';
 import Proba from '../proba';
-
+import ContactForm from '../contactForm';
 import Home from '../home';
 import ObjectProfile from '../objectProfile';
 
@@ -95,7 +95,9 @@ export default () => (
       <Route path="/view" component={WhenWorks} />
       <Route path="/profile/:name/:id" component={ObjectProfile} />
       <Route path="/proba" component={Proba} />
+      <Route path="/contactForm" component={ContactForm} />
       <Route component={NotFound} />
+      
     </Switch>
   </div>
 );

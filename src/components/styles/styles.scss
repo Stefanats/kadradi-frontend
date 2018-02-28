@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700&subset=cyrillic-ext');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1dfbde7cc8d70ccd26df9a3aa9bbb38bf8805d2e
 $red : #f03434;
 
 html, body {
@@ -643,14 +646,7 @@ a:visited {
 }
 // END WHENWORKS
 
-// ADDOBJECT
-.addObject{
-  display: flex;
-  height: 500px;
-  background-color: gray;
-  position: relative;
-}
-// END ADDOBJECT
+
 // OBJECT 
 .clockWorkTime{
   position: absolute;
@@ -722,6 +718,7 @@ a:visited {
 .profileRatingThirth{
   display: flex;
   margin-left: 10px;
+  flex-direction: column;
 }
 .circleRing{
   margin: auto;
@@ -744,12 +741,18 @@ a:visited {
     font-size: 20px;
   }
 }
-.profileWorkTimeFirst{
+.profileWorkTimeFirst, .profileImpressionsFirst {
   display: flex;
   background: rgb(209, 209, 209);
   justify-content: center;
+  border-bottom: 1px solid #009797;
+  border-top: 1px solid #009797;
+  
 }
-.profileWorkTimeFirstBox{
+.profileImpressionsFirst {
+  margin-bottom: 2%;
+}
+.profileWorkTimeFirstBox, .profileImpressionsFirstBox {
   flex: 1;
   max-width: 1440px;
   padding: 20px 0;
@@ -1057,6 +1060,183 @@ a:visited {
     font-weight: 800;
   }
 }
+// PROFILE IMPRESSIONS STYLE //
+.profileRatingNPrice, .profileImpressionsNAccuracy {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profileRatingCircle {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profileRatingNPriceRating {
+  margin-top: 7%;
+  margin-bottom: 2%;
+  padding-left: 7%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+  border-bottom: 1px solid #a5a5a5;
+}
+.profileRatingNPricePrice, .profileImpressionsNAccuracyAccuracy {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  text-align: center;
+}
+.profileRatingNPricePrice {
+  margin-left: 5%;
+  margin-right: 2%;
+}
+.profileImpressionsNAccuracyAccuracy {
+  font-size: 60px;
+  color: #009797;
+  font-weight: 800;
+}
+.profileRatingNPriceCena, .profileRatingNPriceTacnost {
+  color: #009797;
+  text-align: center;
+  font-size: 25px;
+  margin-top: 20px;
+  font-weight: 100;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profileImpressionsNAccuracyImpressions {
+  margin-top: 7%;
+  margin-bottom: 2%;
+  padding-left: 2%;
+  padding-right: 7%;
+  padding-bottom: 1%;
+  color: #fca94b;
+  font-size: 60px;
+  border-bottom: 1px solid #a5a5a5;
+}
+.addObject {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-image: url('../../images/pozadinablur.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+.memory {
+  flex: 1;
+  margin: 0px 30px;
+  padding: 40px 0px;
+  border-bottom: 1px solid #009797;
+}
+.znak {
+  width: 80px;
+  height: 80px;
+  background-color: #d14545;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 50px;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40px;
+}
+.zapamtite {
+  max-width: 500px;
+  color: #009797;
+  font-size: 25px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+}
+.xxx {
+  font-size: 60px;
+  float: right;
+  color: #009797;
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+
+// END OBJECT PROFILE
+// FORMA STYLE //
+.addObjectForm {
+  display: flex;
+  font-size: 22px;
+  flex-direction: column;
+  color: #fff;
+}
+.formTextDiv {
+  display: flex;
+  flex-direction: column;
+}
+.open {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0px 50px;
+}
+.addYourObject, .isThisYourObject {
+  display: flex;
+  flex: 1;
+  background-color: #f03434;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
+.emailNContact {
+  background-color: #009797;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 50px;
+}
+.inputEmail {
+  max-width: 600px;
+  width: 100%;
+  height: 45px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding-left: 10px;
+}
+.inputButton {
+  max-width: 500px;
+  width: 100%;
+  height: 60px;
+  margin: 5px 50px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 22px;
+  background-color: #f03434;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+
+
+// END FORMA STYLE //
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -1143,6 +1323,18 @@ a:visited {
     li:hover{
       background-color: rgb(255, 0, 0);
     }
+  }
+  .addYourObject {
+    padding: 25px 0 25px;
+  }
+  .addObjectForm {
+    font-size: 18px;
+  }
+  .inputEmail {
+    font-size: 16px;
+  }
+  .inputButton {
+    font-size: 18px;
   }
 }
 // MEDIA QUERY 426-768
