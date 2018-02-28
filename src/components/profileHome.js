@@ -7,6 +7,9 @@ import gql from 'graphql-tag';
 import { withRouter } from 'react-router';
 import pun from '../images/Ocena14.png';
 import prazan from '../images/Ocena13.png';
+import Loading from 'react-loading-components';
+
+
 
 let stajl = {
   display: "flex",
@@ -77,7 +80,7 @@ class ProfileHome extends React.Component{
     return(
       <div>
         {this.props.data.loading ?
-        <p style={{color:'red',fontSize:'50px'}}>loading</p> :
+        <Loading type='oval' width={100} height={100} fill='#f44242' /> :
         <div>
           <div className={css.relative}>
             <div style={stajl}>

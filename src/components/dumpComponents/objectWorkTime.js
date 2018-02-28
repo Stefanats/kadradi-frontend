@@ -1,7 +1,7 @@
 import React from 'react';
 import css from '../styles/styles.scss';
-import okay from '../../images/okay.png';
-import notOkay from '../../images/notOkay.png';
+import radi from '../../images/RADI.png';
+import neRadi from '../../images/NE-RADI.png';
 
 class ObjectWorkTime extends React.Component{
   render(){
@@ -17,8 +17,7 @@ class ObjectWorkTime extends React.Component{
                 <div className={css.restaurantWorkTime}>
                   <div className={css.restaurantWorkTimeBox}>
                     <h4 className={css.workTimeType}>
-                      Restoran 
-                      <img src={okay} style={{width:"20px"}}/>
+                      Restoran <img src={radi} style={{width:"20px"}}/>
                     </h4>
                     <p style={{fontSize:'20px',marginBottom:'5px'}}>(pon,petak 9.00-12.39)</p>
                     <p style={{fontSize:'20px'}}>(pon,petak 9.00-12.39)</p>
@@ -26,9 +25,8 @@ class ObjectWorkTime extends React.Component{
                 </div>
               <div className={css.kitchenWorkTime}>
                 <div className={css.kitchenWorkTimeBox}>
-                  <h4 
-                    style={{color:'green', marginBottom:'10px'}}>Kuhinja
-                    <img src={okay} style={{width:"20px"}}/>
+                  <h4 style={{color:'green', marginBottom:'10px'}}>
+                    Kuhinja <img src={radi} style={{width:"20px"}}/>
                   </h4>
                   <p style={{marginBottom:'5px'}}>(pon,petak 9.00-12.39)</p>
                   <p>(pon,petak 9.00-12.39)</p>
@@ -37,8 +35,8 @@ class ObjectWorkTime extends React.Component{
               <div className={css.deliveryWorkTime}>
                 <div className={css.deliveryWorkTimeBox}>
                   <h4 
-                    style={{color:'red', marginBottom:'10px'}}>Dostava 
-                    <img src={notOkay} style={{width:"20px"}}/>
+                    style={{color:'red', marginBottom:'10px'}}>
+                    Dostava <img src={neRadi} style={{width:"20px"}}/>
                   </h4>
                   <p style={{marginBottom:'5px'}}>(pon,petak 9.00-12.39)</p>
                   <p>(pon,petak 9.00-12.39)</p>

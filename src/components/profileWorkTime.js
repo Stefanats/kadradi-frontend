@@ -41,7 +41,7 @@ class ProfileWorkTime extends React.Component{
       <div>
         {
           this.props.data.loading ?
-          <p style={{color:'red',fontSize:'50px'}}>loading</p> :
+          <p style={{color:'red', fontSize:'50px'}}>PRICEKAJ</p> :
           objectCl == undefined ? '' :
         <div>
         <div className={css.profileWorkTimeFirst}>

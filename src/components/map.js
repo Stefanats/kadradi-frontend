@@ -15,14 +15,6 @@ import pun from '../images/Ocena14.png';
 import prazan from '../images/Ocena13.png';
 import pola from '../images/Ocena15.png';
 import Rating from 'react-rating';
-import {geolocated} from 'react-geolocated';
-
-@geolocated({
-  positionOptions: {
-    enableHighAccuracy: false,
-  },
-  userDecisionTimeout: 5000,
-})
 
 @graphql(gql`
  query
@@ -33,6 +25,7 @@ import {geolocated} from 'react-geolocated';
       ratingCount
       verified
       objectCategory{
+        id
         nameJ
       }
       objectLocations{
@@ -106,13 +99,14 @@ class GoogleMap extends React.Component {
   }
 
   render() {
-    let {latitude = '40', longitude = '20'} = this.props.coords || [];
-    console.log('stefan', latitude, longitude);
+    let {latitude, longitude} = this.props.coords || [];
+    console.log('stefan', this.props.coords);
     let id = this.props.location.pathname.split("/").pop();
     let csss = this.props.css == 'map' ? css.map : css.map1;
     let result = this.props.data.nearestObjects || [];
       return (
         <div className={csss}>
+        { latitude == null || longitude == null ? <div>LOUDUJE SE</div> :
         <Map
           onClick={() => this.onMapClicked()}
           google={this.props.google}
@@ -182,7 +176,7 @@ class GoogleMap extends React.Component {
                   <p>{this.state.objectLocations}</p>
                 </div>
               </InfoWindow>
-        </Map>
+        </Map>}
           </div>
       );
     }
