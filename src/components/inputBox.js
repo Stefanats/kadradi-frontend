@@ -1,78 +1,140 @@
 import React from 'react';
 import css from './styles/styles.scss';
 import { history } from 'kit/lib/routing';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
-let niz = [
-  {"name": "Lilly apoteke"},
-  {"name": "Gradska apoteka"},
-  {"name": "Lukina apoteka"},
-  {"name": "Bakijeva apoteka"},
-  {"name": "Bajina apoteka"},
-  {"name": "Stevina apoteka"},
-  {"name": "Sanetova apoteka"},
-  {"name": "Elvisova apoteka"},
-  {"name": "Cicina apoteka"},
-  {"name": "Jelenina apoteka"},
-]
-
+@graphql(gql`
+ query
+  objectsByName($name: String) {
+    objectsByName(name: $name){
+      name
+      id
+      objectCategoryId
+      objectCategory{
+        name
+      }
+      tags
+    }
+    categoriesByName(name: $name){
+      id
+      name
+    }
+  }`,
+  {
+    options: (props) => {
+      return ({
+        variables: {
+          name: ''
+        }
+      })
+    },
+  }
+)
 class InputBox extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      updatedlist: [],
+      category: false,
+      object: false,
+      objectsArray: [],
+      categoryArray: [],
+      categoryId: '',
+      inputValue: '',
+      sendName: '',
+      sendValue: '',
+      objectCategory: '',
     }
   }
-  sane(item){
-    console.log("SANEEEEEE", item.name)
+  updateList = async (event) => {
+    this.setState({
+      inputValue: event.target.value,
+    })
+    await this.props.data.refetch({
+      name: event.target.value,
+    })
+    let {categoriesByName} = this.props.data || [];
+    categoriesByName == undefined ? null :
+    categoriesByName.length == 0 ?
+    this.setState({
+      categoryArray: []
+    }) :
+    this.setState({
+      categoryArray: categoriesByName 
+    })
+    let {objectsByName} = this.props.data || [];
+    objectsByName == undefined ? null :
+    objectsByName.length == 0 ? 
+    this.setState({
+      objectsArray: []
+    }) :
+    this.setState({
+      objectsArray: objectsByName,
+    })
+  }
+  onSelectObject(item){
+    this.setState({
+      category: false,
+      object: true,
+      objectsArray: [],
+      categoryArray: [],
+      inputValue: item.name,
+      sendValue: item.id,
+      sendName: item.name,
+    })
+  }
+  onSelectCategory(item){
+    this.setState({
+      category: true,
+      object: false,
+      objectsArray: [],
+      categoryArray: [],
+      inputValue: item.name,
+      sendValue: item.id,
+      sendName: item.name,
+    })
   }
   search(){
-    history.push('/profile/123');
-  }
-  focusOn(){
-    this.setState({
-      focus: 'flex'
-    })
-  }
-  focusOff(){
-    this.setState({
-      focus: 'none'
-    })
-  }
-  componentWillMount(){
-    this.setState({items: niz})
-  }
-  updateList(event) {
-    let oldList = niz;
-    oldList = oldList.filter((item) => {
-       return item.name.search(event.target.value) !== -1 
-    })
-    this.setState({
-      updatedlist: oldList,
-      focus: 'flex'
-    })
+    this.state.object ?
+    history.push(`/profile/${this.state.sendName}/${this.state.sendValue}`):
+    this.state.category ?
+    history.push(`/view/${this.state.sendName}/${this.state.sendValue}`) :
+    console.log('molimo vas oznacite nesto')
   }
   render() {
-    let dropDown = this.state.updatedlist.map((item, key) => {
+    let dropDownObjects = this.state.objectsArray.map((item, key) => {
       return(
         <div 
-          onClick={() => this.sane(item)}
+          onClick={() => this.onSelectObject(item)}
           className={css.dropDownItem}
           key={key}>
             {item.name}
         </div>
       )
     })
+    let dropDownCategory = this.state.categoryArray.map((item, key) => {
+      return(
+        <div 
+          onClick={() => this.onSelectCategory(item)}
+          className={css.dropDownItem}
+          key={key+'a'}>
+            {item.name}
+        </div>
+      )
+    })
+    let dropDown = dropDownObjects.concat(dropDownCategory);
     return(
       <div className={css.whatWhere}>
         <div className={css.whatWrapper}>
           <div 
-            style={{display: `${this.state.focus}`}}
+            style={{display: `${this.state.objectsArray.length == 0 &&
+                                this.state.categoryArray.length == 0 ? 'none' : 'flex'}`}}
             className={css.dropDownWrapper}>
               {dropDown}
           </div>
           <div className={css.what}>Sta</div>
           <input
-            onFocus={() => this.focusOn()}
+            value={this.state.inputValue}
             onChange={(event) => this.updateList(event)}
             type="text"
             className={css.search}
@@ -83,7 +145,7 @@ class InputBox extends React.Component {
           <input 
             className={css.deoGrada} 
             type="text" 
-            placeholder="Deo grada" />
+            placeholder="Deo grada"/>
           <input
             onClick={() => this.search()}
             className={css.submit} 

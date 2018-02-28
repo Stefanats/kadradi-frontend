@@ -23,8 +23,8 @@ import satRadiVip from '../images/Sat-radi-placeno.png';
 }))
 
 @graphql(gql`
- query objectCl($objectCategoryId: Int){
-  objectCl(objectCategoryId: $objectCategoryId){
+ query objectCl($objectCategoryId: Int) {
+  objectCl(page: 1, objectCategoryId: $objectCategoryId) {
     id
     verified
     name
@@ -54,8 +54,7 @@ import satRadiVip from '../images/Sat-radi-placeno.png';
 
       return ({
         variables: {
-          objectCategoryId: props.categoriesId.categoriesId > 0 ?
-          props.categoriesId.categoriesId : id,
+          objectCategoryId: id,
         }
       })
     },
@@ -131,8 +130,8 @@ class ObjectCard extends React.Component{
                   <p>{item.avgRating}</p>
                 </div>
               </div>
-              <div>
-                  {item.ratingCount}
+              <div className={css.ratingCount}>
+                <p>{item.ratingCount} Reviews</p>
               </div>
             </div>
             <div className={css.isWorkingWrapper}>

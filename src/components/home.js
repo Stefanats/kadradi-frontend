@@ -8,12 +8,18 @@ import InputBox from './inputBox';
 import Navigation from './navigation';
 import AllCategories from './allCategories';
 import Hamburger from './hamburger';
-import GeoLocation from './geoLocation';
+import {geolocated} from 'react-geolocated';
 
 //import imgs
 import KadRadi_logo from '../images/KadRadi-Logo-1.png';
 
-// let paths = ['/about', '/addobject', '/']
+@geolocated({
+  positionOptions: {
+    enableHighAccuracy: false,
+  },
+  userDecisionTimeout: 5000,
+})
+
 class Home extends React.Component{
 	constructor(props){
 		super(props);
@@ -34,11 +40,9 @@ class Home extends React.Component{
 		})
 	}
   render(){
-		// if(paths.indexOf(this.props.location.pathname) > -1){
 		return(
 			<div>
 				<div className={css.header}>
-					<GeoLocation />
 					<Hamburger />
 					<Navigation />
 					<div style={{display:"flex",margin:"20px auto"}} >

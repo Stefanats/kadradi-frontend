@@ -10,10 +10,11 @@ class ObjectProfile extends React.Component{
   render(){
     return(
       <div>
-          <ProfileHome/>  
+          {/* <WhenWorksHeader /> */}
+          <ProfileHome/>
           <ProfileWorkTime/>
-          {/* <ProfileGallery /> 
-          <ProfileImpressions /> */}
+          <ProfileGallery />
+          {/* <ProfileImpressions /> */}
       </div>
     )
   }
