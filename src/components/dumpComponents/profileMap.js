@@ -5,6 +5,7 @@ import FaMailForward from 'react-icons/lib/fa/mail-forward';
 
 class ProfileMap extends React.Component{
   render(){
+    let objectCl = this.props.objectCl;
     return(
       <div className={css.profileMap}>
         <div className={css.profileMapWrapper}>
@@ -13,8 +14,8 @@ class ProfileMap extends React.Component{
         </div>
         <div className={css.profileMapBar}>
           <div className={css.profileMapContent}>
-            <h3>Ulica Strahinjica Bana 78</h3>
-            <p>Beograd</p>
+            <h3>{objectCl.objectLocations.address}</h3>
+            <p>{objectCl.objectLocations.city}</p>
           </div>
           <div className={css.profileMapButton}>
             <div><FaMailForward/></div>

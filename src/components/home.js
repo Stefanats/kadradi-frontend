@@ -6,7 +6,7 @@ import DownStore from './downStore';
 import Categories from './categories';
 import InputBox from './inputBox';
 import Navigation from './navigation';
-import AllCategories from './allCategories';
+import AllCategories from './allCategories/allCategories';
 import Hamburger from './hamburger';
 import {geolocated} from 'react-geolocated';
 
@@ -36,10 +36,11 @@ class Home extends React.Component{
 	}
 	clickHandler(){
 		this.setState({
-			switch: false
+			switch: !this.state.switch
 		})
 	}
   render(){
+		console.log('sadkkjdsa', this.props)
 		return(
 			<div>
 				<div className={css.header}>
@@ -56,18 +57,29 @@ class Home extends React.Component{
 					<InputBox />
 					<DownStore />
 				</div>
-				<div style={{display:`${this.state.switch == true ? 'block' : 'none'}`}}>
-					<Categories />
-				</div>
-				<div 
-					style={{display:`${this.state.switch == true ? 'flex' : 'none'}`}}
-					className={css.categoriesButtonWrapper}>
-        	<div onClick={() => this.clickHandler()} className={css.categoriesButton}>
-          	Sve kategorije
-        	</div>
-      	</div>
-				<div style={{display:`${this.state.switch == false ? 'block' : 'none'}`}}>
-					<AllCategories />
+				<div className={css.categoriesWrapper}>
+					<div style={{display:`${this.state.switch == true ? 'block' : 'none'}`}}>
+						<Categories />
+					</div>
+					<div 
+						style={{display:`${this.state.switch == true ? 'flex' : 'none'}`}}
+						className={css.categoriesButtonWrapper}>
+        		<div  onClick={() => this.clickHandler()} className={css.categoriesButton}>
+        	  	Sve kategorije
+        		</div>
+      		</div>
+					<div style={{
+										display:`${this.state.switch == true ? 'block' : 'block'}`}}>
+						<AllCategories />
+					</div>
+					<div 
+						style={{
+										display:`${this.state.switch == true ? 'flex' : 'flex'}`}}
+						className={css.categoriesButtonWrapper}>
+        		<div onClick={() => this.clickHandler()} className={css.categoriesButton}>
+        	  	Popularne kategorije
+        		</div>
+      		</div>
 				</div>
 			</div>
 		)

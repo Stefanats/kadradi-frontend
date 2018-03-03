@@ -62,9 +62,10 @@ class Proba extends React.Component{
     return day;
   }
   render(){
+    let calendarSize = '45px';
     let day = ['PON', 'UTO', 'SRE', 'ČET', 'PET', 'SUB', 'NED'];
     let days = day.map((item, key) => {
-      return <div key={key} style={{width:"40px",height:"20px",fontSize:'10px',textAlign:'center'}}>{item}</div>
+      return <div key={key} style={{width:calendarSize,height:`calc(${calendarSize}/2)`,fontSize:'10px',textAlign:'center'}}>{item}</div>
     }) //renderuje dane u nedelji
     let yearMonth = moment().format('YYYY-MM');
     let dayInMonth = moment().format('DD');
@@ -73,15 +74,21 @@ class Proba extends React.Component{
     let x = dayInWeek.day();//dan u nedelji
     let emptyDivs = x - 1;//odredjuje prvi-dan u nedelji
     let emptyWithDays = this.emptyDivsFunction(emptyDivs).concat(this.arrayFunction(daysInMonth));
-    console.log(emptyWithDays)
     let stef = emptyWithDays.map((item, key)=>{
-      return <div key={key} style={{color:'#fff',marginTop:'5px',width:"40px",height:"20px",fontSize:'20px',textAlign:'center'}}>{item}</div>
+      return <div key={key} style={{color:'#fff',
+                                    marginTop:'5px',
+                                    width:  calendarSize,
+                                    height: `calc(${calendarSize}/2)`,
+                                    fontSize:'20px',
+                                    textAlign:'center'}}>
+                {item}
+              </div>
     })
     let stylez = {
       display:"flex",
       flexDirection: 'row',
       flexWrap: 'wrap',
-      width: '280px',
+      width: `calc(${calendarSize}*7)`,
       marginTop:'60px',
     }
     let stylezz = {
