@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700&subset=cyrillic-ext');
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 1dfbde7cc8d70ccd26df9a3aa9bbb38bf8805d2e
 $red : #f03434;
-
 html, body {
   margin: 0;
   padding: 0;
@@ -718,6 +713,7 @@ a:visited {
 .profileRatingThirth{
   display: flex;
   margin-left: 10px;
+  margin-right: 10px;
   flex-direction: column;
 }
 .circleRing{
@@ -729,7 +725,7 @@ a:visited {
   border-radius: 100%;
   padding: 2px;
 }
-.circleFull{
+.circleFull {
   width: 100%;
   height: 100%;
   border-radius: 100%;
@@ -741,7 +737,7 @@ a:visited {
     font-size: 20px;
   }
 }
-.profileWorkTimeFirst, .profileImpressionsFirst {
+.profileWorkTimeFirst, .profileImpressionsFirst, .galleryHeader {
   display: flex;
   background: rgb(209, 209, 209);
   justify-content: center;
@@ -750,11 +746,10 @@ a:visited {
   
 }
 .profileImpressionsFirst {
-  margin-bottom: 2%;
+  margin-bottom: 30px;
 }
 .profileWorkTimeFirstBox, .profileImpressionsFirstBox {
   flex: 1;
-  max-width: 1440px;
   padding: 20px 0;
   margin: auto 0 auto 25px;
   p{
@@ -978,7 +973,6 @@ a:visited {
   justify-content: center;
 }
 .galleryHeaderWrapper{
-  max-width: 1440px;
   display: flex;
   flex: 1;
   padding: 20px;
@@ -1041,12 +1035,12 @@ a:visited {
     height: 100%;
   }
 }
-.galleryButtonWrapper{
+.galleryButtonWrapper, .ratingButtonWrapper {
   display: flex;
   justify-content: center;
   padding: 40px;
 }
-.galleryButton{
+.galleryButton, .ratingButton {
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -1075,27 +1069,17 @@ a:visited {
   justify-content: center;
   align-items: center;
 }
-.profileRatingNPriceRating {
-  margin-top: 7%;
-  margin-bottom: 2%;
-  padding-left: 7%;
-  padding-right: 2%;
-  padding-bottom: 1%;
-  border-bottom: 1px solid #a5a5a5;
-}
 .profileRatingNPricePrice, .profileImpressionsNAccuracyAccuracy {
-  margin-top: 2%;
-  margin-bottom: 2%;
   text-align: center;
 }
 .profileRatingNPricePrice {
-  margin-left: 5%;
-  margin-right: 2%;
+  padding-top: 20px;
 }
 .profileImpressionsNAccuracyAccuracy {
   font-size: 60px;
   color: #009797;
   font-weight: 800;
+  padding-top: 20px;
 }
 .profileRatingNPriceCena, .profileRatingNPriceTacnost {
   color: #009797;
@@ -1103,20 +1087,19 @@ a:visited {
   font-size: 25px;
   margin-top: 20px;
   font-weight: 100;
-  max-width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.profileRatingNPriceTacnost {
+  max-width: 300px;
+}
 .profileImpressionsNAccuracyImpressions {
-  margin-top: 7%;
-  margin-bottom: 2%;
-  padding-left: 2%;
-  padding-right: 7%;
-  padding-bottom: 1%;
   color: #fca94b;
-  font-size: 60px;
-  border-bottom: 1px solid #a5a5a5;
+  font-size: 56px;
+  font-weight: 900;
+  text-align: center;
+  padding-top: 30px;
 }
 .addObject {
   position: relative;
@@ -1132,6 +1115,8 @@ a:visited {
   margin: 0px 30px;
   padding: 40px 0px;
   border-bottom: 1px solid #009797;
+  justify-content: center;
+  align-items: center;
 }
 .znak {
   width: 80px;
@@ -1158,7 +1143,6 @@ a:visited {
 }
 .xxx {
   font-size: 60px;
-  float: right;
   color: #009797;
   font-weight: 100;
   display: flex;
@@ -1166,6 +1150,7 @@ a:visited {
   align-items: center;
   margin-left: auto;
   cursor: pointer;
+  margin-right: 50px;
 }
 
 
@@ -1234,6 +1219,132 @@ a:visited {
   cursor: pointer;
 }
 
+// PROFILE COMMENTS //
+.userData {
+  display: flex;
+  flex: 3.5;
+  flex-direction: column;
+}
+.userRating {
+  display: flex;
+  flex: 1.5;
+}
+.userPhoto {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: red;
+}
+.userInfo {
+  display: flex;
+  margin-bottom: 35px;
+}
+.userIcons {
+  width: 35px;
+  padding-right: 5px;
+}
+.userName {
+  margin-left: 20px;
+  display: flex;
+  margin-top: auto;
+  flex-direction: column;
+}
+.userNum {
+  font-size: 25px;
+  color: #d14545;
+  padding-right: 10px;
+}
+.userComment {
+  color: #009797;
+  font-size: 25px;
+  max-width: 70%;
+}
+.userRatings {
+  width: 60px;
+}
+.userNumPhotos {
+  font-size: 40px;
+  color: #d14545;
+  font-weight: 800;
+  margin:0px 10px 0px 5px;
+}
+.iconSize {
+}
+.borderOfImpressions {
+  display: flex;
+  margin-right: -150px;
+  border-bottom: 1px solid #d1d1d1;
+  margin-left: -20px;
+  padding-top: 8px;
+}
+.borderOfRatings {
+  display: flex;
+  margin-left: -70px;
+  border-bottom: 1px solid #d1d1d1;
+  margin-right: -20px;
+  padding-top: 8px;
+}
+.borderDown {
+ display: flex;
+ border-bottom: 1px solid #d1d1d1;
+ margin: 0px 350px;   
+}
+.biggerIconSize {
+  width: 70px;
+  margin-right: 10px;
+}
+.bigCircle {
+  width: 220px;
+  height: 220px;
+  padding: 8px;
+}
+.bigCircleParagraph  {
+  p{
+    font-size: 100px;
+    font-weight: 900;
+  }
+}
+.marTop {
+  margin-top: 65px;
+}
+.userNameName {
+  font-size: 30px;
+  color: #d14545;
+  font-weight: 800;
+}
+.profileComments {
+  display: flex;
+  margin: 0px 30px;
+  border-bottom: 1px solid #009797;
+  padding: 35px 50px;
+}
+.circlesUserComments {
+  width: 40px;
+  margin-right: 5px;
+}
+.circleRingComments{
+  width: 80px;
+  height: 80px;
+  padding: 2px;
+  margin-left: 15px;
+}
+.circleRingCommentsPar {
+  font-weight: 900;
+  p{
+    font-size: 40px;
+  }
+}
+.middleBorder {
+  display: flex;
+  width: 50%;
+  height: 90px;
+  border-right: 1px solid #d1d1d1;
+  margin-top: 15px;
+}
+.paddingOfRating {
+  padding-bottom: 13px;
+}
+// END PROFILE COMMENTS //
 
 
 // END FORMA STYLE //
@@ -1253,7 +1364,344 @@ a:visited {
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+
+
+
+// MEDIA QUERY min 1450
+@media screen and (min-width: 1025px) and (max-width: 1450px) {
+  .borderOfImpressions {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  .borderOfRatings {
+    margin-right: 5px;
+    margin-left: 0px;
+  }
+  .borderDown {
+    margin: 0px 130px;
+  }
+  .biggerIconSize {
+    width: 55px;
+  }
+  .iconSize {
+    width: 45px;
+  }
+  .profileImpressionsNAccuracyImpressions {
+    font-size: 52px;
+    padding-top: 10px;
+  }
+  .profileRatingNPricePrice {
+    padding-top: 28px;
+  }
+  .profileImpressionsNAccuracyAccuracy {
+    font-size: 45px;
+  }
+  .borderOfImpressions {
+    margin-right: 0px;
+  }
+}
+// END MEDIA QUERY min 1450
+// MEDIA QUERY 769-1024
+@media screen and (min-width: 769px) and (max-width: 1024px){
+  .x{
+    display: none;
+  }
+  .whatWhere{
+    flex-direction: row;
+  }
+  .downStore{
+    top: 15px;
+    right: 15px;
+    display: block!important;
+  }
+  .bigCircleParagraph  {
+    p{
+      font-size: 60px;
+      font-weight: 900;
+    }
+  }
+  .bigCircle {
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+  }
+  .biggerIconSize {
+    width: 40px;
+  }
+  .iconSize {
+    width: 35px;
+  }
+  .userComment {
+    max-width: none;
+  }
+  .profileImpressionsNAccuracyImpressions {
+    font-size: 40px;
+    padding-top: 2px;
+  }
+  .profileImpressionsNAccuracyAccuracy {
+    font-size: 35px;
+  }
+  .profileRatingNPriceTacnost {
+    max-width: none;
+  }
+  .profileRatingNPriceTacnost {
+    font-size: 19px;
+  }
+  .profileRatingNPriceCena {
+    font-size: 19px;
+  }
+  .marTop {
+    margin-top: 0px;
+  }
+  .borderOfImpressions {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .borderDown {
+    margin: 0px;
+  }
+  .memory {
+    padding: 20px 0px;
+  }
+  .znak {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+  }
+  .zapamtite {
+    font-size: 18px;
+  }
+  .xxx {
+    font-size: 50px;
+  }
+  .userPhoto {
+    width: 80px;
+    height: 80px;
+  }
+  .userNameName {
+    font-size: 20px;
+    color: #d14545;
+    font-weight: 800;
+  }
+  .userIcons {
+    width: 25px;
+    padding-right: 3px;
+  }
+  .profileComments {
+    padding: 25px 35px;
+  }
+  .userIcons {
+    width: 22px;
+  }
+  .userNum {
+    font-size: 20px;
+    color: #d14545;
+    padding-right: 7px;
+  }
+  .userRatings {
+    width: 35px;
+  }
+  .userNumPhotos {
+    font-size: 25px;
+  }
+  .circlesUserComments {
+    width: 30px;
+    margin-right: 4px;
+  }
+  .circleRingComments{
+    width: 45px;
+    height: 45px;
+  }
+  .circleRingCommentsPar {
+    p{ 
+    font-size: 26px;
+    font-weight: 900;
+  }
+  }
+  .userComment {
+    font-size: 18px;
+  }
+  // .first{
+  //   img{
+  //     width: 80px;
+  //   }
+  // }
+}
+// END MEDIA QUERY 769-1024
 // MEDIA QUERY 426-768
+@media screen and (min-width: 426px) and (max-width: 768px){
+  .whatWrapper{
+    margin-bottom: 10px;
+  }
+  .search{
+    border-radius: 0 5px 5px 0;
+  }
+  .where{
+    border-radius: 5px 0 0 5px;
+  }
+  .deoGrada{
+    width: 160px;
+  }
+  .submit{
+    margin-left: auto;
+  }
+  .downStore{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .imgWrapper{
+    border-radius: 0;
+    background-color: rgba(0,0,0,.7);
+  }
+  .bigCircleParagraph  {
+    p{
+      font-size: 30px;
+      font-weight: 900;
+    }
+  }
+  .bigCircle {
+    width: 70px;
+    height: 70px;
+    padding: 2px;
+  }
+  .biggerIconSize {
+    width: 20px;
+    margin-right: 5px;
+  }
+  .iconSize {
+    width: 25px;
+  }
+  .userComment {
+    max-width: none;
+  }
+  .profileImpressionsNAccuracyImpressions {
+    font-size: 20px;
+    padding-top: 2px;
+  }
+  .profileImpressionsNAccuracyAccuracy {
+    font-size: 25px;
+  }
+  .profileRatingNPriceTacnost {
+    max-width: none;
+  }
+  .profileRatingNPriceTacnost {
+    font-size: 11px;
+    font-weight: 900;
+  }
+  .profileRatingNPriceCena {
+    font-size: 11px;
+    font-weight: 900;
+  }
+  .marTop {
+    margin-top: 0px;
+  }
+  .borderOfImpressions {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .borderDown {
+    margin: 0px;
+  }
+  .memory {
+    padding: 20px 0px;
+    margin: 0px 15px;
+  }
+  .znak {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  .zapamtite {
+    font-size: 18px;
+  }
+  .xxx {
+    font-size: 50px;
+  }
+  .userPhoto {
+    width: 60px;
+    height: 60px;
+  }
+  .userNameName {
+    font-size: 16px;
+    color: #d14545;
+    font-weight: 800;
+  }
+  .userIcons {
+    width: 25px;
+    padding-right: 3px;
+  }
+  .profileComments {
+    padding: 25px 15px;
+    margin: 0px 20px;
+  }
+  .userIcons {
+    width: 18px;
+  }
+  .userNum {
+    font-size: 18px;
+    color: #d14545;
+    padding-right: 7px;
+  }
+  .userRatings {
+    width: 32px;
+  }
+  .userNumPhotos {
+    font-size: 25px;
+  }
+  .circlesUserComments {
+    width: 25px;
+    margin-right: 4px;
+  }
+  .circleRingComments{
+    width: 40px;
+    height: 40px;
+  }
+  .circleRingCommentsPar {
+    p{ 
+    font-size: 20px;
+    font-weight: 900;
+  }
+  }
+  .userComment {
+    font-size: 15px;
+  }
+  .profileImpressionsFirst {
+    margin-bottom: 15px;
+  }
+  .middleBorder {
+    height: 70px;
+    margin-top: 10px;
+  }
+  .profileRatingNPriceCena, .profileRatingNPriceTacnost {
+    margin-top: 10px;
+  }
+  .userColumn {
+    flex-direction: column;
+    align-items: center;
+  }
+  .userInfo {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .userRating {
+    margin-bottom: 5px;
+  }
+  .xxx {
+    margin-right: 0px;
+    font-size: 35px;
+    margin-left: 10px;
+  }
+  .zapamtite {
+    font-size: 15px;
+  }
+  
+}
+// END MEDIA QUERY 426-768
+
+// MEDIA QUERY max426
 @media screen and (max-width: 425px){
   .objectWorkTimeBox{
     flex-direction: column;
@@ -1336,70 +1784,169 @@ a:visited {
   .inputButton {
     font-size: 18px;
   }
+  .bigCircleParagraph  {
+    p{
+      font-size: 22px;
+      font-weight: 900;
+    }
+  }
+  .bigCircle {
+    width: 50px;
+    height: 50px;
+    padding: 2px;
+  }
+  .biggerIconSize {
+    width: 16px;
+    margin-right: 3px;
+  }
+  .iconSize {
+    width: 18px;
+  }
+  .userComment {
+    max-width: none;
+  }
+  .profileImpressionsNAccuracyImpressions {
+    font-size: 16px;
+    padding-top: 8px;
+  }
+  .profileImpressionsNAccuracyAccuracy {
+    font-size: 18px;
+  }
+  .profileRatingNPriceTacnost {
+    max-width: none;
+  }
+  .profileRatingNPriceTacnost {
+    font-size: 10px;
+    font-weight: 900;
+  }
+  .profileRatingNPriceCena {
+    font-size: 10px;
+    font-weight: 900;
+  }
+  .marTop {
+    margin-top: 0px;
+  }
+  .borderOfImpressions {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .borderDown {
+    margin: 0px;
+  }
+  .memory {
+    padding: 20px 0px;
+    margin: 0px 15px;
+  }
+  .znak {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  .zapamtite {
+    font-size: 18px;
+  }
+  .xxx {
+    font-size: 50px;
+  }
+  .userPhoto {
+    width: 60px;
+    height: 60px;
+  }
+  .userNameName {
+    font-size: 16px;
+    color: #d14545;
+    font-weight: 800;
+  }
+  .userIcons {
+    width: 25px;
+    padding-right: 3px;
+  }
+  .profileComments {
+    padding: 25px 15px;
+    margin: 0px 20px;
+  }
+  .userIcons {
+    width: 18px;
+  }
+  .userNum {
+    font-size: 18px;
+    color: #d14545;
+    padding-right: 7px;
+  }
+  .userRatings {
+    width: 32px;
+  }
+  .userNumPhotos {
+    font-size: 25px;
+  }
+  .circlesUserComments {
+    width: 25px;
+    margin-right: 4px;
+  }
+  .circleRingComments{
+    width: 40px;
+    height: 40px;
+  }
+  .circleRingCommentsPar {
+    p{ 
+    font-size: 20px;
+    font-weight: 900;
+  }
+  }
+  .userComment {
+    font-size: 14px;
+  }
+  .profileImpressionsFirst {
+    margin-bottom: 15px;
+  }
+  .middleBorder {
+    height: 60px;
+    margin-top: 10px;
+  }
+  .profileRatingNPriceCena, .profileRatingNPriceTacnost {
+    margin-top: 10px;
+  }
+  .userColumn {
+    flex-direction: column;
+    align-items: center;
+  }
+  .userInfo {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .userRating {
+    margin-bottom: 5px;
+  }
+  .xxx {
+    margin-right: 0px;
+    font-size: 35px;
+    margin-left: 10px;
+  }
+  .zapamtite {
+    font-size: 13px;
+  }
+  .paddingOfRating {
+    padding-bottom: 6px;
+  }
 }
-// MEDIA QUERY 426-768
-@media screen and (min-width: 426px) and (max-width: 768px){
-  .whatWrapper{
-    margin-bottom: 10px;
+
+// MEDIA QUERY min 1450
+@media screen and (max-width: 1024px) {
+  .profileRatingNPriceTacnost {
+    max-width: none;
   }
-  .search{
-    border-radius: 0 5px 5px 0;
+  .profileRatingNPricePrice {
+    padding-top: 5px;
   }
-  .where{
-    border-radius: 5px 0 0 5px;
+  .borderOfRatings {
+    margin-left: -70px;
   }
-  .deoGrada{
-    width: 160px;
-  }
-  .submit{
-    margin-left: auto;
-  }
-  .downStore{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  .imgWrapper{
-    border-radius: 0;
-    background-color: rgba(0,0,0,.7);
+  .borderOfImpressions {
+    margin-right: 0px;
   }
 }
-// END MEDIA QUERY 426-768
-// MEDIA QUERY 769-1024
-@media screen and (min-width: 769px) and (max-width: 1024px){
-  .x{
-    display: none;
-  }
-  .whatWhere{
-    flex-direction: row;
-  }
-  .downStore{
-    top: 15px;
-    right: 15px;
-    display: block!important;
-  }
-  // .first{
-  //   img{
-  //     width: 80px;
-  //   }
-  // }
-}
-// END MEDIA QUERY 769-1024
-// MEDIA QUERY min 1025
-@media screen and (min-width: 1025px) {
-  .x{
-    display: none;
-  }
-  .whatWhere{
-    flex-direction: row;
-  }
-  .downStore{
-    top: 15px;
-    right: 15px;
-    display: block!important;
-  }
-}
-// END MEDIA QUERY min 1025
+// END MEDIA QUERY min 1450
 
 // CUSTOM MEDIA QUERY
 @media screen and (max-width: 550px) {

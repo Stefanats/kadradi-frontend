@@ -68,8 +68,6 @@ let stylez = {
 
 class ProfileHome extends React.Component{
   render(){
-    
-
     let result = this.props.data.objectCl || [];
     let [objectCl] = result;
     let splitedVremeOd = objectCl != undefined ?

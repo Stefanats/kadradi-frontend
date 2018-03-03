@@ -5,6 +5,8 @@ import ProfileHome from './profileHome';
 import ProfileWorkTime from './profileWorkTime';
 import ProfileGallery from './profileGallery';
 import ProfileImpressions from './profileImpressions';
+import ProfileComments from './profileComments';
+import RatingButton from './ratingButton';
 
 class ObjectProfile extends React.Component{
   render(){
@@ -15,6 +17,8 @@ class ObjectProfile extends React.Component{
           <ProfileWorkTime/>
           <ProfileGallery />
           <ProfileImpressions /> 
+          <ProfileComments />
+          <RatingButton />
       </div>
     )
   }
