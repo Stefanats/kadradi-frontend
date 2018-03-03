@@ -2006,7 +2006,19 @@ a:visited {
   }
 
 }
-// END MEDIA QUERY min 1450
+@media screen and (min-width: 1025px) {
+  .x{
+    display: none;
+  }
+  .whatWhere{
+    flex-direction: row;
+  }
+  .downStore{
+    top: 15px;
+    right: 15px;
+    display: block!important;
+  }
+}
 
 // CUSTOM MEDIA QUERY
 @media screen and (max-width: 550px) {
