@@ -1,6 +1,5 @@
 import React from 'react';
 import css from './styles/styles.scss';
-import slika from '../images/slikaRestorana.jpeg'
 
 class FrontGallery extends React.Component{
   render(){
@@ -8,14 +7,20 @@ class FrontGallery extends React.Component{
       <div className={css.frontGallery}>
         <div className={css.frontGalleryWrapper}>
           <div className={css.galleryLeftBox}>
-            <img src={slika}/>
+            <div className={css.imagesHover}>
+              <p>Sve slike</p>
+            </div>
           </div>
           <div className={css.galleryRightBox}>
             <div className={css.galleryRightTop}>
-              <img src={slika}/>
+              <div className={css.imagesHover}>
+                <p>Slike korisnika</p>
+              </div>
             </div>
             <div className={css.galleryRightBottom}>
-              <img src={slika}/>
+              <div className={css.imagesHover}>
+                <p>Slike objekta</p>
+              </div>
             </div>
           </div>
         </div>

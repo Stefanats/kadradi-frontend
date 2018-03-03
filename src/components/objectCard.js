@@ -81,9 +81,6 @@ class ObjectCard extends React.Component{
       .replace(/^-+/, '')             // Trim - from start of text
       .replace(/-+$/, '');            // Trim - from end of text
   }
-  componentWillMount(){
-    
-  }
   render(){
     let red ={
       color: 'red'

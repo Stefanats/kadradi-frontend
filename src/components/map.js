@@ -15,7 +15,15 @@ import pun from '../images/Ocena14.png';
 import prazan from '../images/Ocena13.png';
 import pola from '../images/Ocena15.png';
 import Rating from 'react-rating';
+import {geolocated} from 'react-geolocated';
 
+
+@geolocated({
+  positionOptions: {
+    enableHighAccuracy: false,
+  },
+  userDecisionTimeout: 5000,
+})
 @graphql(gql`
  query
   nearestObjects($categoryId: Int, $lat: Float, $lng: Float, $distance: Float) {
@@ -100,7 +108,6 @@ class GoogleMap extends React.Component {
 
   render() {
     let {latitude, longitude} = this.props.coords || [];
-    console.log('stefan', this.props.coords);
     let id = this.props.location.pathname.split("/").pop();
     let csss = this.props.css == 'map' ? css.map : css.map1;
     let result = this.props.data.nearestObjects || [];
@@ -113,7 +120,7 @@ class GoogleMap extends React.Component {
           zoom={12}
           initialCenter={{
             lat: latitude,
-            lng: longitude,
+            lng: this.props.css == 'map' ? longitude+0.11 : longitude,
           }}>
           {
             this.props.css != 'map' ? null :
@@ -138,6 +145,11 @@ class GoogleMap extends React.Component {
                 lat: item.objectLocations.lat,
                 lng: item.objectLocations.lng}}/>)
           })}
+            <Marker
+              icon={satNeRadi}
+              position={{
+                lat: latitude,
+                lng: longitude}}/>
               <InfoWindow
               marker={this.state.marker}
               style={{marginBottom:'20px'}}

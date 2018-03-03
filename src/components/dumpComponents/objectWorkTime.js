@@ -4,44 +4,49 @@ import radi from '../../images/RADI.png';
 import neRadi from '../../images/NE-RADI.png';
 
 class ObjectWorkTime extends React.Component{
+  splitArray = (item) => {
+    let split = item.split('');
+    let splited = split[0] + split[1] + '.' + split[2] + split[3];
+    return splited;
+  }
   render(){
-    // let restaurantColor = this.props.objectCl.restaurantTimeInfo.isWorking ? 'green' : 'red';
-    // let kitchenColor = this.props.objectCl.kitchenTimeInfo.isWorking ? 'green' : 'red';
-    // let deliveryColor = this.props.objectCl.deliveryTimeInfo.isWorking ? 'green' : 'red';
+    let sectorTimeInfo = this.props.objectCl.sectorTimeInfo.map((item, key) => {
+      let openMonToFri = this.splitArray(item.monToFri.opening);
+      let closeMonToFri = this.splitArray(item.monToFri.closing);
+      let openSaturday = this.splitArray(item.saturday.opening);
+      let closeSaturday = this.splitArray(item.saturday.closing);
+      let openSunday = this.splitArray(item.sunday.opening);
+      let closeSunday = this.splitArray(item.sunday.closing);
+      let icon = item.isWorking ? radi : neRadi;
+      let heading = item.isWorking ? '#63cc5a' : '#e3423d';
+      return(
+        <div key={key} className={css.restaurantWorkTime}>
+          <div className={css.restaurantWorkTimeBox}>
+            <h3 style={{color: heading}}>
+              {item.name} <img width={15} src={icon}/>
+            </h3>
+            <p>(Pon, Pet: {openMonToFri} - {closeMonToFri})</p>
+            {
+              item.saturday.opening == '' || item.saturday.closing == '' ? 
+              <p>({item.name} ne radi subotom.)</p> :
+              <p>(Sub: {openSaturday} - {closeSaturday})</p>
+            }
+            {
+              item.sunday.opening == '' || item.sunday.closing ? 
+              <p>({item.name} ne radi nedeljom.)</p> :
+              <p>(Ned: {openSunday} - {closeSunday})</p>
+            }
+          </div>
+        </div>
+      )
+    })
     return(
       <div>
         { 
-          !this.props.hasRestaurant ? null : 
+          !this.props.objectCl.sectorTimeInfo.length ? null : 
           <div className={css.objectWorkTime}>
-            <div className={css.objectWorkTimeBox}> 
-                <div className={css.restaurantWorkTime}>
-                  <div className={css.restaurantWorkTimeBox}>
-                    <h4 className={css.workTimeType}>
-                      Restoran <img src={radi} style={{width:"20px"}}/>
-                    </h4>
-                    <p style={{fontSize:'20px',marginBottom:'5px'}}>(pon,petak 9.00-12.39)</p>
-                    <p style={{fontSize:'20px'}}>(pon,petak 9.00-12.39)</p>
-                  </div>
-                </div>
-              <div className={css.kitchenWorkTime}>
-                <div className={css.kitchenWorkTimeBox}>
-                  <h4 style={{color:'green', marginBottom:'10px'}}>
-                    Kuhinja <img src={radi} style={{width:"20px"}}/>
-                  </h4>
-                  <p style={{marginBottom:'5px'}}>(pon,petak 9.00-12.39)</p>
-                  <p>(pon,petak 9.00-12.39)</p>
-                </div>
-              </div>
-              <div className={css.deliveryWorkTime}>
-                <div className={css.deliveryWorkTimeBox}>
-                  <h4 
-                    style={{color:'red', marginBottom:'10px'}}>
-                    Dostava <img src={neRadi} style={{width:"20px"}}/>
-                  </h4>
-                  <p style={{marginBottom:'5px'}}>(pon,petak 9.00-12.39)</p>
-                  <p>(pon,petak 9.00-12.39)</p>
-                </div>
-              </div>
+            <div className={css.objectWorkTimeBox}>
+              {sectorTimeInfo}
             </div>
           </div>
         }

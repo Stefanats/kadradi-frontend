@@ -103,6 +103,7 @@
     "moment": "^2.20.1",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
+    "react-addons-transition-group": "^15.6.2",
     "react-apollo": "^1.4.16",
     "react-autosuggest": "^9.3.2",
     "react-calendar": "^2.13.0",
