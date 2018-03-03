@@ -13,12 +13,39 @@ import ProfileMap from './dumpComponents/profileMap';
 @graphql(gql`
   query objectCl($id: Int){
     objectCl(id: $id){
+      objectLocations{
+        address
+        city
+      }
+      avgPrice
       objectInfo{
-        hasRestaurant
+        phone {
+          desc
+          number
+        }
+        popularBecauseOf
+        additionalInfo
+        websiteUrl
       }
       verified
       workingTimeInfo{
         isWorking
+      }
+      sectorTimeInfo {
+        name
+        isWorking
+        monToFri {
+          opening
+          closing
+        }
+        saturday {
+          opening
+          closing
+        }
+        sunday {
+          opening
+          closing
+        }
       }
     }
   }`,
@@ -37,34 +64,32 @@ class ProfileWorkTime extends React.Component{
   render(){
     let result = this.props.data.objectCl || [];
     let [objectCl] = result;
+    console.log('sadsdasda', objectCl)
     return(
       <div>
         {
           this.props.data.loading ?
           <p style={{color:'red', fontSize:'50px'}}>PRICEKAJ</p> :
-          objectCl == undefined ? '' :
+          objectCl == undefined ? null :
         <div>
-        <div className={css.profileWorkTimeFirst}>
-          <div className={css.profileWorkTimeFirstBox}>
-            <p>Radno vreme i praznici</p>
+          <div className={css.profileWorkTimeFirst}>
+            <div className={css.profileWorkTimeFirstBox}>
+              <p>Radno vreme i praznici</p>
+            </div>
           </div>
-        </div>
-        <div className={css.profileWorkTimeSecond}>
-          <ProfileWorkClock 
-          isWorking={objectCl.workingTimeInfo.isWorking}
-          verified={objectCl.verified}/>
-          <ObjectWorkTime
-            objectCl={objectCl}
-            hasRestaurant={objectCl.objectInfo.hasRestaurant}
-          />
-          <ProfileCalendar />
-        </div>
-        <div className={css.profileWorkTimeThirth}>
-          <div className={css.profileWorkTimeThirthBox}>
-            <ProfileInfo />
-            <ProfileMap />
+          <div className={css.profileWorkTimeSecond}>
+            <ProfileWorkClock
+            isWorking={objectCl.workingTimeInfo.isWorking}
+            verified={objectCl.verified}/>
+            <ObjectWorkTime objectCl={objectCl}/>
+            <ProfileCalendar />
           </div>
-        </div>
+          <div className={css.profileWorkTimeThirth}>
+            <div className={css.profileWorkTimeThirthBox}>
+              <ProfileInfo objectCl={objectCl}/>
+              <ProfileMap objectCl={objectCl}/>
+            </div>
+          </div>
         </div>
         }
       </div>
