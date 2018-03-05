@@ -146,11 +146,11 @@ class InputBox extends React.Component {
             className={css.deoGrada} 
             type="text" 
             placeholder="Deo grada"/>
-          <input
+          <div
             onClick={() => this.search()}
-            className={css.submit} 
-            type="submit" 
-            value="Trazi" />
+            className={css.submit}>
+            <p>Traži</p>
+            </div>
         </div>
       </div>
     )

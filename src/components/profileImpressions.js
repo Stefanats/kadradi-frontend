@@ -9,6 +9,27 @@ import dolar from '../images/cena.png';
 import { randomBytes } from 'crypto';
 import ProfileComments from './profileComments';
 import RatingButton from './ratingButton';
+import { withRouter } from 'react-router';
+import Loading from 'react-loading-components';
+
+@graphql(gql`
+  query objectCl($id: Int) {
+    objectCl(id: $id) {
+      avgPrice
+      avgRating
+      ratingCount
+    }
+  }`,
+  {
+    options: (props) => {
+      return ({
+        variables: {
+          id: parseInt(props.match.params.id),
+        }
+      })
+    },
+  }
+)
 
 class ProfileImpressions extends React.Component{
   constructor(props){
@@ -23,8 +44,13 @@ class ProfileImpressions extends React.Component{
     })
   }
   render(){
-  
+    let result = this.props.data.objectCl || [];
+    let [objectCl] = result;
     return(
+    <div>
+      {
+        this.props.data.loading ? <Loading /> :
+        objectCl === undefined ? null :
       <div style={{display:'flex',flex:'1',flexDirection:'column'}}>
         <div className={css.profileImpressionsFirst}>
           <div className={css.profileImpressionsFirstBox}>
@@ -46,7 +72,7 @@ class ProfileImpressions extends React.Component{
                     src={pun}
                     className={"icon"+ " "+css.biggerIconSize}/>}
                     stop={5}
-                    initialRating={3}
+                    initialRating={objectCl.avgRating}
                 />
                 <div className={css.borderOfRatings}></div>
               </div>
@@ -57,14 +83,14 @@ class ProfileImpressions extends React.Component{
                     <img
                     width={60}
                     src={dolar}
-                  className={"icon"+ " "+css.iconSize}/>}
+                  className={"icon"+" "+css.iconSize}/>}
                     fullSymbol={
                     <img 
                     width={60}
                     src={dolar}
-                  className={"icon"+ " "+css.iconSize}/>}
+                  className={"icon"+" "+css.iconSize}/>}
                     stop={5}
-                    initialRating={3}
+                    initialRating={objectCl.avgPrice}
                 />
                 <p className={css.profileRatingNPriceCena}>Cena</p>
               </div>
@@ -75,7 +101,7 @@ class ProfileImpressions extends React.Component{
               <div className={css.profileRatingThirth}>
                     <div className={css.circleRing + " " + css.bigCircle}>
                       <div className={css.circleFull + " " + css.bigCircleParagraph}>
-                        <p>4,5</p>
+                        <p>{objectCl.avgRating}</p>
                       </div>
                     </div>
                     <div className={css.middleBorder}></div>
@@ -83,15 +109,16 @@ class ProfileImpressions extends React.Component{
             </div>
           </div>
           <div className={css.profileImpressionsNAccuracy}>
-          <div className={css.marTop} style={{display:'flex',flexDirection:'column',marginRight:'auto'}}>
-            <div className={css.profileImpressionsNAccuracyImpressions}>378 utisaka
+            <div className={css.marTop} style={{display:'flex',flexDirection:'column',marginRight:'auto'}}>
+              <div className={css.profileImpressionsNAccuracyImpressions}>
+                <p>Utisaka: {objectCl.ratingCount}</p>
                 <div className={css.borderOfImpressions}></div>
-            </div>
-            <div className={css.profileImpressionsNAccuracyAccuracy}>
-                    99,5%
-              <p className={css.profileRatingNPriceTacnost}>Tacnost radnog vremena</p>
-            </div>
-          </div> 
+              </div>
+              <div className={css.profileImpressionsNAccuracyAccuracy}>
+                <p>99,5%</p>
+                <p className={css.profileRatingNPriceTacnost}>Tacnost radnog vremena</p>
+              </div>
+            </div> 
           </div>
         </div>
         <div className={css.borderDown}>
@@ -109,8 +136,9 @@ class ProfileImpressions extends React.Component{
           </div>
           <ProfileComments />
           <RatingButton />
+      </div>}
       </div>
     )
   }
 }
-export default ProfileImpressions;
+export default withRouter(ProfileImpressions);

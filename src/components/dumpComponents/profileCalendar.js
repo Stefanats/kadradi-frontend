@@ -7,12 +7,12 @@ class ProfileWorkClock extends React.Component{
     return(
       <div className={css.calendarCircle}>
         <div className={css.calendarCircleWrapper}>
-          <div className={css.blueCircle}>
+          {/* <div className={css.blueCircle}>
             <Proba />
-          </div>
-          <div className={css.orangeCircle}>
+          </div> */}
+          {/* <div className={css.orangeCircle}>
 
-          </div>
+          </div> */}
         </div>
       </div>
     )

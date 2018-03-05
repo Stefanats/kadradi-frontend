@@ -29,7 +29,8 @@ class Healt extends React.Component{
     return (
       <CategoriesBox 
         array={array}
-        name={name}/>
+        name={name}
+        cssClassThree/>
     )
   }
 }

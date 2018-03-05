@@ -97,7 +97,6 @@ export default () => (
       <Route path="/proba" component={Proba} />
       <Route path="/contactForm" component={ContactForm} />
       <Route component={NotFound} />
-      
     </Switch>
   </div>
 );

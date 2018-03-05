@@ -3,10 +3,13 @@ import css from '../../styles/styles.scss';
 
 const CategorieBox = (props) => {
   let categories = props.array.map((item, key) => {
+    let cssClass = props.cssClassThree ?
+      css.categorieBoxItemWrapperThree :
+      css.categorieBoxItemWrapper;
     return(
-      <div key={key} className={css.categorieBoxItemWrapper}>
+      <div key={key} className={cssClass}>
         <div className={css.categorieBoxItem}>
-          <img style={{width:'6vw',marginBottom:"10px"}} src={item.slika}/>
+          <img className={css.categorieBoxImg} src={item.slika}/>
           <p>{item.name}</p>
         </div>
       </div>

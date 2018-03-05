@@ -163,6 +163,9 @@ a:visited {
   color: #fff;
   letter-spacing: 1px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 //END HEADER
 
@@ -250,11 +253,19 @@ a:visited {
   justify-content: center;
   flex-wrap: wrap;
 }
+.categorieBoxItemWrapperThree{
+  max-width: 240px;
+  max-height: 240px;
+  width: calc((200%)/6-2px);
+  border: 1px rgb(221, 221, 221) solid;
+  height: 15vw;
+  position: relative;
+}
 .categorieBoxItemWrapper{
-  max-width: 213px;
-  max-height: 213px;
-  width: calc((100vw)/6-4.5px);
-  border: 1px solid rgb(201, 201, 201);
+  max-width: 240px;
+  max-height: 240px;
+  width: calc((100%)/6-2px);
+  border: 1px rgb(221, 221, 221) solid;
   height: 15vw;
   position: relative;
 }
@@ -271,6 +282,10 @@ a:visited {
   p{
     font-size: 1.5vw;
   }
+}
+.categorieBoxImg{
+  width: 6vw;
+  margin-bottom: 10px;
 }
 .categorieBoxItemEmpty{
   padding-top: calc(15vw+1px);
@@ -336,10 +351,9 @@ a:visited {
 }
 .dropDownWrapper{
   background: #fff;
-  padding-top: 10px;
   position: absolute;
   flex-direction: column;
-  top: calc(100%-10px);
+  top: calc(100%);
   left: 0;
   z-index: 1000;
   box-shadow: 0 6px 12px rgba(0,0,0,.175);
@@ -1218,7 +1232,6 @@ a:visited {
   flex: 1;
   margin: 0px 30px;
   padding: 40px 0px;
-  border-bottom: 1px solid #009797;
   justify-content: center;
   align-items: center;
 }
@@ -1328,6 +1341,10 @@ a:visited {
   display: flex;
   flex: 3.5;
   flex-direction: column;
+  border-bottom: 1px solid #009797;
+}
+.userData:nth-child(1){
+  border-top: 1px solid #009797;
 }
 .userRating {
   display: flex;
@@ -1337,11 +1354,11 @@ a:visited {
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  background-color: red;
+  overflow: hidden;
 }
 .userInfo {
   display: flex;
-  margin-bottom: 35px;
+  margin: 35px 0;
 }
 .userIcons {
   width: 35px;
@@ -1419,8 +1436,8 @@ a:visited {
 .profileComments {
   display: flex;
   margin: 0px 30px;
-  border-bottom: 1px solid #009797;
   padding: 35px 50px;
+  flex-direction: column;
 }
 .circlesUserComments {
   width: 40px;
@@ -1472,6 +1489,30 @@ a:visited {
 //MEDIA 425px
 
 @media screen and (max-width: 425px){
+
+  .categorieWrappers{
+    flex-direction: column;
+  }
+  .categorieBoxImg{
+    width: 15vw;
+  }
+  .categorieBoxItemEmpty{
+    padding-top: calc(15vw+1px);
+    border-top: 1px rgb(221, 221, 221) solid;
+  }
+  .categorieBoxItemWrapper, .categorieBoxItemWrapperThree{
+    width: calc((100%)/3-2px);
+    height: 18vh;
+    p{
+      font-size: 3vw;
+    }
+  }
+  .profileWorkTimeSecond{
+    padding: 20px;
+  }
+  .profileWorkTimeThirthBox{
+    flex-direction: column;
+  }
   .objectWorkTimeBox{
     flex-direction: column;
 }
@@ -1515,7 +1556,6 @@ a:visited {
   }
   .submit{
     margin-left: auto;
-    cursor: pointer;
   }
   .hamburgerWrapper{
     width: 200px;
@@ -1699,6 +1739,12 @@ a:visited {
 
 // MEDIA QUERY 426-768
 @media screen and (min-width: 426px) and (max-width: 768px){
+  .objectWorkTimeBox{
+    flex-direction: column;
+  }
+  .profileWorkTimeSecond{
+    padding: 50px 90px;
+  }
   .whatWrapper{
     margin-bottom: 10px;
   }
