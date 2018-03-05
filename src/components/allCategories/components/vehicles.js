@@ -8,7 +8,7 @@ class Vehicles extends React.Component{
         <div className={css.categorieBoxHeader}>
           <p>Za automobile</p>
         </div>
-        <div>
+        <div className={css.categorieBoxItemEmpty}>
 
         </div>
       </div>

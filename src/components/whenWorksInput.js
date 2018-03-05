@@ -7,7 +7,7 @@ import gql from 'graphql-tag';
 
 @graphql(gql`
  query
-  objectsByName($name: String) {
+  objectsByName($name: String!) {
     objectsByName(name: $name){
       name
       id
