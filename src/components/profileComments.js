@@ -4,25 +4,63 @@ import img from '../images/foto.png';
 import Rating from 'react-rating';
 import prazan from '../images/Ocena13.png';
 import pun from '../images/Ocena14.png';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+import { withRouter } from 'react-router';
+
+@graphql(gql`
+  query ObjectReview($objectClId: Int!, $page: Int){ 
+    ObjectReview(objectClId: $objectClId, page: $page) {
+      rating
+      person {
+        firstName
+        lastName
+        profileInfo{
+          profileImageUrl,
+          stars
+          photos
+          followers
+        }
+      }
+      photoCount
+      textReview
+      }
+    }`,
+  {
+    options: (props) => {
+      return ({
+        variables: {
+          objectClId: parseInt(props.match.params.id),
+          page: 1
+        }
+      })
+    }
+  }
+)
 
 class ProfileComments extends React.Component{
   render(){
+    let result = this.props.data.ObjectReview || [];
+    let [ObjectReview] = result;
     return(
+      <div> { 
+        ObjectReview == undefined ? null :
       <div className={css.profileComments}>
         <div className={css.userData}>
         <div className={css.userColumn} style={{display:'flex'}}>
           <div className={css.userInfo}>
             <div className={css.userPhoto}>
+            <img style={{width:'inherit',borderRadius:'50%'}} src={ObjectReview.person.profileInfo.profileImageUrl}/>
             </div>
             <div className={css.userName}>
-              <p className={css.userNameName}>Jelena Boskovic</p>
+              <p className={css.userNameName}>{ObjectReview.person.firstName} {ObjectReview.person.lastName}</p>
               <div>
                 <img src={img} className={css.userIcons}/>
-                <span className={css.userNum}>13</span>
+                <span className={css.userNum}>{ObjectReview.person.profileInfo.followers}</span>
                 <img src={img} className={css.userIcons}/>
-                <span className={css.userNum}>122</span>
+                <span className={css.userNum}>{ObjectReview.person.profileInfo.stars}</span>
                 <img src={img} className={css.userIcons}/>
-                <span className={css.userNum}>19</span>
+                <span className={css.userNum}>{ObjectReview.person.profileInfo.photos}</span>
               </div>
             </div>
           </div>
@@ -52,12 +90,13 @@ class ProfileComments extends React.Component{
           </div>
         </div>
           <div className={css.userComment}>
-          Lorem Ipsum is simply dummy text of the printing an typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever sinc...
+          {ObjectReview.textReview}
           </div>
         </div>
-        
+        </div>
+        }
       </div>
     )
   }
 }
-export default ProfileComments;
+export default withRouter(ProfileComments);

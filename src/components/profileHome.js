@@ -57,7 +57,8 @@ let stylez = {
     options: (props) => {
       return ({
         variables: {
-          id: parseInt(props.match.params.id),
+          id: parseInt
+          (props.match.params.id)
         }
       })
     },
