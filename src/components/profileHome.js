@@ -9,8 +9,6 @@ import pun from '../images/Ocena14.png';
 import prazan from '../images/Ocena13.png';
 import Loading from 'react-loading-components';
 
-
-
 let stajl = {
   display: "flex",
   height: "50vh",

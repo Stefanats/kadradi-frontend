@@ -252,9 +252,11 @@ a:visited {
   flex-wrap: wrap;
 }
 .categorieBoxItemWrapper{
+  max-width: 213px;
+  max-height: 213px;
   width: calc((100vw)/6-4.5px);
   border: 1px solid rgb(201, 201, 201);
-  padding-top: 15vw;
+  height: 15vw;
   position: relative;
 }
 .categorieBoxItem{
@@ -334,21 +336,27 @@ a:visited {
   position: absolute;
 }
 .dropDownWrapper{
+  background: #fff;
+  padding-top: 10px;
   position: absolute;
   flex-direction: column;
-  top: calc(100% + 10px);
-  left: 50px;
+  top: calc(100%-10px);
+  left: 0;
   z-index: 1000;
   box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  border-radius: 5px;
-  overflow-y: scroll;
+  border-radius: 0 0 5px 5px;
+  // overflow-y: scroll;
+  overflow: hidden;
   max-height: 300px;
-  width: 300px;
+  width: 100%;
 }
 .dropDownItem{
   padding: 10px;
   background: white;
   cursor: pointer;
+}
+.dropDownItem:nth-child(1){
+  border-top: 1px solid #d1d1d1;
 }
 .dropDownItem:hover{
   background: red;
