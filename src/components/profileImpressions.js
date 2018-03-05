@@ -7,6 +7,8 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import dolar from '../images/cena.png';
 import { randomBytes } from 'crypto';
+import ProfileComments from './profileComments';
+import RatingButton from './ratingButton';
 
 class ProfileImpressions extends React.Component{
   constructor(props){
@@ -105,6 +107,8 @@ class ProfileImpressions extends React.Component{
                 x
                 </div>
           </div>
+          <ProfileComments />
+          <RatingButton />
       </div>
     )
   }
