@@ -1511,7 +1511,13 @@ a:visited {
 .whenWorksPhone{
   display: none;
 }
-
+.objectCardRating{
+  width: 30px;
+}
+.objectCardClock{
+  width: 100px;
+  margin: auto 0 0 auto;
+}
 // END FORMA STYLE //
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -1533,9 +1539,24 @@ a:visited {
 //MEDIA 425px
 
 @media screen and (max-width: 425px){
-
+  .objectCardClock{
+    width: 40px;
+  }
+  .objectCardRating{
+    width: 15px;
+  }
   .objectImg img{
     width: 100px;
+  }
+  .ratingNumber{
+    height: 18px;
+    width: 18px;
+  }
+  .objectName, .objectRating, .isWorkingWrapper{
+    flex: none;
+  }
+  .isWorking{
+    display: block;
   }
   .objectName p{
     font-size: 10px;
@@ -1551,14 +1572,37 @@ a:visited {
   .whenWorksPhone{
     display: flex;
     flex-direction: column;
+    position: relative;
   }
   .whenWorksList{
-    height: 100vh;
+    position: absolute;
+    height: calc(100vh);
   }
   .map{
-    display: none;
+    position: absolute;
     width: calc(100%-2px);
-    height: calc(50vh);
+    height: calc(100vh);
+  }
+
+  .jedan{
+    opacity: 1;
+    z-index: 1;
+    transition: 700ms;
+  }
+  .dva{
+    opacity: 0;
+    z-index: 0;
+    transition: 700ms;
+  }
+  .jedann{
+    opacity: 0;
+    z-index: 0;
+    transition: 700ms;
+  }
+  .dvaa{
+    opacity: 1;
+    z-index: 1;
+    transition: 700ms;
   }
 
 

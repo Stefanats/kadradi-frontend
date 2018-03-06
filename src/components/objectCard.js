@@ -112,15 +112,15 @@ class ObjectCard extends React.Component{
               <Rating
                 readonly
                 emptySymbol={
-                  <img style={{width:'30px', marginRight:'2px'}}
-                src={prazan}
-                className="icon"/>}
+                  <img
+                    src={prazan}
+                    className={"icon"+" "+css.objectCardRating}/>}
                 fullSymbol={
-                  <img style={{width:'30px', marginRight:'2px'}}
-                src={pun}
-                className="icon"/>}
-                stop={5}
-                initialRating={item.avgRating}
+                  <img
+                  src={pun}
+                  className={"icon"+" "+css.objectCardRating}/>}
+                  stop={5}
+                  initialRating={item.avgRating}
               />
               <div className={css.circleRating}>
                 <div>
@@ -140,7 +140,7 @@ class ObjectCard extends React.Component{
               <div className={css.isWorking}>
                 {
                   <img 
-                    style={{width:'100px',margin:'auto 0 0 auto'}}
+                    className={css.objectCardClock}
                     alt='clock image'
                     src={
                   item.workingTimeInfo.isWorking && item.verified ? satRadiVip :
