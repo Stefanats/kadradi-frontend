@@ -46,11 +46,11 @@ class Home extends React.Component{
 				<div className={css.header}>
 					<Hamburger />
 					<Navigation />
-					<div style={{display:"flex",margin:"20px auto"}} >
-						<img style={{margin:"auto"}} src={KadRadi_logo} />
+					<div className={css.homeIconWrapper} >
+						<img className={css.homeIcon} style={{margin:"auto"}} src={KadRadi_logo} />
 					</div>
 					<div className={css.headerText} >
-						<h1>Desava Vam se da poljubite vrata?</h1>
+						<h1 className={css.headerTextH1} style={{marginBottom:'20px'}}>Desava Vam se da poljubite vrata?</h1>
 						<p>U fva klika dodjite do radnog vremena i lokacije objekta</p>
 						<p>preko 50 kategorija o 10000 objekta  na vasem dlanu</p>
 					</div>
@@ -58,7 +58,7 @@ class Home extends React.Component{
 					<DownStore />
 				</div>
 				<div className={css.categoriesWrapper}>
-					<div style={{display:`${this.state.switch == true ? 'block' : 'none'}`}}>
+					{/* <div style={{display:`${this.state.switch == true ? 'block' : 'none'}`}}>
 						<Categories />
 					</div>
 					<div 
@@ -67,7 +67,7 @@ class Home extends React.Component{
         		<div  onClick={() => this.clickHandler()} className={css.categoriesButton}>
         	  	Sve kategorije
         		</div>
-      		</div>
+      		</div> */}
 					<div style={{
 										display:`${this.state.switch == true ? 'block' : 'block'}`}}>
 						<AllCategories />

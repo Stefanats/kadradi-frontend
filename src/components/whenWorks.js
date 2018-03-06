@@ -66,28 +66,41 @@ class WhenWorks extends React.Component{
 
     return(
       <div className={css.whenWorks}>
-        <WhenWorksHeader />
-        <div className={this.state.klasa}>
-          <div className={css.leftHolder}>
-            <WhenWorksList />
-            <div 
-              style={{pointerEvents:`${this.state.click}`}}
-              onClick={() => this.clickHandlerLeft()}
-              className={css.leftArrow}>
-              <div>
-                <FaAngleLeft />
+        <div className={css.whenWorksComputer}>
+          <WhenWorksHeader />
+          <div className={this.state.klasa}>
+            <div className={css.leftHolder}>
+              <WhenWorksList />
+              <div 
+                style={{pointerEvents:`${this.state.click}`}}
+                onClick={() => this.clickHandlerLeft()}
+                className={css.leftArrow}>
+                <div>
+                  <FaAngleLeft />
+                </div>
+              </div>
+            </div>
+            <div  style={{overflow:"hidden"}}  className={css.rightHolder}>
+              <GoogleMap css='map' />
+              <div 
+                style={{pointerEvents:`${this.state.click}`}}
+                onClick={()=> this.clickHanderRight()}
+                className={css.rightArrow}>
+                <div>
+                  <FaAngleRight />
+                </div>
               </div>
             </div>
           </div>
-          <div  style={{overflow:"hidden"}}  className={css.rightHolder}>
-            <GoogleMap css='map' />
-            <div 
-              style={{pointerEvents:`${this.state.click}`}}
-              onClick={()=> this.clickHanderRight()}
-              className={css.rightArrow}>
-              <div>
-                <FaAngleRight />
-              </div>
+        </div>
+        <div className={css.whenWorksPhone}>
+        {/* <WhenWorksHeader /> */}
+          <div className={css.jebote}>
+            <div>
+              <WhenWorksList />
+            </div>
+            <div>
+              <GoogleMap css='map' />
             </div>
           </div>
         </div>

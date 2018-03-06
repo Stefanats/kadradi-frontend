@@ -8,7 +8,6 @@ import gql from 'graphql-tag';
 import dolar from '../images/cena.png';
 import { randomBytes } from 'crypto';
 import ProfileComments from './profileComments';
-import RatingButton from './ratingButton';
 import { withRouter } from 'react-router';
 import Loading from 'react-loading-components';
 
@@ -124,18 +123,17 @@ class ProfileImpressions extends React.Component{
         <div className={css.borderDown}>
         </div>
         <div style={{display:`${this.state.memory}`}} className={css.memory}>
-                <div className={css.znak}>
+          <div className={css.znak}>
                 ?
-                </div>
-                <div className={css.zapamtite}>
-                Zapamtite restorani ne mogu lažirati ocenu ili je platiti.
-                </div>
-                <div onClick={() => this.onClickHandle()} className={css.xxx}>
-                x
-                </div>
           </div>
+          <div className={css.zapamtite}>
+            Zapamtite restorani ne mogu lažirati ocenu ili je platiti.
+          </div>
+          <div onClick={() => this.onClickHandle()} className={css.xxx}>
+            x
+            </div>
+        </div>
           <ProfileComments />
-          <RatingButton />
       </div>}
       </div>
     )

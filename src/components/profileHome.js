@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './styles/styles.scss';
-import clock24 from '../images/clock.png';
+import img from '../images/Sat-radi.png';
 import Rating from 'react-rating';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -9,12 +9,6 @@ import pun from '../images/Ocena14.png';
 import prazan from '../images/Ocena13.png';
 import Loading from 'react-loading-components';
 
-let stajl = {
-  display: "flex",
-  height: "50vh",
-  overflow: "hidden",
-  position: "relative",
-}
 let stylez = {
   width: "100%",
   heigth: "100%",
@@ -81,19 +75,19 @@ class ProfileHome extends React.Component{
         <Loading type='oval' width={100} height={100} fill='#f44242' /> :
         <div>
           <div className={css.relative}>
-            <div style={stajl}>
-                <img style={stylez} src={objectCl.images.profileImage.fileUrl}/>
+            <div className={css.objectProfileImageWrapper}>
+                <img className={css.objectProfileImage} style={stylez} src={objectCl.images.profileImage.fileUrl}/>
             </div>
             <div className={css.clockWorkTime}>
-              <img src={clock24}/>
+              <img src={img}/>
             </div>
           </div>
           <div className={css.profileTitle}>
             <div className={css.profileTitleBox}>
               <div className={css.profileTitleName}>
-                <p>
+                <h1>
                   {objectCl.name}
-                </p>
+                </h1>
               </div>
               <div className={css.profileTitleCategory}>
                 <p>
@@ -101,20 +95,6 @@ class ProfileHome extends React.Component{
                 </p>
               </div>
             </div>
-          </div>
-          <div className={css.profileTime}>
-              <div className={css.profileTimeBox}>
-                <p>
-                  Radno vreme {vremeOd}-{vremeDo}
-                </p>
-              </div>
-          </div>
-          <div className={css.profileInfo}>
-              <div className={css.profileInfoBox}>
-                <p>
-                  {objectCl.ratingCount} Ocena - {objectCl.favorites.favoritesCount} Favorit - {objectCl.checkedIn.checkedInCount} je bilo ovde
-                </p>
-              </div>
           </div>
           <div className={css.profileRating}>
               <div className={css.profileRatingBox}>
@@ -126,13 +106,13 @@ class ProfileHome extends React.Component{
                     <Rating
                       readonly
                       emptySymbol={
-                        <img style={{width:'30px'}}
-                        src={prazan}
-                        className="icon"/>}
+                        <img
+                        className={"icon"+" "+css.ratingImage}
+                        src={prazan}/>}
                         fullSymbol={
-                        <img style={{width:'30px'}}
+                        <img
                         src={pun}
-                        className="icon"/>}
+                        className={"icon"+" "+css.ratingImage}/>}
                         stop={5}
                       initialRating={objectCl.avgRating}
                     />
@@ -145,6 +125,20 @@ class ProfileHome extends React.Component{
                     </div>
                   </div>
                 </div>
+              </div>
+          </div>
+          {/* <div className={css.profileTime}>
+              <div className={css.profileTimeBox}>
+                <p>
+                  Radno vreme {vremeOd}-{vremeDo}
+                </p>
+              </div>
+          </div> */}
+          <div className={css.profileInfo}>
+              <div className={css.profileInfoBox}>
+                <p>
+                  {objectCl.ratingCount} Ocena - {objectCl.favorites.favoritesCount} Favorit - {objectCl.checkedIn.checkedInCount} je bilo ovde
+                </p>
               </div>
           </div>
         </div>}

@@ -7,7 +7,7 @@ class GalleryButton extends React.Component{
     return(
       <div className={css.galleryButtonWrapper}>
         <div className={css.galleryButton}> 
-          <img style={{marginRight:'5px'}} src={foto}/><p>VIDI VIŠE FOTOGRAFIJA</p>
+          <img className={css.galleryButtonImage} src={foto}/> <p>VIDI VIŠE FOTOGRAFIJA</p>
         </div>
       </div>
     )

@@ -1,14 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700&subset=cyrillic-ext');
+// @import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700&subset=cyrillic-ext');
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 $red : #f03434;
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Comfortaa', cursive;
+  // font-family: 'Comfortaa', cursive;
+  font-family: 'Open Sans', sans-serif;
 }
 h1, h2, h3, h4, h5, h6, ul, li, a, p {
   padding: 0;
   margin: 0;
+}
+h1{
+  font-size: 40px;
+  font-weight: 600;
+}
+h2{
+  font-size: 22px;
+  font-weight: 600;
 }
 input{
   outline: none;
@@ -37,6 +47,7 @@ a:visited {
   background-size: cover;
   flex-direction: column;
   position: relative;
+  max-height: 90vh;
 }
 .menuHolder{
   margin: 0 auto;
@@ -54,10 +65,11 @@ a:visited {
 }
 .headerText{
   text-align: center;
-  margin: 0 auto;
+  margin: 30px auto 20px auto;
   color: #fff;
   p{
     margin: 0 0 5px;
+    font-size: 18px;
   }
 }
 .downStore{
@@ -98,9 +110,9 @@ a:visited {
   }
 }
 .whatWhere{
-  margin: 20px auto 20px;
+  margin: 10px auto auto;
   border-radius: 5px;
-  background-color: rgba(255,255,255,.2);
+  background-color: rgba(255,255,255,.3);
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -170,6 +182,10 @@ a:visited {
 //END HEADER
 
 //HOME
+.homeIconWrapper{
+  display: flex;
+  margin: 100px auto 0 auto;
+}
 .categoriesWrapper{
   display: flex;
   overflow: hidden;
@@ -211,7 +227,8 @@ a:visited {
   display: flex;
   background-color: rgb(216, 216, 216);
   color: rgb(32, 32, 32);
-  h2{
+  p{
+    font-size: 20px;
     margin-left: 30px;
   }
 }
@@ -221,7 +238,7 @@ a:visited {
 }
 .allCategoriesWrapper{
   flex: 1;
-  max-width: 1440px;
+  // max-width: 1440px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -236,17 +253,18 @@ a:visited {
   flex-direction: column;
 }
 .categorieBoxHeader{
-  min-height: 50px; //ZBOG MOZILE
+  min-height: 70px; //ZBOG MOZILE
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #40947b;
-  border: 1px solid rgb(201, 201, 201);
+  background: #019f9f;
+  // border: 1px solid rgb(201, 201, 201);
 }
 .categorieBoxHeader p{
   color: #fff;
-  font-weight: bolder;
+  font-weight: 600;
+  font-size: 24px;
 }
 .categorieBoxBody{
   display: flex;
@@ -257,16 +275,16 @@ a:visited {
   max-width: 240px;
   max-height: 240px;
   width: calc((200%)/6-2px);
-  border: 1px rgb(221, 221, 221) solid;
-  height: 15vw;
+  // border: 1px rgb(221, 221, 221) solid;
+  height: 10vw;
   position: relative;
 }
 .categorieBoxItemWrapper{
   max-width: 240px;
   max-height: 240px;
   width: calc((100%)/6-2px);
-  border: 1px rgb(221, 221, 221) solid;
-  height: 15vw;
+  // border: 1px rgb(221, 221, 221) solid;
+  height: 10vw;
   position: relative;
 }
 .categorieBoxItem{
@@ -280,11 +298,13 @@ a:visited {
   align-items: center;
   flex-direction: column;
   p{
-    font-size: 1.5vw;
+    font-size: 1.2vw;
+    font-weight: 600;
+    color: #4d4d4d;
   }
 }
 .categorieBoxImg{
-  width: 6vw;
+  width: 4vw;
   margin-bottom: 10px;
 }
 .categorieBoxItemEmpty{
@@ -427,6 +447,8 @@ a:visited {
   color: #fff;
   border-radius: 7px;
   margin: 0 0 0 auto;
+  display: flex;
+  flex-direction: row;
 }
 .whenWorksNavigation{
   flex: 1;
@@ -618,7 +640,7 @@ a:visited {
   margin-bottom: 10px;
 }
 .map1{
-  height: 300px;
+  height: 100px;
   width: 100%;
   position: relative;
 }
@@ -745,7 +767,16 @@ a:visited {
 // END WHENWORKS
 
 
-// OBJECT 
+// OBJECT
+.ratingImage{
+  width: 30px;
+}
+.objectProfileImageWrapper{
+  display: flex;
+  height: 50vh;
+  overflow: hidden;
+  position: relative;
+}
 .clockWorkTime{
   position: absolute;
   transform: translate(-50%, -50%);
@@ -757,17 +788,21 @@ a:visited {
 }
 .profileTitle{
   display: flex;
-  padding: 60px 0 5px;
-  border-bottom: 1px solid rgb(233, 233, 233);
+  padding: 50px 0 0;
   border-top: 1px solid rgb(233, 233, 233);
 }
 .profileTitleBox{
-    margin: auto;
-    text-align: center;
+  padding-bottom: 9px;
+  margin: auto;
+  text-align: center;
 }
 .profileTitleName{
   font-size: 20px;
   font-weight: bolder;
+  h1{
+    font-size: 24px;
+    color: #333;
+  }
 }
 .profileTitleCategory{
   font-size: 14px;
@@ -789,6 +824,7 @@ a:visited {
 .profileInfoBox{
   margin: auto;
   color: rgb(155, 155, 155);
+  font-size: 14px;
 }
 .profileRating{
   display: flex;
@@ -797,21 +833,24 @@ a:visited {
   margin: auto;
   display: flex;
   flex-direction: row;
-  padding: 5px 0;
+  padding: 9px 0;
+  border-bottom: 0.75px solid #ededed;
+  border-top: 0.75px solid #ededed;
 }
 .profileRatingFirst{
   display: flex;
   margin-right: 10px;
   p{
-    margin: auto;
+    margin: 10px auto;
     color: #009797;
   }
 }
 .profileRatingSecond{
   display: flex;
+  margin-top: 6px;
 }
 .ratingBox{
-  margin: auto;
+  margin:  auto;
 }
 .profileRatingThirth{
   display: flex;
@@ -821,8 +860,8 @@ a:visited {
 }
 .circleRing{
   margin: auto;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   background: #fff;
   border: 2px solid #009797;
   border-radius: 100%;
@@ -1015,7 +1054,6 @@ a:visited {
 .profileMap{
   border-left: solid 1px rgb(212, 212, 212);
   flex-direction: column;
-  height: 400px;
   display: flex;
   flex: 1;
   background: blue;
@@ -1148,6 +1186,10 @@ a:visited {
     color: #fff;
     font-weight: 800;
   }
+}
+.galleryButtonImage{
+  width: 30px;
+  margin-right: 5px;
 }
 .imagesHover{
   position: absolute;
@@ -1466,7 +1508,9 @@ a:visited {
   padding-bottom: 13px;
 }
 // END PROFILE COMMENTS //
-
+.whenWorksPhone{
+  display: none;
+}
 
 // END FORMA STYLE //
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -1490,6 +1534,74 @@ a:visited {
 
 @media screen and (max-width: 425px){
 
+  .objectImg img{
+    width: 100px;
+  }
+  .objectName p{
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .jebote{
+    display: flex;
+    flex-direction: column;
+  }
+  .whenWorksComputer{
+    display: none;
+  }
+  .whenWorksPhone{
+    display: flex;
+    flex-direction: column;
+  }
+  .whenWorksList{
+    height: 100vh;
+  }
+  .map{
+    display: none;
+    width: calc(100%-2px);
+    height: calc(50vh);
+  }
+
+
+
+
+
+  .ratingImage{
+    width: 20px;
+  }
+  .objectProfileImageWrapper{
+    height: 30vh;
+  }
+  .clockWorkTime img{
+    width: 70px;
+  }
+  .profileTitle{
+    padding-top: 35px;
+  }
+  .profileTitleName h1{
+    font-size: 20px;
+  }
+  .profileWorkClockBox{
+    p{
+      font-size: 14px;
+    }
+    img{
+      width: 80px;
+    }
+  }
+  .galleryButton, .ratingButton{
+    p{
+      font-size: 12px;
+    }
+  }
+  .galleryButtonImage{
+
+  }
+  .profileMapBar{
+    padding: 25px 0;
+  }
+  .profileInformation, .profileMap{
+    flex: none;
+  }
   .categorieWrappers{
     flex-direction: column;
   }
@@ -1516,8 +1628,8 @@ a:visited {
   .objectWorkTimeBox{
     flex-direction: column;
 }
-  .restaurantWorkTimeBox, .deliveryWorkTimeBox{
-    margin: auto;
+  .restaurantWorkTimeBox{
+    margin: 20px auto auto;
 }
   .menuHolder{
     display: none;
@@ -1734,6 +1846,9 @@ a:visited {
   .paddingOfRating {
     padding-bottom: 6px;
   }
+}
+.header{
+  height: 100vh;
 }
 // END MEDIA QUERY min 425
 
@@ -2119,10 +2234,53 @@ a:visited {
   }
 }
 
-
-
-
-
+@media screen and (min-width: 1441px){
+  .what, .where{
+    width: 100px;
+    height: 50px;
+    font-size: 18px;
+  }
+  .search{
+    height: 50px;
+    width: 320px;
+  }
+  .deoGrada{
+    height: 50px;
+  }
+  .search::placeholder{
+    font-size: 16px;
+  }
+  .deoGrada::placeholder{
+    font-size: 16px;
+  }
+  .submit{
+    height: 50px;
+    font-size: 18px;
+  }
+  .headerText p{
+    font-size: 22px;
+  }
+  .headerText h1{
+    font-size: 50px;
+  }
+  .homeIconWrapper{
+    margin-top: 170px;
+    margin-bottom: 50px;
+  }
+  .homeIcon{
+    width: 180px;
+  }
+  .headerTextH1{
+    margin-bottom: 10px;
+  }
+  .headerText{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  // .downStore{
+  //   height: 260px;
+  // }
+}
 
 
 

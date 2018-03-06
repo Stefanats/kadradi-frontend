@@ -7,10 +7,12 @@ import pun from '../images/Ocena14.png';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { withRouter } from 'react-router';
+import RatingButton from './ratingButton';
 
 @graphql(gql`
   query ObjectReview($objectClId: Int!, $page: Int) {
     ObjectReview(objectClId: $objectClId, page: $page) {
+      maxPages
       rating
       textReview
       photoCount
@@ -39,7 +41,17 @@ import { withRouter } from 'react-router';
 )
 
 class ProfileComments extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      page: 1,
+    }
+  }
+  moreComents = () => {
+    console.log('ASDSADASD')
+  }
   render(){
+    console.log('STEJT', this.state.page)
     let result = this.props.data.ObjectReview || [];
     let ObjectReview = result;
     let comments = ObjectReview.map((item, key) => {
@@ -93,10 +105,15 @@ class ProfileComments extends React.Component{
         </div>
       )
     })
-    console.log('imeeeeeeeeeeeeeee', ObjectReview)
     return(
       <div className={css.profileComments}>
         {comments}
+        {
+          ObjectReview[0] === undefined ? null :
+          <RatingButton 
+            page={ObjectReview[0].maxPages}
+            moreComents={this.moreComents}  />
+        }
       </div>
     )
   }

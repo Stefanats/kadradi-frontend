@@ -136,8 +136,7 @@ class WhenWorksInput extends React.Component{
           <div
             onClick={()=> this.search()}
             className={css.whenWorksButton}>
-              <FaSearch/> 
-              <p>Trazi</p>
+              <FaSearch/> <p>Trazi</p>
           </div>
         </div>
         <div className={css.dropDownWrapper}>

@@ -6,8 +6,8 @@ class RatingButton extends React.Component{
   render(){
     return(
       <div className={css.ratingButtonWrapper}>
-        <div className={css.ratingButton}> 
-          <img style={{marginRight:'5px'}} src={foto}/><p>VIDI VIŠE OCENA</p>
+        <div onClick={this.props.moreComents} className={css.ratingButton}> 
+          <img className={css.galleryButtonImage} src={foto}/><p>VIDI VIŠE OCENA</p>
         </div>
       </div>
     )

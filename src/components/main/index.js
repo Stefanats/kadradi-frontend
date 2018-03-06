@@ -63,6 +63,7 @@ import Proba from '../proba';
 import ContactForm from '../contactForm';
 import Home from '../home';
 import ObjectProfile from '../objectProfile';
+import {geolocated} from 'react-geolocated';
 
 
 // Styles
@@ -80,7 +81,7 @@ import logo from './reactql-logo.svg';
 // function changeRoute() {
 //   history.push('/page/about');
 // }
-
+let location = false;
 export default () => (
   <div className={css.lukaCar}>
     <Helmet>
@@ -88,15 +89,18 @@ export default () => (
       <meta name="description" content="ReactQL starter kit app" />
       {/* <base href="http://localhost:8081/" /> */}
     </Helmet>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/addobject" component={AddObject} />
-      <Route path="/about" component={About} />
-      <Route path="/view" component={WhenWorks} />
-      <Route path="/profile/:name/:id" component={ObjectProfile} />
-      <Route path="/proba" component={Proba} />
-      <Route path="/contactForm" component={ContactForm} />
-      <Route component={NotFound} />
-    </Switch>
+    {
+      location ? <div>nemere</div> :
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/addobject" component={AddObject} />
+        <Route path="/about" component={About} />
+        <Route path="/view" component={WhenWorks} />
+        <Route path="/profile/:name/:id" component={ObjectProfile} />
+        <Route path="/proba" component={Proba} />
+        <Route path="/contactForm" component={ContactForm} />
+        <Route component={NotFound} />
+      </Switch>
+    }
   </div>
 );
