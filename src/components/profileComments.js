@@ -7,36 +7,34 @@ import pun from '../images/Ocena14.png';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { withRouter } from 'react-router';
-import RatingButton from './ratingButton';
 
 @graphql(gql`
-  query ObjectReview($objectClId: Int!, $page: Int) {
+  query ObjectReview($objectClId: Int!, $page: Int){ 
     ObjectReview(objectClId: $objectClId, page: $page) {
-      maxPages
       rating
-      textReview
-      photoCount
-      person{
+      person {
         firstName
         lastName
         profileInfo{
-          profileImageUrl
+          profileImageUrl,
           stars
           photos
           followers
         }
       }
-    }
-  }`,
+      photoCount
+      textReview
+      }
+    }`,
   {
     options: (props) => {
       return ({
         variables: {
           objectClId: parseInt(props.match.params.id),
-          page: 1,
+          page: 1
         }
       })
-    },
+    }
   }
 )
 
@@ -51,16 +49,27 @@ class ProfileComments extends React.Component{
     console.log('ASDSADASD')
   }
   render(){
-    console.log('STEJT', this.state.page)
     let result = this.props.data.ObjectReview || [];
-    let ObjectReview = result;
-    let comments = ObjectReview.map((item, key) => {
-      return(
-        <div key={key} className={css.userData}>
-          <div className={css.userColumn} style={{display:'flex'}}>
-            <div className={css.userInfo}>
-              <div className={css.userPhoto}>
-                <img style={{width:'inherit'}} src={item.person.profileInfo.profileImageUrl} />
+    let [ObjectReview] = result;
+    return(
+      <div> { 
+        ObjectReview == undefined ? null :
+      <div className={css.profileComments}>
+        <div className={css.userData}>
+        <div className={css.userColumn} style={{display:'flex'}}>
+          <div className={css.userInfo}>
+            <div className={css.userPhoto}>
+            <img style={{width:'inherit',borderRadius:'50%'}} src={ObjectReview.person.profileInfo.profileImageUrl}/>
+            </div>
+            <div className={css.userName}>
+              <p className={css.userNameName}>{ObjectReview.person.firstName} {ObjectReview.person.lastName}</p>
+              <div>
+                <img src={img} className={css.userIcons}/>
+                <span className={css.userNum}>{ObjectReview.person.profileInfo.followers}</span>
+                <img src={img} className={css.userIcons}/>
+                <span className={css.userNum}>{ObjectReview.person.profileInfo.stars}</span>
+                <img src={img} className={css.userIcons}/>
+                <span className={css.userNum}>{ObjectReview.person.profileInfo.photos}</span>
               </div>
               <div className={css.userName}>
                 <p className={css.userNameName}>{item.person.firstName}</p>
@@ -100,19 +109,12 @@ class ProfileComments extends React.Component{
             </div>
           </div>
           <div className={css.userComment}>
-            <p>{item.textReview}</p>
+          {ObjectReview.textReview}
           </div>
         </div>
-      )
-    })
-    return(
-      <div className={css.profileComments}>
-        {comments}
-        {
-          ObjectReview[0] === undefined ? null :
-          <RatingButton 
-            page={ObjectReview[0].maxPages}
-            moreComents={this.moreComents}  />
+        </div>
+        </div>
+        
         }
       </div>
     )

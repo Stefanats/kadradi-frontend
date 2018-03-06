@@ -8,14 +8,14 @@ import gql from 'graphql-tag';
 import dolar from '../images/cena.png';
 import { randomBytes } from 'crypto';
 import ProfileComments from './profileComments';
+import RatingButton from './ratingButton';
 import { withRouter } from 'react-router';
-import Loading from 'react-loading-components';
 
 @graphql(gql`
   query objectCl($id: Int) {
-    objectCl(id: $id) {
-      avgPrice
+    objectCl(id: $id){
       avgRating
+      avgPrice
       ratingCount
     }
   }`,
@@ -23,10 +23,11 @@ import Loading from 'react-loading-components';
     options: (props) => {
       return ({
         variables: {
-          id: parseInt(props.match.params.id),
+          id: parseInt
+          (props.match.params.id)
         }
       })
-    },
+    }
   }
 )
 
@@ -46,10 +47,9 @@ class ProfileImpressions extends React.Component{
     let result = this.props.data.objectCl || [];
     let [objectCl] = result;
     return(
-    <div>
-      {
-        this.props.data.loading ? <Loading /> :
-        objectCl === undefined ? null :
+      <div>
+         { 
+            objectCl == undefined ? null :
       <div style={{display:'flex',flex:'1',flexDirection:'column'}}>
         <div className={css.profileImpressionsFirst}>
           <div className={css.profileImpressionsFirstBox}>
@@ -89,7 +89,7 @@ class ProfileImpressions extends React.Component{
                     src={dolar}
                   className={"icon"+" "+css.iconSize}/>}
                     stop={5}
-                    initialRating={objectCl.avgPrice}
+                    initialRating={4}
                 />
                 <p className={css.profileRatingNPriceCena}>Cena</p>
               </div>
@@ -108,9 +108,8 @@ class ProfileImpressions extends React.Component{
             </div>
           </div>
           <div className={css.profileImpressionsNAccuracy}>
-            <div className={css.marTop} style={{display:'flex',flexDirection:'column',marginRight:'auto'}}>
-              <div className={css.profileImpressionsNAccuracyImpressions}>
-                <p>Utisaka: {objectCl.ratingCount}</p>
+          <div className={css.marTop} style={{display:'flex',flexDirection:'column',marginRight:'auto'}}>
+            <div className={css.profileImpressionsNAccuracyImpressions}>{objectCl.ratingCount}
                 <div className={css.borderOfImpressions}></div>
               </div>
               <div className={css.profileImpressionsNAccuracyAccuracy}>

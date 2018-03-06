@@ -5,6 +5,27 @@ import Navigation from './navigation';
 import Hamburger from './hamburger';
 import ReactTransitionGroup from 'react-addons-transition-group'
 import { setTimeout } from 'timers';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+
+@graphql(gql`
+  query objectCl($id: Int) {
+    objectCl(id: $id) {
+      name
+      avgRating
+      ratingCount
+    }
+  }`, 
+  { 
+    options: (props) => {
+      return ({
+        variables: {
+          id: 1
+        }
+      })
+    }
+  }
+)
 
 class About extends React.Component{
   constructor(props){
@@ -25,6 +46,9 @@ class About extends React.Component{
     )
   }
   render(){
+    let result = this.props.data.objectCl || [];
+    let [objectCl] = result;
+
     let stylez = {
       width: '100px',
       height: '100px',
@@ -49,10 +73,14 @@ class About extends React.Component{
       position: 'relative'
     }
     return(
+      <div>
+      { 
+        objectCl == undefined ? null :
       <div className={css.about}>
         <Hamburger />
         <Navigation />
         <DownStore />
+        <div style={{color:'white',fontSize:'30px'}}>{objectCl.avgRating}</div>
         <div style={stylez}>
             <div style={stajl}>
 
@@ -61,6 +89,8 @@ class About extends React.Component{
         <div onClick={()=> this.click()}>
           click
         </div>
+      </div>
+    }
       </div>
     )
   }
