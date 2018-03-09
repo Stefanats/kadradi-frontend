@@ -14,7 +14,7 @@ class ProfileGalerry extends React.Component{
           </div>
           <div className={css.galleryBody}>
             <FrontGallery />
-            <GalleryButton />
+            {/* <GalleryButton /> */}
           </div>
       </div>
     )

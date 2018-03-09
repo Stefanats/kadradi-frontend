@@ -136,9 +136,11 @@ class ProfileHome extends React.Component{
           </div> */}
           <div className={css.profileInfo}>
               <div className={css.profileInfoBox}>
+                <div>
                 <p>
                   {objectCl.ratingCount} Ocena - {objectCl.favorites.favoritesCount} Favorit - {objectCl.checkedIn.checkedInCount} je bilo ovde
                 </p>
+                </div>
               </div>
           </div>
         </div>}

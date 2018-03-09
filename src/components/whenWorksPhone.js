@@ -20,17 +20,39 @@ class WhenWorksPhone extends React.Component{
   render(){
     return(
       <div className={css.whenWorksPhone}>
-      {/* <WhenWorksHeader /> */}
+        <WhenWorksHeader />
         <div className={css.jebote}>
-          <div className={this.state.opacity ? css.jedan : css.jedann}>
+          <div className={this.state.opacity ? css.listWrapperOne : css.listWrapperTwo}>
             <WhenWorksList />
           </div>
-          <div  className={this.state.opacity ? css.dva : css.dvaa}>
+          <div  className={this.state.opacity ? css.mapWrapperOne : css.mapWrapperTwo}>
             <GoogleMap css='map' />
           </div>
         </div>
-        <div onClick={()=>this.andler(true)} style={{position:'absolute',borderRadius:'10px',height:'40px',width:'80px',backgroundColor:'red',top:'80vh',left:'50%',zIndex:'2'}}></div>
-        <div onClick={()=>this.andler(false)} style={{position:'absolute',borderRadius:'10px',height:'40px',width:'80px',backgroundColor:'blue',top:'80vh',left:'25%',zIndex:'2'}}></div>
+        <div 
+          onClick={()=>this.andler(true)}
+          style={{
+            position:'fixed',
+            borderRadius:'10px',
+            height:'40px',
+            width:'80px',
+            backgroundColor:'red',
+            bottom:'20px',
+            left:'50%',
+            zIndex:'2'}}>
+        </div>
+        <div 
+          onClick={()=>this.andler(false)}
+          style={{
+              position:'fixed',
+              borderRadius:'10px',
+              height:'40px',
+              width:'80px',
+              backgroundColor:'blue',
+              bottom: '20px',
+              left:'25%',
+              zIndex:'2'}}>
+        </div>
       </div>
     )
   }

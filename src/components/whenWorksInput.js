@@ -91,23 +91,32 @@ class WhenWorksInput extends React.Component{
       sendValue: item.id,
       sendName: item.name,
     })
+    this.search();
   }
-  search(){
-    this.state.object ?
-    history.push(`/profile/${this.state.sendName}/${this.state.sendValue}`):
-    this.state.category ?
-    history.push(`/view/${this.state.sendName}/${this.state.sendValue}`) :
+  search(item, broj){
+    broj === 1 ?
+    history.push(`/profile/${item.name}/${item.id}`):
+    broj === 2 ?
+    history.push(`/view/${item.name}/${item.id}`) :
     console.log('molimo vas oznacite nesto')
+    this.setState({
+      category: false,
+      object: false,
+      objectsArray: [],
+      categoryArray: [],
+      inputValue: '',
+      sendValue: '',
+      sendName: '',
+    })
+
   }
   render(){
-    console.log('ssdadasd1', this.state.categoryArray)
-    console.log('object', this.state.objectsArray)
 
     let dropDownObjects = this.state.objectsArray.map((item, key) => {
       return(
         <div 
-          onClick={() => this.onSelectObject(item)}
-          className={css.dropDownItem}
+          onClick={() => this.search(item, 1)}
+          className={css.dropDownItemTwo}
           key={key}>
             {item.name}
         </div>
@@ -116,8 +125,8 @@ class WhenWorksInput extends React.Component{
     let dropDownCategory = this.state.categoryArray.map((item, key) => {
       return(
         <div 
-          onClick={() => this.onSelectCategory(item)}
-          className={css.dropDownItem}
+          onClick={() => this.search(item, 2)}
+          className={css.dropDownItemTwo}
           key={key+'a'}>
             {item.name}
         </div>
@@ -127,19 +136,20 @@ class WhenWorksInput extends React.Component{
     let dropDown = dropDownObjects.concat(dropDownCategory);
     return(
       <div className={css.whenWorksInputWrapper}>
+
         <div className={css.whenWorksInputHolder}>
           <input
             onChange={(event) => this.updateList(event)}
             value={this.state.inputValue}
             placeholder="Trazi Apoteke, Banke i slicno..."
             className={css.whenWorksInput} />
-          <div
+          {/* <div
             onClick={()=> this.search()}
             className={css.whenWorksButton}>
               <FaSearch/> <p>Trazi</p>
-          </div>
+          </div> */}
         </div>
-        <div className={css.dropDownWrapper}>
+        <div className={css.dropDownWrapperTwo}>
           {dropDown}
         </div>
       </div>

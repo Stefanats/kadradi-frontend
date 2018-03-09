@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './styles/styles.scss';
-import foto from '../images/foto.png';
+import foto from '../images/fotosajt.png';
 
 class GalleryButton extends React.Component{
   render(){
