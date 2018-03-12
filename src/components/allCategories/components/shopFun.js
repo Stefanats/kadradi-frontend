@@ -119,7 +119,9 @@ class ShopFun extends React.Component{
     return (
       <CategoriesBox
         array={array}
-        name={name}/>
+        name={name}
+        justify='center'
+        class={css.categorieBoxBody}/>
     )
   }
 }

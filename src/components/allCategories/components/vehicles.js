@@ -31,7 +31,8 @@ class Vehicles extends React.Component{
         array={array}
         name={name}
         cssClassThree
-        justify='flex-start'/>
+        justify='flex-start'
+        class={css.categorieBoxBodyR}/>
     )
   }
 }

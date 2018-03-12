@@ -3,11 +3,8 @@ import css from '../../styles/styles.scss';
 
 const CategorieBox = (props) => {
   let categories = props.array.map((item, key) => {
-    let cssClass = props.cssClassThree ?
-      css.categorieBoxItemWrapperThree :
-      css.categorieBoxItemWrapper;
     return(
-      <div key={key} className={cssClass}>
+      <div key={key} className={css.categorieBoxItemWrapper}>
         <div className={css.categorieBoxItem}>
           <img className={css.categorieBoxImg} src={item.slika}/>
           <p>{item.name}</p>
@@ -17,13 +14,15 @@ const CategorieBox = (props) => {
   })
   return (
     <div className={css.categorieBox}>
-      <div className={css.categorieBoxHeader}>
-        <p>{props.name}</p>
+      <div 
+        style={{justifyContent: `${props.justify}`}}
+        className={css.categorieBoxHeader}>
+        <div className={css.categorieBoxContainer}>
+          <p>{props.name}</p>
+        </div>
       </div>
-      <div
-        style={{justifyContent: `${props.justify}`}} 
-        className={css.categorieBoxBody}>
-        {categories}
+      <div className={props.class}>
+          {categories}
       </div>
     </div>
   )

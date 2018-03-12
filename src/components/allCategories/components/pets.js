@@ -29,7 +29,9 @@ class Pets extends React.Component{
       <CategoriesBox
         array={array}
         name={name}
-        cssClassThree/>
+        cssClassThree
+        justify='flex-end'
+        class={css.categorieBoxBodyL}/>
     )
   }
 }

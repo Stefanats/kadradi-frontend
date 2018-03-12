@@ -22,7 +22,7 @@ class About extends React.Component{
       view: !this.state.view,
 
     })
-  }
+  } 
   render(){
     let stylez = {
       display: 'flex',
@@ -53,13 +53,14 @@ class About extends React.Component{
     let klik = {
 
     }
+    console.log('VISINA', this)
     return(
       <div className={css.about}>
         <Hamburger />
         <Navigation />
         <DownStore />
         <div style={{width:'300px'}}>
-        <div style={stylez}>
+        <div ref={ (divElement) => this.divElement = divElement} style={stylez}>
             <div style={stajl}>
 
             </div>

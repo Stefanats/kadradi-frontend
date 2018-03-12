@@ -1,6 +1,7 @@
 import React from 'react';
 import css from './styles/styles.scss';
 import { connect } from 'react-redux';
+import SelectFiltration from './selectFiltration';
 
 @connect(state => ({ filter: state.filter }))
 
@@ -17,7 +18,7 @@ class WwListHeader extends React.Component{
         <div className={css.wwListNow}>Radi sada</div>
         <div className={css.wwListClose}>Blizu mene</div>
         <div className={css.selectFiltration}>
-          select
+          <SelectFiltration />
         </div>
       </div>
     )

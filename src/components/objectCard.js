@@ -185,14 +185,6 @@ class ObjectCard extends React.Component{
     )
     return(
       <div className={css.objectCard}>
-        <div className={css.listedObjects}>
-          <div>
-            <p>potvrdjeno ({nizLength})</p>
-          </div>
-          <div>
-            <SelectFiltration />
-          </div>
-        </div>
         {nesto}
         <div className={css.objectEmptyDiv}>
         </div>

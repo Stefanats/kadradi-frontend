@@ -30,7 +30,9 @@ class Institutions extends React.Component{
       <CategoriesBox
         array={array}
         name={name}
-        cssClassThree/>
+        cssClassThree
+        justify='flex-start'
+        class={css.categorieBoxBodyR}/>
     )
   }
 }

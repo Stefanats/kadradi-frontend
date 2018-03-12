@@ -27,10 +27,12 @@ let name = 'Zdravstvo';
 class Healt extends React.Component{
   render() {
     return (
-      <CategoriesBox 
+      <CategoriesBox  
         array={array}
         name={name}
-        cssClassThree/>
+        cssClassThree
+        justify='flex-end'
+        class={css.categorieBoxBodyL}/>
     )
   }
 }
