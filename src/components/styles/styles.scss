@@ -202,10 +202,10 @@ a:visited {
   padding: 20px;
   flex: 1;
   display: flex;
-  background-color: rgb(0, 148, 123);
+  background: #019f9f;
   color: #fff;
   h2{
-    margin-left: 30px;
+    // margin-left: 30px;
   }
 }
 .popularCategories{
@@ -218,7 +218,6 @@ a:visited {
   position: relative;
   width: calc((100%)/6-2px);
   padding-top: 15vw;
-  border: 1px rgb(221, 221, 221) solid;
 }
 .allCategories{
   display: flex;
@@ -259,7 +258,7 @@ a:visited {
   min-height: 70px; //ZBOG MOZILE
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background: #019f9f;
   // border: 1px solid rgb(201, 201, 201);
@@ -273,6 +272,19 @@ a:visited {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  max-width: 1440px;
+}
+.categorieBoxBodyL{
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  max-width: 720px;
+}
+.categorieBoxBodyR{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  max-width: 720px;
 }
 .categorieBoxItemWrapperThree{
   max-width: 240px;
@@ -281,6 +293,14 @@ a:visited {
   // border: 1px rgb(221, 221, 221) solid;
   height: 10vw;
   position: relative;
+}
+.categorieBoxContainer{
+  display: flex;
+  height: 100px;
+  width: 100%;
+  max-width: 720px;
+  justify-content: center;
+  align-items: center;
 }
 .categorieBoxItemWrapper{
   max-width: 240px;

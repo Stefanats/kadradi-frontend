@@ -31,7 +31,7 @@ class Healt extends React.Component{
         array={array}
         name={name}
         cssClassThree
-        justify='flex-end'
+        margin='0 0 0 auto'
         class={css.categorieBoxBodyL}/>
     )
   }

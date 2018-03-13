@@ -32,6 +32,7 @@ class Finance extends React.Component{
         name={name}
         cssClassThree
         justify='flex-start'
+        margin='0 auto 0 0'
         class={css.categorieBoxBodyR}/>
     )
   }

@@ -48,6 +48,8 @@ class Catering extends React.Component{
       <CategoriesBox
         array={array}
         name={name}
+        justify='center'
+        margin='0 auto'
         class={css.categorieBoxBody}/>
     )
   }

@@ -34,10 +34,7 @@ import ProfileMap from './dumpComponents/profileMap';
       sectorTimeInfo {
         name
         isWorking
-        monToFri {
-          opening
-          closing
-        }
+
         saturday {
           opening
           closing
@@ -87,7 +84,7 @@ class ProfileWorkTime extends React.Component{
             <ProfileWorkClock
             isWorking={objectCl.workingTimeInfo.isWorking}
             verified={objectCl.verified}/>
-            <ObjectWorkTime objectCl={objectCl}/>
+            {/* <ObjectWorkTime objectCl={objectCl}/> */}
             <ProfileCalendar />
           </div>
         </div>

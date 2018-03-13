@@ -12,8 +12,8 @@ class ObjectProfile extends React.Component{
       <div>
           {/* <WhenWorksHeader /> */}
           <ProfileHome/>
-          <ProfileWorkTime/>
           <ProfileGallery />
+          <ProfileWorkTime/>
           <ProfileImpressions /> 
       </div>
     )

@@ -30,7 +30,8 @@ class Sport extends React.Component{
       <CategoriesBox
         array={array}
         name={name}
-        justify='flex-end'
+        cssClassThree
+        margin='0 0 0 auto'
         class={css.categorieBoxBodyL}/>
     )
   }

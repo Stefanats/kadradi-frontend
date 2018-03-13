@@ -30,21 +30,15 @@ let stylez = {
       checkedIn{
         checkedInCount
       }
-      workingTimeInfo{
-        isWorking
-        monToFri {
-          opening
-          closing
-        }
-      }
-      objectCategory {
-        nameJ
-      }
       images{
         profileImage {
           fileUrl
         }
       }
+      objectCategory {
+        nameJ
+      }
+
     }
   }`,
   {
@@ -60,19 +54,24 @@ let stylez = {
 
 class ProfileHome extends React.Component{
   render(){
+    
     let result = this.props.data.objectCl || [];
     let [objectCl] = result;
-    let splitedVremeOd = objectCl != undefined ?
-        objectCl.workingTimeInfo.monToFri.opening.split('') : '';
-    let vremeOd = splitedVremeOd[0]+splitedVremeOd[1]+':'+splitedVremeOd[2]+splitedVremeOd[3];
-    let splitedVremeDo = objectCl != undefined ?
-        objectCl.workingTimeInfo.monToFri.closing.split('') : '';
-    let vremeDo = splitedVremeDo[0]+splitedVremeDo[1]+':'+splitedVremeDo[2]+splitedVremeDo[3];
+
+    objectCl == undefined ? null :
+    console.log('OVO JE KONZOLLOG', objectCl.images.profileImage.fileUrl)
+    // let splitedVremeOd = objectCl != undefined ?
+    //     objectCl.workingTimeInfo.monToFri.opening.split('') : '';
+    // let vremeOd = splitedVremeOd[0]+splitedVremeOd[1]+':'+splitedVremeOd[2]+splitedVremeOd[3];
+    // let splitedVremeDo = objectCl != undefined ?
+    //     objectCl.workingTimeInfo.monToFri.closing.split('') : '';
+    // let vremeDo = splitedVremeDo[0]+splitedVremeDo[1]+':'+splitedVremeDo[2]+splitedVremeDo[3];
 
     return(
       <div>
         {this.props.data.loading ?
         <Loading type='oval' width={100} height={100} fill='#f44242' /> :
+        objectCl === undefined ? null :
         <div>
           <div className={css.relative}>
             <div className={css.objectProfileImageWrapper}>
