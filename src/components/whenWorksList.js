@@ -35,19 +35,17 @@ class WhenWorksList extends React.Component{
     }
   }
   render(){
-    let {objectCl} = this.props.data || [];
+    let objectCl = [];
+    objectCl = this.props.data.objectCl || [];
 
     console.log('CCCCCCCCCCCCC', objectCl)
     return(
       <div className={css.whenWorksList}>
         <WwListHeader />
         <div className={css.listedObjects}>
-          {
-            objectCl === undefined ? null : 
-          <div>
-            <p>potvrdjeno ({objectCl.length})</p>
+          <div> 
+            <p>potvrdjeno ()</p>
           </div>
-          }
           <div>
             <SelectFiltration />
           </div>

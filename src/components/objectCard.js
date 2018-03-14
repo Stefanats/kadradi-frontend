@@ -97,7 +97,6 @@ class ObjectCard extends React.Component{
       .replace(/-+$/, '');            // Trim - from end of text
   }
   sort = async (filter) => {
-    console.log('OVO JE IZ SORTA', filter)
     filter === 'alphabetical' ?
     await this.props.data.refetch({
       alphabetical: true,
@@ -138,7 +137,6 @@ class ObjectCard extends React.Component{
                 <p>{item.name}</p>
               </Link>
             </div>
-
             <div className={css.objectRating}>
               <Rating
                 readonly
@@ -193,3 +191,4 @@ class ObjectCard extends React.Component{
   }
 }
 export default withRouter(ObjectCard);
+ 

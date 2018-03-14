@@ -643,18 +643,20 @@ a:visited {
   color: #019f9f;
   font-size: 12px;
 }
-.wwListNow{
+.wwListOff{
   background-color: $red;
   padding: 10px;
   margin-right: 10px;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
+  border: 1px $red solid;
 }
-.wwListClose{
+.wwListOn{
   background-color: #fff;
   padding: 10px;
   border-radius: 5px;
+  margin-right: 10px;
   color: gray;
   border: 1px gray solid;
   cursor: pointer;
@@ -1658,6 +1660,9 @@ a:visited {
 //MEDIA 425px
 
 @media screen and (max-width: 425px){
+  .categorieBoxContainer{
+    height: 50px;
+  }
 .selectButton>img{
   margin: 3px 2px;
   width: 12px;

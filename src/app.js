@@ -24,6 +24,7 @@ import config from 'kit/config';
 import counterReducer from 'reducers/counter';
 import filterReducer from 'reducers/filter';
 import categoriesIdReducer from 'reducers/categoriesId';
+import closeToMeReducer from 'reducers/closeToMe';
 
 // Main component -- i.e. the 'root' React component in our app
 import Main from 'components/main';
@@ -44,6 +45,8 @@ import categories from './components/categories';
 config.addReducer('counter', counterReducer, { count: 0 });
 config.addReducer('filter', filterReducer, { filter: 'name' });
 config.addReducer('categoriesId', categoriesIdReducer, { categoriesId: 0 });
+config.addReducer('closeToMe', closeToMeReducer, { close: false });
+
 /* GRAPHQL */
 
 config.setGraphQLEndpoint('https://kadradi-backend.herokuapp.com/graphql');

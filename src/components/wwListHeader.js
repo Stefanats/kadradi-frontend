@@ -6,17 +6,32 @@ import SelectFiltration from './selectFiltration';
 @connect(state => ({ filter: state.filter }))
 
 class WwListHeader extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      class: false,
+    }
+  }
   one = (e) => {
     this.props.dispatch({
-      type: "SEND_VALUE",
-      value: e.target.value
+      type: "CLOSE_TOME",
+      value: e,
     });
+    this.setState({
+      class: e,
+    })
   }
   render(){
     return(
       <div className={css.wwListHeader}>
-        <div className={css.wwListNow}>Radi sada</div>
-        <div className={css.wwListClose}>Blizu mene</div>
+        <div 
+          onClick={() => this.one(false)} 
+          className={this.state.class ? css.wwListOn : css.wwListOff}
+          >Radi sada</div>
+        <div
+          onClick={() => this.one(true)}
+          className={this.state.class ? css.wwListOff : css.wwListOn}
+          >Blizu mene</div>
         <div className={css.selectFiltration}>
           <SelectFiltration />
         </div>

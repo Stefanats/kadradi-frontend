@@ -28,7 +28,7 @@ class WhenWorksPhone extends React.Component{
             <WhenWorksList />
           </div>
           <div  className={this.state.opacity ? css.mapWrapperOne : css.mapWrapperTwo}>
-            <GoogleMap css='map'/>
+            <GoogleMap css='map3'/>
           </div>
         </div>
         <div 
