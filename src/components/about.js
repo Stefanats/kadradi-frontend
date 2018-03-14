@@ -32,45 +32,50 @@ class About extends React.Component{
     super(props);
     this.state = {
       left: true,
-      display: true
+      display: true,
+      height: true,
+      view: true,
     }
   }
   click(){
     this.setState({
-      display: !this.state.display
+      height: !this.state.height,
+      view: !this.state.view,
+
     })
-    setTimeout(
-        this.setState({
-          display: !this.state.display
-        }), 1000
-    )
   }
   render(){
     let result = this.props.data.objectCl || [];
     let [objectCl] = result;
 
     let stylez = {
-      width: '100px',
-      height: '100px',
+      display: 'flex',
+      minHeight: `${this.state.height ? '100px' : '200px'}`,
       position: 'relative',
       background: 'red',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      transition: '500ms',
     }
     let stajl = {
-      left: `${this.state.top ? '50px' : '50px'}`,
-      height: '100px',
-      transition: '1s',
+      bottom: `${this.state.view ? '100%' : '0'}`,
+      left: 0,
+      height: '200px',
       width: '100px',
       background: 'yellow',
-      position: 'relative',
-      display: `${this.state.display ? 'block' : 'none'}`
+      position: 'absolute',
+      transition: '500ms',
     }
     let stajll = {
-      right: '50%',
+      top: `${!this.state.view ? '100%' : '0'}`,
+      left: 0,
       height: '100px',
       width: '100px',
       background: 'green',
-      position: 'relative'
+      position: 'absolute',
+      transition: '500ms',
+    }
+    let klik = {
+
     }
     return(
       <div>
@@ -80,13 +85,16 @@ class About extends React.Component{
         <Hamburger />
         <Navigation />
         <DownStore />
-        <div style={{color:'white',fontSize:'30px'}}>{objectCl.avgRating}</div>
+        <div style={{width:'300px'}}>
         <div style={stylez}>
             <div style={stajl}>
 
             </div>
+            <div style={stajll}>
+            </div>
         </div>
-        <div onClick={()=> this.click()}>
+        </div>
+        <div onClick={()=>this.click()} style={klik}>
           click
         </div>
       </div>

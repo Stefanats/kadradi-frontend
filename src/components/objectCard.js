@@ -15,6 +15,7 @@ import satNeRadi from '../images/Sat-ne-radi.png';
 import satRadi from '../images/Sat-radi.png';
 import satNeRadiVip from '../images/Sat-ne-radi-placeno.png';
 import satRadiVip from '../images/Sat-radi-placeno.png';
+import SelectFiltration from './selectFiltration';
 
 @connect(state => ({ 
   filter: state.filter,
@@ -23,8 +24,16 @@ import satRadiVip from '../images/Sat-radi-placeno.png';
 }))
 
 @graphql(gql`
- query objectCl($objectCategoryId: Int) {
-  objectCl(objectCategoryId: $objectCategoryId) {
+ query objectCl(
+    $objectCategoryId: Int,
+    $alphabetical: Boolean,
+    $price: Int,
+    $byRating: Boolean) {
+  objectCl(
+    objectCategoryId: $objectCategoryId,
+    alphabetical: $alphabetical
+    price: $price,
+    byRating: $byRating) {
     id
     verified
     name
@@ -38,6 +47,7 @@ import satRadiVip from '../images/Sat-radi-placeno.png';
     }
     objectCategory {
       nameJ
+      name
     }
     images {
       profileImage {
@@ -55,6 +65,9 @@ import satRadiVip from '../images/Sat-radi-placeno.png';
       return ({
         variables: {
           objectCategoryId: id,
+          alphabetical: false,
+          price: 0,
+          byRating: false,
         }
       })
     },
@@ -72,6 +85,8 @@ class ObjectCard extends React.Component{
     if(nextProps.data.objectCl != undefined) {
       this.setState({niz: nextProps.data.objectCl})
     }
+    this.props.filter.filter !== nextProps.filter.filter ?
+    this.sort(nextProps.filter.filter) : null
   }
   slugify(text){
     return text.toString().toLowerCase()
@@ -81,15 +96,31 @@ class ObjectCard extends React.Component{
       .replace(/^-+/, '')             // Trim - from start of text
       .replace(/-+$/, '');            // Trim - from end of text
   }
+  sort = async (filter) => {
+    console.log('OVO JE IZ SORTA', filter)
+    filter === 'alphabetical' ?
+    await this.props.data.refetch({
+      alphabetical: true,
+    }) :
+    filter === 'priceUp' ?
+    await this.props.data.refetch({
+      price: 1,
+    }) :
+    filter === 'priceDown' ?
+    await this.props.data.refetch({
+      price: 2,
+    }) :
+    filter === 'ratingCount' ?
+    await this.props.data.refetch({
+      byRating: true,
+    }) : null
+  }
   render(){
-    let red ={
-      color: 'red'
-    }
-    let { filter } = this.props.filter;
-    let objects = [].concat(this.state.niz);
-    let orderBy = _.orderBy(objects, [filter], [filter=='name' ? 'asc' : 'desc']);
-    // asc
-    let nesto = orderBy
+
+    // let { filter } = this.props.filter;
+    // this.sort(filter);
+    let nizLength = this.state.niz.length;
+    let nesto = this.state.niz
     .map((item, key) =>
         <div className={css.objectCardItem} key={key}>
 
@@ -112,16 +143,17 @@ class ObjectCard extends React.Component{
               <Rating
                 readonly
                 emptySymbol={
-                  <img style={{width:'30px', marginRight:'2px'}}
-                src={prazan}
-                className="icon"/>}
+                  <img
+                    src={prazan}
+                    className={"icon"+" "+css.objectCardRating}/>}
                 fullSymbol={
-                  <img style={{width:'30px', marginRight:'2px'}}
-                src={pun}
-                className="icon"/>}
-                stop={5}
-                initialRating={item.avgRating}
+                  <img
+                  src={pun}
+                  className={"icon"+" "+css.objectCardRating}/>}
+                  stop={5}
+                  initialRating={item.avgRating}
               />
+              <div className={css.ratingNewRow}>
               <div className={css.circleRating}>
                 <div>
                   <p>{item.avgRating}</p>
@@ -129,6 +161,7 @@ class ObjectCard extends React.Component{
               </div>
               <div className={css.ratingCount}>
                 <p>{item.ratingCount} Reviews</p>
+              </div>
               </div>
             </div>
             <div className={css.isWorkingWrapper}>
@@ -140,7 +173,7 @@ class ObjectCard extends React.Component{
               <div className={css.isWorking}>
                 {
                   <img 
-                    style={{width:'100px',margin:'auto 0 0 auto'}}
+                    className={css.objectCardClock}
                     alt='clock image'
                     src={
                   item.workingTimeInfo.isWorking && item.verified ? satRadiVip :
@@ -154,7 +187,17 @@ class ObjectCard extends React.Component{
     )
     return(
       <div className={css.objectCard}>
+        <div className={css.listedObjects}>
+          <div>
+            <p>potvrdjeno ({nizLength})</p>
+          </div>
+          <div>
+            <SelectFiltration />
+          </div>
+        </div>
         {nesto}
+        <div className={css.objectEmptyDiv}>
+        </div>
       </div>
     )
   }

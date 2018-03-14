@@ -77,18 +77,18 @@ class ProfileWorkTime extends React.Component{
               <p>Radno vreme i praznici</p>
             </div>
           </div>
+          <div className={css.profileWorkTimeThirth}>
+            <div className={css.profileWorkTimeThirthBox}>
+              <ProfileInfo objectCl={objectCl}/>
+              <ProfileMap objectCl={objectCl}/>
+            </div>
+          </div>
           <div className={css.profileWorkTimeSecond}>
             <ProfileWorkClock
             isWorking={objectCl.workingTimeInfo.isWorking}
             verified={objectCl.verified}/>
             <ObjectWorkTime objectCl={objectCl}/>
             <ProfileCalendar />
-          </div>
-          <div className={css.profileWorkTimeThirth}>
-            <div className={css.profileWorkTimeThirthBox}>
-              <ProfileInfo objectCl={objectCl}/>
-              <ProfileMap objectCl={objectCl}/>
-            </div>
           </div>
         </div>
         }

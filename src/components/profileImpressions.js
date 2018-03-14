@@ -62,7 +62,7 @@ class ProfileImpressions extends React.Component{
         </div>
         <div style={{display:'flex'}}>
           <div className={css.profileRatingNPrice}>
-            <div className={css.marTop} style={{display:'flex',flexDirection:'column',marginLeft:'auto',alignItems:'centar'}}>
+            <div className={css.marTop} style={{display:'flex',flexDirection:'column',marginLeft:'auto'}}>
               <div className={css.paddingOfRating}>
                 <Rating
                   readonly
@@ -77,19 +77,19 @@ class ProfileImpressions extends React.Component{
                     stop={5}
                     initialRating={objectCl.avgRating}
                 />
-                <div className={css.borderOfRatings}></div>
               </div>
+              <div className={css.borderOfRatings}></div>
               <div className={css.profileRatingNPricePrice}>
                 <Rating
                   readonly
                   emptySymbol={
                     <img
-                    width={60}
+                    width={24}
                     src={dolar}
                   className={"icon"+" "+css.iconSize}/>}
                     fullSymbol={
                     <img 
-                    width={60}
+                    width={24}
                     src={dolar}
                   className={"icon"+" "+css.iconSize}/>}
                     stop={5}

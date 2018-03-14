@@ -12,17 +12,13 @@ class WwListHeader extends React.Component{
     });
   }
   render(){
-
     return(
       <div className={css.wwListHeader}>
         <div className={css.wwListNow}>Radi sada</div>
         <div className={css.wwListClose}>Blizu mene</div>
-        <select onChange={this.one}>
-          <option hidden>Poredjaj po</option>
-          <option className={css.dajbre} value='name' >Abc</option>
-          <option value='avgRating'>By avg rating</option>
-          <option value='ratingCount'>rating count</option>
-        </select>
+        <div className={css.selectFiltration}>
+          select
+        </div>
       </div>
     )
   }

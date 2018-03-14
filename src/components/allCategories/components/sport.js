@@ -1,17 +1,37 @@
 import React from 'react';
 import css from '../../styles/styles.scss';
+import Apoteke from '../../../images/Apoteke.png';
+import Laboratorije from '../../../images/Laboratorije.png';
+import Klinike from '../../../images/Klinike.png';
+import CategoriesBox from './categorieBox';
+
+let array = [
+  {
+    name: 'Apoteke',
+    slika: Apoteke,
+    id: 1,
+  },
+  {
+    name: 'Laboratorije',
+    slika: Laboratorije,
+    id: 2,
+  },
+  {
+    name: 'Klinike',
+    slika: Klinike,
+    id: 3,
+  },
+]
+let name = 'Sport';
 
 class Sport extends React.Component{
   render() {
     return (
-      <div className={css.categorieBox}>
-        <div className={css.categorieBoxHeader}>
-          <p>Sport</p>
-        </div>
-        <div>
-
-        </div>
-      </div>
+      <CategoriesBox
+        array={array}
+        name={name}
+        cssClassThree
+        justify='flex-end'/>
     )
   }
 }

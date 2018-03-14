@@ -1,8 +1,8 @@
 import React from 'react';
 import css from '../styles/styles.scss';
 import Rating from 'react-rating';
-import pun from '../../images/cena.png';
-import prazan from '../../images/CEna1.png';
+import pun from '../../images/dolar.png';
+import prazan from '../../images/dolar1.png';
 
 class ProfileInfo extends React.Component{
   render(){
@@ -13,7 +13,6 @@ class ProfileInfo extends React.Component{
     let phone = objectInfo.phone.map((item, key) => {
       return(
         <div key={key}>
-          <h3>{item.desc}</h3>
           <p>{item.number}</p>
         </div>
       )
@@ -24,6 +23,7 @@ class ProfileInfo extends React.Component{
           {
             !objectInfo.phone.length ? null :
             <div className={css.profileInformationPhone}>
+              <h3>Telefon</h3>
               <p>{phone}</p>
             </div>
           }
@@ -41,17 +41,17 @@ class ProfileInfo extends React.Component{
           {
             // da li treba ispitivanje?
             <div className={css.profileInformationPrice}>
-              <p>Cena</p>
+              <h3>Cena</h3>
               <Rating
                 readonly
                 emptySymbol={
-                  <img style={{width:'30px', marginRight:'2px'}}
+                  <img
                 src={prazan}
-                className="icon"/>}
+                className={"icon"+" "+css.dolarIcon}/>}
                 fullSymbol={
-                  <img style={{width:'30px', marginRight:'2px'}}
+                  <img 
                 src={pun}
-                className="icon"/>}
+                className={"icon"+" "+css.dolarIcon}/>}
                 stop={5}
                 initialRating={objectCl.avgPrice}
               />
@@ -69,7 +69,7 @@ class ProfileInfo extends React.Component{
             objectInfo.websiteUrl == null ? null :
             <div className={css.profileInformationLink}>
               <h3>Web site</h3>
-              <p><a href={`${objectInfo.websiteUrl}`}>otvori web site</a></p>
+              <p><a href={`${objectInfo.websiteUrl}`}>Otvori web site</a></p>
             </div>
           }
         </div>

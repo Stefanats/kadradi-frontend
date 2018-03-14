@@ -20,7 +20,9 @@ const CategorieBox = (props) => {
       <div className={css.categorieBoxHeader}>
         <p>{props.name}</p>
       </div>
-      <div className={css.categorieBoxBody}>
+      <div
+        style={{justifyContent: `${props.justify}`}} 
+        className={css.categorieBoxBody}>
         {categories}
       </div>
     </div>

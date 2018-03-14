@@ -7,6 +7,7 @@ import FaAngleRight from 'react-icons/lib/fa/angle-right';
 import FaAngleLeft from 'react-icons/lib/fa/angle-left';
 import { setTimeout } from 'timers';
 import { connect } from 'react-redux';
+import WhenWorksPhone from './whenWorksPhone';
 
 let niz = ['apoteke', 'meljacnice', 'kafici', 'restorani', 'banke', 'dsadsadaa'];
 
@@ -93,17 +94,7 @@ class WhenWorks extends React.Component{
             </div>
           </div>
         </div>
-        <div className={css.whenWorksPhone}>
-        {/* <WhenWorksHeader /> */}
-          <div className={css.jebote}>
-            <div>
-              <WhenWorksList />
-            </div>
-            <div>
-              <GoogleMap css='map' />
-            </div>
-          </div>
-        </div>
+        <WhenWorksPhone />
       </div>
     )
   }
