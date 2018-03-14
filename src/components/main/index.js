@@ -81,26 +81,48 @@ import logo from './reactql-logo.svg';
 // function changeRoute() {
 //   history.push('/page/about');
 // }
+
+
 let location = false;
-export default () => (
-  <div className={css.lukaCar}>
-    <Helmet>
-      <title>ReactQL application</title>
-      <meta name="description" content="ReactQL starter kit app" />
-      {/* <base href="http://localhost:8081/" /> */}
-    </Helmet>
-    {
-      location ? <div>nemere</div> :
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/addobject" component={AddObject} />
-        <Route path="/about" component={About} />
-        <Route path="/view" component={WhenWorks} />
-        <Route path="/profile/:name/:id" component={ObjectProfile} />
-        <Route path="/proba" component={Proba} />
-        <Route path="/contactForm" component={ContactForm} />
-        <Route component={NotFound} />
-      </Switch>
-    }
-  </div>
-);
+
+@geolocated({
+  positionOptions: {
+    enableHighAccuracy: false,
+  },
+  userDecisionTimeout: 5000,
+})
+
+
+class Index extends React.Component{
+  render(){
+    console.log('INDEX', this.props)
+    return(
+      <div className={css.lukaCar}>
+        <Helmet>
+          <title>ReactQL application</title>
+          <meta name="description" content="ReactQL starter kit app" />
+          {/* <base href="http://localhost:8081/" /> */}
+        </Helmet>
+        { 
+          !this.props.isGeolocationAvailable
+            ? <div>Your browser does not support Geolocation</div>
+              : !this.props.isGeolocationEnabled
+                ? <div>Geolocation is not enabled</div>
+                  : this.props.coords ?
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/addobject" component={AddObject} />
+            <Route path="/about" component={About} />
+            <Route path="/view" component={WhenWorks} />
+            <Route path="/profile/:name/:id" component={ObjectProfile} />
+            <Route path="/proba" component={Proba} />
+            <Route path="/contactForm" component={ContactForm} />
+            <Route component={NotFound} />
+          </Switch>
+          : <div>WAITING FOR COORDS</div>
+        } 
+      </div>
+    )
+  }
+}
+export default Index;

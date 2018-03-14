@@ -7,6 +7,7 @@ import Categories from './categories';
 import InputBox from './inputBox';
 import Navigation from './navigation';
 import AllCategories from './allCategories/allCategories';
+import PopularCategories from './popularCategories/popularCategories';
 import Hamburger from './hamburger';
 import {geolocated} from 'react-geolocated';
 
@@ -58,13 +59,14 @@ class Home extends React.Component{
 					<DownStore />
 				</div>
 				<div className={css.categoriesWrapper}>
-					<div>
 						<Categories clickHandler={(e) => this.clickHandler(e)} />
+					{/* <div>
 					</div>
 					<div>
+				</div> */}
 						<AllCategories clickHandler={(e) => this.clickHandler(e)}/>
-					</div>
-				</div>
+					{/* <PopularCategories /> */}
+				</div> 
 			</div>
 		)
   }

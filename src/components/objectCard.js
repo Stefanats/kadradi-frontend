@@ -56,6 +56,7 @@ import SelectFiltration from './selectFiltration';
       }
     }
   }
+
  } `,
   {
     options: (props) => {
@@ -115,7 +116,7 @@ class ObjectCard extends React.Component{
     }) : null
   }
   render(){
-
+    console.log('IZ OBJEKT KARDA STEFAN', this.props)
     // let { filter } = this.props.filter;
     // this.sort(filter);
     let nizLength = this.state.niz.length;

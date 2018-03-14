@@ -9,8 +9,8 @@ class ProfileMap extends React.Component{
     return(
       <div className={css.profileMap}>
         <div className={css.profileMapWrapper}>
-          <GoogleMap
-            css='map1'/>
+          <GoogleMap 
+            css='map1'/> 
         </div>
         <div className={css.profileMapBar}>
           <div className={css.profileMapContent}>

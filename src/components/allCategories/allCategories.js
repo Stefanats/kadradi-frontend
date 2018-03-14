@@ -6,7 +6,7 @@ import WrapperThree from './wrappers/wrapperThree';
 import WrapperFour from './wrappers/wrapperFour';
 import WrapperFive from './wrappers/wrapperFive';
 
-class AllCtegories extends React.Component{
+class AllCategories extends React.Component{
   render() {
     return (
       <div className={css.allCategories}>
@@ -32,4 +32,4 @@ class AllCtegories extends React.Component{
     )
   }
 }
-export default AllCtegories;
+export default AllCategories;

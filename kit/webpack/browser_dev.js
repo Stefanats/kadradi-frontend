@@ -25,7 +25,7 @@ import PATHS from '../../config/paths';
 // ----------------------
 
 // Host and port settings to spawn the dev server on
-const HOST = process.env.BROWSER_HOST || 'localhost';//localhost 
+const HOST = process.env.BROWSER_HOST || 'localhost';//localhost 192.168.1.12 
 const PORT = process.env.BROWSER_PORT || 8080;
 const LOCAL = `http://${HOST}:${PORT}/`;
 

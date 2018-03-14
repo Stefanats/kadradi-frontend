@@ -44,6 +44,11 @@ let niz = [
 		name: "Menjačnice",
 		slika: menjacnice
 	},
+	{
+		id: 6,
+		name: "Laboratorije",
+		slika: laboratorije
+	},
 ]
 
 @connect(state => ({ filter: state.filter }))
@@ -65,16 +70,10 @@ class Categories extends React.Component {
 					className={css.singleCategorie}
 					onClick={() => this.sendCategoriesId(item)}>
 					<Link  to={`/view/${item.name.toLowerCase()}/${item.id}`}>
-						<div className={css.singleAbsolute}>
-							<div className={css.singleFlex}>
-								<div className={css.singleImg}>
-									<img alt={item.ime} src={item.slika}/>
-								</div>
-								<div className={css.singleText}>
-									{item.name}
-								</div>
-							</div>
-						</div>
+					<div className={css.singleCategorieBox}>
+						<img className={css.singleImg} alt={item.ime} src={item.slika}/>
+						<p className={css.singleText}>{item.name}</p>
+					</div>
 					</Link>
 				</div>
 			)
