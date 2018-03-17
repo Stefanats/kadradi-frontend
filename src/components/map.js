@@ -19,12 +19,6 @@ import {geolocated} from 'react-geolocated';
 import { resultKeyNameFromField } from 'apollo-client/data/storeUtils';
 
 
-@geolocated({
-  positionOptions: {
-    enableHighAccuracy: false,
-  },
-  userDecisionTimeout: 5000,
-})
 @graphql(gql`
  query
   nearestObjects($categoryId: Int, $lat: Float, $lng: Float, $distance: Float) {

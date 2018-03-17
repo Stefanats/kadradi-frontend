@@ -73,6 +73,7 @@ import css from '../styles/styles.scss';
 // available as a string relative to [root]/dist/assets/img/
 import logo from './reactql-logo.svg';
 
+import { BarLoader } from 'react-spinners';
 // ----------------------
 
 // Example function to show that the `history` object can be changed from
@@ -105,11 +106,15 @@ class Index extends React.Component{
         </Helmet>
         { 
           !this.props.isGeolocationAvailable
-            ? <div>Your browser does not support Geolocation</div>
+            ? <div style={{
+                background:'#009797',
+                display:'flex',height:'100vh'}}><p style={{margin:'auto',fontSize:"30px",fontWeight:"700",color:"#fff"}}>Your browser does not support Geolocation</p></div>
               : !this.props.isGeolocationEnabled
-                ? <div>Geolocation is not enabled</div>
+                ? <div style={{
+                  background:'#009797',
+                  display:'flex',height:'100vh'}}><p  style={{margin:'auto',fontSize:"30px",fontWeight:"700",color:"#fff"}}>Geolocation is not enabled</p></div>
                   : this.props.coords ?
-          <Switch>
+          <Switch {...props}>
             <Route exact path="/" component={Home} />
             <Route path="/addobject" component={AddObject} />
             <Route path="/about" component={About} />
@@ -119,7 +124,16 @@ class Index extends React.Component{
             <Route path="/contactForm" component={ContactForm} />
             <Route component={NotFound} />
           </Switch>
-          : <div>WAITING FOR COORDS</div>
+          : <div style={{
+            background:'#009797',
+            display:'flex',height:'100vh'}}>
+              {/* <p style={{margin:'auto',fontSize:"30px",fontWeight:"700",color:"#fff"}}>WAITING FOR COORDS</p> */}
+              <div style={{margin: 'auto'}} className='sweet-loading'>
+        <BarLoader
+          color={'#fff'}
+        />
+      </div>
+            </div>
         } 
       </div>
     )
