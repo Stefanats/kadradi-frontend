@@ -5,7 +5,6 @@ import { withRouter } from 'react-router';
 
 class Navigation extends React.Component{
   render(){
-    console.log('iz nav',this.props)
     return(
       <div className={css.menuHolder}>
         <ul>

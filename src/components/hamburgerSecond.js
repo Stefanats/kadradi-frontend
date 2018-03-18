@@ -3,7 +3,7 @@ import css from './styles/styles.scss';
 import { HamburgerButton } from 'react-hamburger-button';
 import { Link } from 'react-router-dom';
 
-class Hamburger extends React.Component{
+class HamburgerSecond extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -22,8 +22,8 @@ class Hamburger extends React.Component{
   }
   render(){
     return(
-			<div className={css.hamburgerWrapper}>
-        <div className={css.hamburger}>
+			<div className={css.hamburgerWrapperS}>
+        <div className={css.hamburgerS}>
           <HamburgerButton
             color="#fff"
             open={this.state.open}
@@ -31,8 +31,8 @@ class Hamburger extends React.Component{
           />
           <div 
             style={{display: `${this.state.open == true ? 'block' : 'none'}`}}
-            className={css.hamburgerListWrapper}>
-            <ul className={css.hamburgerList}>
+            className={css.hamburgerListWrapperS}>
+            <ul className={css.hamburgerListS}>
               <Link to="/"><li>Pocetna</li></Link>
               <Link to="/addobject"><li>Dodaj Objekat</li></Link>
               <Link to="/about"><li>O nama</li></Link>
@@ -43,4 +43,4 @@ class Hamburger extends React.Component{
     )
   }
 }
-export default Hamburger;
+export default HamburgerSecond;

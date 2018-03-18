@@ -14,7 +14,6 @@ class ProfileWorkClock extends React.Component{
     let isOpen = this.props.isWorking ? 'Otvoreno sada' : 'Zatvoreno sada';
     let color = this.props.isWorking ? '#63cc5a' : '#e3423d';
     let imgName = clock.split("/").pop();
-    console.log('ime slike', imgName)
     return(
       <div className={css.profileWorkClock}>
         <div className={css.profileWorkClockBox}>

@@ -11,7 +11,7 @@ html, body {
 h1, h2, h3, h4, h5, h6, ul, li, a, p {
   padding: 0;
   margin: 0;
-}
+} 
 h1{
   font-size: 40px;
   font-weight: 600;
@@ -392,12 +392,6 @@ a:visited {
   color: #fff;
   cursor: pointer;
 }
-.hamburgerWrapper{
-  display: none;
-}
-.hamburger{
-  position: absolute;
-}
 .dropDownWrapper, .dropDownWrapperTwo{
   background: #fff;
   position: absolute;
@@ -446,8 +440,8 @@ a:visited {
 }
 .whenWorksHeader{
   display: flex;
-  flex-direction: row;
   background-color: $red;
+  padding: 10px;
 }
 .whenWorksLogo{
   width: 100%;
@@ -462,7 +456,6 @@ a:visited {
   padding: 15px;
   background-color: rgba(255,255,255,.3);
   border-radius: 50px;
-  margin: 10px 50px;
 }
 .whenWorksInput{
   background-color: rgba(255,255,255,0);
@@ -484,15 +477,13 @@ a:visited {
   flex-direction: row;
 }
 .whenWorksNavigation{
+  justify-content: space-around;
+  align-items: center;
   flex: 1;
   display: flex;
 }
-.whenWorksNavigation ul{
-  margin: auto;
-}
-.whenWorksNavigation li{
-  display: inline-block;
-  margin: 0 30px;
+.whenWorksNavigation p{
+  color: #fff;
 }
 .whenWorksBodyMiddleR{
   display: flex;
@@ -1648,6 +1639,59 @@ a:visited {
   width: 100px;
   margin: auto 0 0 auto;
 }
+.hamburgerWrapper{
+  z-index: 1001;
+  width: 200px;
+  position: absolute;
+  display: none;
+  top: 10px;
+  left: 10px;
+}
+.hamburgerWrapperS{
+  z-index: 1001;
+  width: 200px;
+  display: none;
+  position: absolute;
+}
+.hamburgerListWrapper{
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  li{
+  color: #000;
+  padding: 10px;
+  }
+  li:hover{
+    background-color: rgb(255, 0, 0);
+  }
+}
+.hamburgerListWrapperS{
+  left: -200px;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  li{
+  color: #000;
+  padding: 10px;
+  }
+  li:hover{
+    background-color: rgb(255, 0, 0);
+  }
+}
+.navBox1{
+  flex: 1;
+}
+.navBox2{
+  flex: 4;
+  margin-left: 50px;
+}
+.navBox3{
+  flex: 4;
+  display: flex;
+  justify-content: center;
+}
 // END FORMA STYLE //
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -1667,6 +1711,13 @@ a:visited {
 //MEDIA 425px
 
 @media screen and (max-width: 425px){
+  .whenWorksHeader{
+    flex-direction: row-reverse;
+    padding: 12px 10px;
+  }
+  .hamburgerWrapper, .hamburgerWrapperS{
+    display: block;
+  }
   .singleCategorie{
     width: calc((100vw)/3-5px);
     height: 18vh;
@@ -1707,7 +1758,7 @@ a:visited {
   display: none;
 }
 .whenWorksInputHolder{
-  margin: 10px 0 10px 70px;
+  // margin: 10px 0 10px 70px;
   display: flex;
   flex-direction: row;
   background-color: rgba(255,255,255,.3);
@@ -1918,27 +1969,6 @@ a:visited {
   .submit{
     margin-left: auto;
   }
-  .hamburgerWrapper{
-    z-index: 1001;
-    width: 200px;
-    position: absolute;
-    display: block;
-    top: 10px;
-    left: 10px;
-  }
-  .hamburgerListWrapper{
-    margin-top: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    overflow: hidden;
-    li{
-    color: #000;
-    padding: 10px;
-    }
-    li:hover{
-      background-color: rgb(255, 0, 0);
-    }
-  }
   .addYourObject {
     padding: 25px 0 25px;
   }
@@ -2107,6 +2137,12 @@ a:visited {
 
 // MEDIA QUERY 426-768
 @media screen and (min-width: 426px) and (max-width: 768px){
+  .whenWorksHeader{
+    flex-direction: row-reverse;
+  }
+  .hamburgerWrapperS{
+    display: block;
+  }
   .headerTextH1{
     font-size: 24px;
   }
@@ -2282,7 +2318,9 @@ a:visited {
   .zapamtite {
     font-size: 15px;
   }
-  
+  .whenWorksNavigation{
+    display: none;
+  }
 }
 // END MEDIA QUERY 426-768
 

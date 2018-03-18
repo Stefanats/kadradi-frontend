@@ -8,7 +8,6 @@ class ProfileInfo extends React.Component{
   render(){
     let objectCl = this.props.objectCl;
     let objectInfo = objectCl.objectInfo;
-    console.log('telefoni', objectInfo)
     
     let phone = objectInfo.phone.map((item, key) => {
       return(

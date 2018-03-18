@@ -9,8 +9,6 @@ import { setTimeout } from 'timers';
 import { connect } from 'react-redux';
 import WhenWorksPhone from './whenWorksPhone';
 
-let niz = ['apoteke', 'meljacnice', 'kafici', 'restorani', 'banke', 'dsadsadaa'];
-
 class WhenWorks extends React.Component{
   constructor(props){
     super(props);
@@ -20,19 +18,6 @@ class WhenWorks extends React.Component{
         click: 'auto'
       }
   }
-//   render(){
-//     console.log('adsa', this.props.location.pathname.substring(6))
-//     if(niz.indexOf(this.props.location.pathname.substring(6)) > -1){
-//       return(
-//         <div>
-//           <h1>{this.props.location.pathname.substring(6)}</h1>
-//         </div>
-//         )
-//       }else{
-//       return history.push('/home')
-//     }
-//   }
-// }
 
   clickHanderRight(){
     this.setState({
@@ -64,37 +49,35 @@ class WhenWorks extends React.Component{
     }, 1000)
   }
   render(){
-
+    console.log('whenworks', this.props)
     return(
       <div className={css.whenWorks}>
-        <div className={css.whenWorksComputer}>
           <WhenWorksHeader />
           <div className={this.state.klasa}>
             <div className={css.leftHolder}>
               <WhenWorksList />
-              <div 
+              {/* <div 
                 style={{pointerEvents:`${this.state.click}`}}
                 onClick={() => this.clickHandlerLeft()}
                 className={css.leftArrow}>
                 <div>
                   <FaAngleLeft />
                 </div>
-              </div>
+              </div> */}
             </div>
             <div  style={{overflow:"hidden"}}  className={css.rightHolder}>
               <GoogleMap css='map' />
-              <div 
+              {/* <div 
                 style={{pointerEvents:`${this.state.click}`}}
                 onClick={()=> this.clickHanderRight()}
                 className={css.rightArrow}>
                 <div>
                   <FaAngleRight />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
-        </div>
-        <WhenWorksPhone />
+        {/* // <WhenWorksPhone /> */}
       </div>
     )
   }

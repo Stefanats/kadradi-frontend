@@ -11,7 +11,6 @@ class CategorieBox extends React.Component {
       type: "SEND_CATEGORIESID",
       value: item.id
     });
-    console.log('IZ SENDA', item)
   }
   render(){
     let cssClass =

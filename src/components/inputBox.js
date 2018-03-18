@@ -94,6 +94,8 @@ class InputBox extends React.Component {
       sendName: item.name,
     })
   }
+  updateCounties = item => {
+  }
   search(){
     this.state.object ?
     history.push(`/profile/${this.state.sendName}/${this.state.sendValue}`):
@@ -143,6 +145,7 @@ class InputBox extends React.Component {
         <div className={css.whereWrapper}>
           <div className={css.where}>Gde</div>
           <input 
+            onChange={(event) => this.updateCounties(event)}
             className={css.deoGrada} 
             type="text" 
             placeholder="Deo grada"/>

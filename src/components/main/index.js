@@ -34,7 +34,6 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-
 // <Helmet> component for setting the page title/meta tags
 import Helmet from 'react-helmet';
 
@@ -64,6 +63,7 @@ import ContactForm from '../contactForm';
 import Home from '../home';
 import ObjectProfile from '../objectProfile';
 import {geolocated} from 'react-geolocated';
+import { withRouter } from 'react-router'
 
 
 // Styles
@@ -96,7 +96,6 @@ let location = false;
 
 class Index extends React.Component{
   render(){
-    console.log('INDEX', this.props)
     return(
       <div className={css.lukaCar}>
         <Helmet>
@@ -104,8 +103,8 @@ class Index extends React.Component{
           <meta name="description" content="ReactQL starter kit app" />
           {/* <base href="http://localhost:8081/" /> */}
         </Helmet>
-        { 
-          !this.props.isGeolocationAvailable
+        
+          {/* !this.props.isGeolocationAvailable
             ? <div style={{
                 background:'#009797',
                 display:'flex',height:'100vh'}}><p style={{margin:'auto',fontSize:"30px",fontWeight:"700",color:"#fff"}}>Your browser does not support Geolocation</p></div>
@@ -113,30 +112,30 @@ class Index extends React.Component{
                 ? <div style={{
                   background:'#009797',
                   display:'flex',height:'100vh'}}><p  style={{margin:'auto',fontSize:"30px",fontWeight:"700",color:"#fff"}}>Geolocation is not enabled</p></div>
-                  : this.props.coords ?
-          <Switch {...props}>
+                  : this.props.coords ? */}
+          <Switch >
             <Route exact path="/" component={Home} />
-            <Route path="/addobject" component={AddObject} />
+            <Route path="/addobject" render={()=><AddObject {...this.props}/>} />
             <Route path="/about" component={About} />
-            <Route path="/view" component={WhenWorks} />
+            <Route path="/view" render={()=><WhenWorks {...this.props}/>} />
             <Route path="/profile/:name/:id" component={ObjectProfile} />
             <Route path="/proba" component={Proba} />
             <Route path="/contactForm" component={ContactForm} />
             <Route component={NotFound} />
           </Switch>
-          : <div style={{
+          {/* : <div style={{
             background:'#009797',
             display:'flex',height:'100vh'}}>
-              {/* <p style={{margin:'auto',fontSize:"30px",fontWeight:"700",color:"#fff"}}>WAITING FOR COORDS</p> */}
+              
               <div style={{margin: 'auto'}} className='sweet-loading'>
         <BarLoader
           color={'#fff'}
         />
       </div>
-            </div>
-        } 
+            </div> */}
+        
       </div>
     )
   }
 }
-export default Index;
+export default withRouter(Index);

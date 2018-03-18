@@ -48,10 +48,8 @@ class ProfileComments extends React.Component{
     }
   }
   moreComents = () => {
-    console.log('ASDSADASD')
   }
   render(){
-    console.log('STEJT', this.state.page)
     let result = this.props.data.ObjectReview || [];
     let ObjectReview = result;
     let comments = ObjectReview.map((item, key) => {

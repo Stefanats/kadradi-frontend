@@ -127,13 +127,13 @@ class GoogleMap extends React.Component {
   }
 
   render() {
+    console.log('iz mape', this.props.stefan)
     let {latitude, longitude} = this.props.coords || [];
     let id = this.props.location.pathname.split("/").pop();
     let csss = this.props.css === 'map1' ? css.map1 : css.map;
     let resultNear = this.props.data.nearestObjects || [];
     let resultCl = this.props.data.objectCl || [];
     let result = this.props.closeToMe.close ? resultNear : resultCl;
-    console.log('hvala za kafu', this.props)
       return (
         <div className={csss}>
         { latitude == null || longitude == null ? <div>LOUDUJE SE</div> :
@@ -230,7 +230,6 @@ class GoogleMap extends React.Component {
 //     zoom: 11
 //   };
 //   render(){
-//     console.log('IZ REDUXAAAAAAAAAAAAA', this.props.lat)
 //     let csss = this.props.css == 'map' ? css.map : css.map1
 //     return(
 //       <div className={csss}>

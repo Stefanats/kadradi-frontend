@@ -41,7 +41,6 @@ class Home extends React.Component{
 		})
 	}
   render(){
-		console.log('sadkkjdsa', this.props)
 		return(
 			<div>
 				<div className={css.header}>
@@ -60,10 +59,6 @@ class Home extends React.Component{
 				</div>
 				<div className={css.categoriesWrapper}>
 						<Categories clickHandler={(e) => this.clickHandler(e)} />
-					{/* <div>
-					</div>
-					<div>
-				</div> */}
 						<AllCategories clickHandler={(e) => this.clickHandler(e)}/>
 					{/* <PopularCategories /> */}
 				</div> 

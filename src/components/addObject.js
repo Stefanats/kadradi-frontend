@@ -5,6 +5,7 @@ import DownStore from './downStore';
 import Hamburger from './hamburger';
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
+import { withRouter } from 'react-router'
 
 @graphql(
   gql`
@@ -80,9 +81,6 @@ class AddObject extends React.Component{
   }
   render(){
 
-    console.log("ja sam mutacija", this.props)
-    console.log('email',this.state.email)
-    console.log('phone',this.state.phone)
     return(
       <div className={css.addObject}>
         	<div className={css.hamburgerWrapper}>

@@ -58,8 +58,6 @@ class ProfileHome extends React.Component{
     let result = this.props.data.objectCl || [];
     let [objectCl] = result;
 
-    objectCl == undefined ? null :
-    console.log('OVO JE KONZOLLOG', objectCl.images.profileImage.fileUrl)
     // let splitedVremeOd = objectCl != undefined ?
     //     objectCl.workingTimeInfo.monToFri.opening.split('') : '';
     // let vremeOd = splitedVremeOd[0]+splitedVremeOd[1]+':'+splitedVremeOd[2]+splitedVremeOd[3];

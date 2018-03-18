@@ -45,7 +45,6 @@ export default class ReduxCounter extends React.PureComponent {
     const { count } = this.props.counter;
 
     // const { countt } = this.props.counterr;
-    console.log('ovo je jebeni redux', this.props)
     return (
       <div>
         <h2>Listening to Redux counter: {count}</h2>

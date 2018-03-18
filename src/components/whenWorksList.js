@@ -37,8 +37,8 @@ class WhenWorksList extends React.Component{
   render(){
     let objectCl = [];
     objectCl = this.props.data.objectCl || [];
+    console.log('LIST', objectCl.length)
 
-    console.log('CCCCCCCCCCCCC', objectCl)
     return(
       <div className={css.whenWorksList}>
         <WwListHeader />

@@ -93,7 +93,6 @@ export default class GraphQLMessage extends React.PureComponent {
     // })
   }
   setForm(e){
-    console.log('sub si', this.refs.email.value);
     let that = this.refs;
     e.preventDefault();
     this.setState({
@@ -104,7 +103,6 @@ export default class GraphQLMessage extends React.PureComponent {
     
   }
   render() {
-    console.log('jebeni state', this.state)
     const { data } = this.props;
     // Since we're dealing with async GraphQL data, we defend against the
     // data not yet being loaded by checking to see that we have the `message`
