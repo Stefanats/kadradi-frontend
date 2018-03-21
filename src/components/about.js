@@ -43,7 +43,7 @@ class About extends React.Component{
       view: !this.state.view,
 
     })
-  }
+  } 
   render(){
     let result = this.props.data.objectCl || [];
     let [objectCl] = result;
@@ -77,6 +77,7 @@ class About extends React.Component{
     let klik = {
 
     }
+    console.log('VISINA', this)
     return(
       <div>
       { 
@@ -86,7 +87,7 @@ class About extends React.Component{
         <Navigation />
         <DownStore />
         <div style={{width:'300px'}}>
-        <div style={stylez}>
+        <div ref={ (divElement) => this.divElement = divElement} style={stylez}>
             <div style={stajl}>
 
             </div>

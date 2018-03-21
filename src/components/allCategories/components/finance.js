@@ -30,7 +30,10 @@ class Finance extends React.Component{
       <CategoriesBox
         array={array}
         name={name}
-        cssClassThree/>
+        cssClassThree
+        justify='flex-start'
+        margin='0 auto 0 0'
+        class={css.categorieBoxBodyR}/>
     )
   }
 }

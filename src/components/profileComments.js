@@ -75,7 +75,7 @@ class ProfileComments extends React.Component{
               </div>
             </div>
             <div className={css.userRating}>
-            <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center',marginLeft:'auto'}}>
+            <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center',marginLeft:'auto',marginTop:'auto'}}>
               <img src={img} className={css.userRatings}/>
               <span className={css.userNumPhotos}>{item.photoCount}</span>
               <Rating

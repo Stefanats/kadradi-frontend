@@ -202,10 +202,10 @@ a:visited {
   padding: 20px;
   flex: 1;
   display: flex;
-  background-color: rgb(0, 148, 123);
+  background: #019f9f;
   color: #fff;
   h2{
-    margin-left: 30px;
+    // margin-left: 30px;
   }
 }
 .popularCategories{
@@ -218,7 +218,6 @@ a:visited {
   position: relative;
   width: calc((100%)/6-2px);
   padding-top: 15vw;
-  border: 1px rgb(221, 221, 221) solid;
 }
 .allCategories{
   display: flex;
@@ -259,7 +258,7 @@ a:visited {
   min-height: 70px; //ZBOG MOZILE
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background: #019f9f;
   // border: 1px solid rgb(201, 201, 201);
@@ -273,6 +272,19 @@ a:visited {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  max-width: 1440px;
+}
+.categorieBoxBodyL{
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  max-width: 720px;
+}
+.categorieBoxBodyR{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  max-width: 720px;
 }
 .categorieBoxItemWrapperThree{
   max-width: 240px;
@@ -281,6 +293,14 @@ a:visited {
   // border: 1px rgb(221, 221, 221) solid;
   height: 10vw;
   position: relative;
+}
+.categorieBoxContainer{
+  display: flex;
+  height: 100px;
+  width: 100%;
+  max-width: 720px;
+  justify-content: center;
+  align-items: center;
 }
 .categorieBoxItemWrapper{
   max-width: 240px;
@@ -556,7 +576,7 @@ a:visited {
 }
 .whenWorksList{
   width: 100%;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 66px);
   position: relative;
   overflow: hidden;
 }
@@ -586,12 +606,12 @@ a:visited {
   position: relative;
 }
 .selectButton>img{
-  margin: 1px 2px;
-  width: 12px;
-  height: 12px;
+  margin: 3px 2px;
+  width: 15px;
+  height: 15px;
 }
 .selectButton>p{
-  font-size: 10px;
+  font-size: 16px;
   color: #019f9f;
 }
 .selectDropDown{
@@ -623,34 +643,30 @@ a:visited {
   color: #019f9f;
   font-size: 12px;
 }
-.wwListNow{
+.wwListOff{
   background-color: $red;
   padding: 10px;
   margin-right: 10px;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
+  border: 1px $red solid;
 }
-.wwListClose{
+.wwListOn{
   background-color: #fff;
   padding: 10px;
   border-radius: 5px;
+  margin-right: 10px;
   color: gray;
   border: 1px gray solid;
   cursor: pointer;
 }
 .selectFiltration{
   margin: auto 0 auto auto;
-  direction: rtl;
-  border: none;
-  background-color: rgba(255,255,255,0);
-  color: rgb(0, 151, 151);
-  font-size: 16px;
-  cursor: pointer;
 }
 .map{
-  width: calc(200%-2px);
-  height: calc(100vh-70px);
+  width: calc(200%-450px);
+  height: calc(100vh-450px);
   position: relative;
   border-left: 1px rgb(219, 219, 219) solid;
   margin-left: auto;
@@ -733,7 +749,7 @@ a:visited {
   // https://codepen.io/devstreak/pen/dMYgeO?editors=1000
 }
 .objectEmptyDiv{
-  height: 85px;
+  height: 150px;
   display: none;
 }
 .listedObjects{
@@ -1333,7 +1349,6 @@ a:visited {
 }
 .profileRatingCircle {
   display: flex;
-  flex: 0.5;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -1344,10 +1359,19 @@ a:visited {
 .profileRatingNPricePrice, .profileImpressionsNAccuracyAccuracy {
   text-align: center;
 }
+.profileRatingNPricePrice {
+  margin-right: 75px;
+}
 .profileImpressionsNAccuracyAccuracy {
   font-size: 24px;
   color: #009797;
   font-weight: 400;
+  margin-left: 75px;
+}
+.profileImpressionsNAccuracyAccuracy {
+  p:first-of-type {
+    margin-top: 30px;
+  }
 }
 .profileRatingNPriceCena, .profileRatingNPriceTacnost {
   color: #009797;
@@ -1500,17 +1524,16 @@ a:visited {
   flex: 1.5;
 }
 .userPhoto {
-  width: 110px;
-  height: 110px;
+  width: 85px;
+  height: 85px;
   border-radius: 50%;
   overflow: hidden;
 }
 .userInfo {
   display: flex;
-  margin-bottom: 10px;
 }
 .userIcons {
-  width: 35px;
+  width: 22px;
   padding-right: 5px;
 }
 .userName {
@@ -1520,30 +1543,29 @@ a:visited {
   flex-direction: column;
 }
 .userNum {
-  font-size: 25px;
+  font-size: 20px;
   color: #d14545;
   padding-right: 10px;
 }
 .userComment {
   color: #009797;
-  font-size: 25px;
-  max-width: 60%;
+  font-size: 20px;
+  margin-top: 20px;
 }
 .userRatings {
-  width: 60px;
+  width: 30px;
 }
 .userNumPhotos {
-  font-size: 40px;
+  font-size: 24px;
   color: #d14545;
   margin:0px 10px 0px 5px;
 }
 .borderOfImpressions {
-  display: flex;
   border-bottom: 1px solid #d1d1d1;
 }
 .borderOfRatings {
-  display: flex;
   border-bottom: 1px solid #d1d1d1;
+  margin-left: -17.8vw;
 }
 .borderDown {
  display: flex;
@@ -1569,7 +1591,7 @@ a:visited {
   margin-left: auto;
 }
 .userNameName {
-  font-size: 30px;
+  font-size: 24px;
   color: #d14545;
 }
 .profileComments {
@@ -1577,20 +1599,24 @@ a:visited {
   margin: 0px 30px;
   padding: 0px 50px;
   flex-direction: column;
+  width: 65vw;
+  margin: 0 auto;
 }
 .circlesUserComments {
-  width: 40px;
-  margin-right: 5px;
+  width: 22px;
+  margin-right: 2px;
 }
 .circleRingComments{
-  width: 80px;
-  height: 80px;
+  width: 45px;
+  height: 45px;
   padding: 2px;
   margin-left: 15px;
+  border: 1px solid red;
 }
 .circleRingCommentsPar {
+  background-color: red;
   p{
-    font-size: 40px;
+    font-size: 25px;
   }
 }
 .middleBorder {
@@ -1627,11 +1653,20 @@ a:visited {
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-
-
 //MEDIA 425px
 
 @media screen and (max-width: 425px){
+  .categorieBoxContainer{
+    height: 50px;
+  }
+.selectButton>img{
+  margin: 3px 2px;
+  width: 12px;
+  height: 12px;
+}
+.selectButton>p{
+  font-size: 12px;
+}
 .circleRating{
   display: none;
 }
@@ -1670,7 +1705,7 @@ a:visited {
 
 }
 .objectCard{
-  height: calc(100%-130px);
+  height: calc(100%-66px);//ispravi
 }
   .objectCardClock{
     width: 40px;
@@ -1706,12 +1741,12 @@ a:visited {
   }
   .whenWorksList{
     position: absolute;
-    height: calc(100vh);
+    height: calc(100vh-66px);
   }
   .map{
-    position: absolute;
+    // position: absolute;
     width: calc(100%-2px);
-    height: calc(100vh);
+    height: calc(100vh-66px);
   }
   .jebote{
     display: flex;
@@ -1719,13 +1754,14 @@ a:visited {
     height: calc(100vh-66px);
     position: relative;
     overflow: hidden;
+   
   }
   .listWrapperOne{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh-66px);
     transition: 700ms;
   }
   .mapWrapperOne{
@@ -1900,7 +1936,9 @@ a:visited {
     width: 16px;
   }
   .iconSize {
-    width: 18px;
+    width: 12px;
+    height: 24px;
+    margin-right: 5px;
   }
   .userComment {
     max-width: none;
@@ -1952,8 +1990,9 @@ a:visited {
     padding-right: 3px;
   }
   .profileComments {
+    width: 68vw;
     padding: 0px 15px;
-    margin: 0px 20px;
+    margin: 0px auto;
   }
   .userIcons {
     width: 18px;
@@ -1964,33 +2003,38 @@ a:visited {
     padding-right: 7px;
   }
   .userRatings {
-    width: 32px;
+    width: 26px;
   }
   .userNumPhotos {
     font-size: 25px;
   }
   .circlesUserComments {
-    width: 25px;
-    margin-right: 4px;
+    width: 17px;
+    margin-right: 2px;
   }
   .circleRingComments{
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
+    margin-left: 12px;
   }
   .circleRingCommentsPar {
     p{ 
-    font-size: 20px;
+    font-size: 15px;
   }
   }
   .userComment {
     font-size: 14px;
+    margin-top: 5px;
   }
   .profileImpressionsFirst {
     margin-bottom: 15px;
   }
   .middleBorder {
-    height: 30px;
+    height: 40px;
     margin-top: 10px;
+  }
+  .userData {
+    padding: 15px 0;
   }
   .userColumn {
     flex-direction: column;
@@ -2010,13 +2054,47 @@ a:visited {
   .zapamtite {
     font-size: 13px;
   }
+  .profileRatingNPricePrice {
+    margin-top: 25px;
+    margin-right: 0px;
+  }
+  .profileImpressionsNAccuracyAccuracy {
+    margin-left: 0px;
+    p:first-of-type {
+      margin-top: 13px;
+    }
+  }
+  .profileRatingNPrice {
+    margin-top: 20px;
+  }
+  .iconSize {
+    width: 9px;
+    height: 18px;
+    margin-right: 3px;
+  }
+  .header{
+    height: 100vh;
+  }
+  .headerText p{
+    font-size: 14px;
+  }
+  .profileRatingNPricePrice {
+    margin-top: 15px;
+  }
+  .borderOfImpressions {
+    margin-right: -11vw;
+  }
+  .borderOfImpressions {
+    margin-right: -2vw;
+  }
+  .borderOfRatings {
+    margin-left: -10vw;
+  }
+  .profileImpressionsNAccuracyImpressions {
+    margin-top: 20px;
+  }
 }
-.header{
-  height: 100vh;
-}
-.headerText p{
-  font-size: 14px;
-}
+
 // END MEDIA QUERY min 425
 
 // MEDIA QUERY 426-768
@@ -2053,37 +2131,40 @@ a:visited {
   }
   .bigCircleParagraph  {
     p{
-      font-size: 33px;
+      font-size: 22px;
     }
   }
   .bigCircle {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     padding: 2px;
   }
   .biggerIconSize {
     width: 20px;
   }
   .iconSize {
-    width: 24px;
+    width: 12px;
+    height: 24px;
+    margin-right: 5px;
   }
   .userComment {
     max-width: none;
   }
   .profileImpressionsNAccuracyImpressions {
     font-size: 20px;
+    margin-top: 18px;
   }
   .profileImpressionsNAccuracyAccuracy {
-    font-size: 25px;
+    font-size: 24px;
   }
   .profileRatingNPriceTacnost {
     max-width: none;
   }
   .profileRatingNPriceTacnost {
-    font-size: 11px;
+    font-size: 13px;
   }
   .profileRatingNPriceCena {
-    font-size: 11px;
+    font-size: 13px;
   }
   .borderDown {
     margin: 0px;
@@ -2116,7 +2197,7 @@ a:visited {
   }
   .profileComments {
     padding: 0px 15px;
-    margin: 0px 20px;
+    margin: 0px auto;
   }
   .userIcons {
     width: 18px;
@@ -2133,7 +2214,7 @@ a:visited {
     font-size: 25px;
   }
   .circlesUserComments {
-    width: 25px;
+    width: 23px;
     margin-right: 4px;
   }
   .circleRingComments{
@@ -2152,13 +2233,13 @@ a:visited {
     margin-bottom: 15px;
   }
   .middleBorder {
-    height: 40px;
+    height: 70px;
     margin-top: 10px;
   }
   
   .userColumn {
     flex-direction: column;
-    align-items: left;
+    align-items: center;
   }
   .userInfo {
     display: flex;
@@ -2178,7 +2259,25 @@ a:visited {
   .borderOfMemory {
     margin: 0px 35px;
   }
-  
+  .profileRatingNPricePrice {
+    margin-top: 25px;
+    margin-right: 35px;
+  }
+  .profileImpressionsNAccuracyAccuracy {
+    margin-left: 35px;
+    p:first-of-type {
+      margin-top: 21px;
+    }
+  }
+  .profileRatingNPrice {
+    margin-top: 20px;
+  }
+  .borderOfImpressions {
+    margin-right: 2vw;
+  }
+  .borderOfRatings {
+    margin-left: -7.8vw;
+  }
 }
 // END MEDIA QUERY 426-768
 
@@ -2197,35 +2296,37 @@ a:visited {
   }
   .bigCircleParagraph  {
     p{
-      font-size: 70px;
-      font-weight: 600;
+      font-size: 30px;
+      font-weight: 400;
     }
   }
   .bigCircle {
-    width: 140px;
-    height: 140px;
-    padding: 5px;
+    width: 60px;
+    height: 60px;
+    padding: 2px;
   }
   .biggerIconSize {
     width: 24px;
   }
   .iconSize {
-    width: 24px;
+    width: 12px;
+    height: 24px;
+    margin-right: 5px;
   }
   .userComment {
     max-width: none;
   }
   .profileImpressionsNAccuracyImpressions {
-    font-size: 40px;
+    font-size: 24px;
   }
   .profileImpressionsNAccuracyAccuracy {
-    font-size: 35px;
+    font-size: 24px;
   }
   .profileRatingNPriceTacnost {
     max-width: none;
   }
   .profileRatingNPriceTacnost {
-    font-size: 19px;
+    font-size: 16px;
   }
   .profileRatingNPriceCena {
     font-size: 16px;
@@ -2270,19 +2371,17 @@ a:visited {
     color: #d14545;
     padding-right: 7px;
   }
-  .userRatings {
-    width: 35px;
-  }
   .userNumPhotos {
     font-size: 25px;
   }
   .circlesUserComments {
-    width: 30px;
-    margin-right: 4px;
+    width: 22px;
+    margin-right: 2px;
   }
   .circleRingComments{
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
+    margin-left: 6px;
   }
   .circleRingCommentsPar {
     p{ 
@@ -2348,6 +2447,18 @@ a:visited {
     width: 80px;
     height: 80px;
   }
+  .profileRatingNPricePrice {
+    margin-top: 34px;
+  }
+  .borderOfImpressions {
+    margin-right: 5vw;
+  }
+  .borderOfRatings {
+    margin-left: -6.4vw;
+  }
+  .map{
+  margin-left: 0px;
+}
   // .first{
   //   img{
   //     width: 80px;
@@ -2395,12 +2506,10 @@ a:visited {
     // padding: 0 200px;
   }
   .borderOfImpressions {
-    margin-right: 0px;
-    margin-left: 0px;
+    margin-right: -11vw;
   }
   .borderOfRatings {
-    margin-right: 5px;
-    margin-left: 0px;
+    margin-left: -17.8;
   }
   .borderDown {
     margin: 0px 130px;
@@ -2409,12 +2518,15 @@ a:visited {
     width: 24px;
   }
   .iconSize {
-    width: 24px;
+    width: 12px;
+    height: 24px;
+    margin-right: 5px;
   }
   .profileImpressionsNAccuracyImpressions {
     font-size: 24px;
   }
   .profileRatingNPricePrice {
+    margin-top: 34px;
   }
   .profileImpressionsNAccuracyAccuracy {
     font-size: 24px;
@@ -2466,6 +2578,20 @@ a:visited {
   .headerText{
     margin-top: 30px;
     margin-bottom: 30px;
+  }
+  .profileRatingNPricePrice {
+    margin-top: 34px;
+  }
+  .iconSize { 
+    width: 12px;
+    height: 24px;
+    margin-right: 5px;
+  }
+  .borderOfImpressions {
+    margin-right: -11vw;
+  }
+  .borderOfRatings {
+    margin-left: -17.8;
   }
   // .downStore{
   //   height: 260px;

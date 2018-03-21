@@ -16,6 +16,7 @@ import prazan from '../images/Ocena13.png';
 import pola from '../images/Ocena15.png';
 import Rating from 'react-rating';
 import {geolocated} from 'react-geolocated';
+import { resultKeyNameFromField } from 'apollo-client/data/storeUtils';
 
 
 @geolocated({
@@ -50,6 +51,29 @@ import {geolocated} from 'react-geolocated';
         isWorking
       }
     }
+    objectCl(objectCategoryId: $categoryId) {
+      name
+      avgRating
+      ratingCount
+      verified
+      objectCategory {
+        id
+        nameJ
+      }
+      objectLocations {
+        address
+        lat
+        lng
+      }
+      images {
+        profileImage {
+          fileUrl
+        }
+      }
+      workingTimeInfo {
+        isWorking
+      }
+    }
   } `,
   {
     options: (props) => {
@@ -60,13 +84,15 @@ import {geolocated} from 'react-geolocated';
         variables: {
           lat: 44.78,
           lng: 20.37,
-          distance: 100,
+          distance: 3,
           categoryId: id,
         }
       })
     },
   }
 )
+
+@connect(state => ({ closeToMe: state.closeToMe }))
 
 
 class GoogleMap extends React.Component {
@@ -109,8 +135,11 @@ class GoogleMap extends React.Component {
   render() {
     let {latitude, longitude} = this.props.coords || [];
     let id = this.props.location.pathname.split("/").pop();
-    let csss = this.props.css == 'map' ? css.map : css.map1;
-    let result = this.props.data.nearestObjects || [];
+    let csss = this.props.css == 'map' || 'map3' ? css.map : css.map1;
+    let resultNear = this.props.data.nearestObjects || [];
+    let resultCl = this.props.data.objectCl || [];
+    let result = this.props.closeToMe.close ? resultNear : resultCl;
+    console.log('hvala za kafu', resultCl)
       return (
         <div className={csss}>
         { latitude == null || longitude == null ? <div>LOUDUJE SE</div> :
@@ -123,7 +152,7 @@ class GoogleMap extends React.Component {
             lng: this.props.css == 'map' ? longitude+0.11 : longitude,
           }}>
           {
-            this.props.css != 'map' ? null :
+            this.props.css != 'map' || 'map3' ? null :
             result.map((item, key) => {
               return(
             <Marker
@@ -195,7 +224,8 @@ class GoogleMap extends React.Component {
   }
 
   export default  withRouter(GoogleApiWrapper({
-    apiKey: ('AIzaSyBnrw9kCAw02vx5ElmZCrrPkgab8IOHLxM')
+    apiKey: ('AIzaSyB78XZlt3Zi8SX1mMJy81qDqfhfQPqMw_g'),
+    version: "3.30"
   })(GoogleMap))
 
 

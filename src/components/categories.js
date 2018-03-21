@@ -87,6 +87,12 @@ class Categories extends React.Component {
 				<div className={css.popularCategories}>
 					{singleCategorie}
 				</div>
+				<div 
+						className={css.categoriesButtonWrapper}>
+        		<div  onClick={() => this.props.clickHandler(false)} className={css.categoriesButton}>
+        	  	Sve kategorije
+        		</div>
+      		</div>
       </div>
     )
   }

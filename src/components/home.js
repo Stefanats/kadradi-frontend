@@ -34,9 +34,9 @@ class Home extends React.Component{
 			switch: true
 		})
 	}
-	clickHandler(){
+	clickHandler(e){
 		this.setState({
-			switch: !this.state.switch
+			switch: e
 		})
 	}
   render(){
@@ -58,28 +58,12 @@ class Home extends React.Component{
 					<DownStore />
 				</div>
 				<div className={css.categoriesWrapper}>
-					{/* <div style={{display:`${this.state.switch == true ? 'block' : 'none'}`}}>
-						<Categories />
+					<div>
+						<Categories clickHandler={(e) => this.clickHandler(e)} />
 					</div>
-					<div 
-						style={{display:`${this.state.switch == true ? 'flex' : 'none'}`}}
-						className={css.categoriesButtonWrapper}>
-        		<div  onClick={() => this.clickHandler()} className={css.categoriesButton}>
-        	  	Sve kategorije
-        		</div>
-      		</div> */}
-					<div style={{
-										display:`${this.state.switch == true ? 'block' : 'block'}`}}>
-						<AllCategories />
+					<div>
+						<AllCategories clickHandler={(e) => this.clickHandler(e)}/>
 					</div>
-					<div 
-						style={{
-										display:`${this.state.switch == true ? 'flex' : 'flex'}`}}
-						className={css.categoriesButtonWrapper}>
-        		<div onClick={() => this.clickHandler()} className={css.categoriesButton}>
-        	  	Popularne kategorije
-        		</div>
-      		</div>
 				</div>
 			</div>
 		)

@@ -11,17 +11,23 @@ class AllCtegories extends React.Component{
     return (
       <div className={css.allCategories}>
         <div className={css.allCategoriesHeader}>
-					<h2>Sve Karegorije</h2>
+					<h2>Sve Kategorije</h2>
 				</div>
         <div className={css.allCategoriesBody}>
           <div className={css.allCategoriesWrapper}>
-            <WrapperOne />
+            <WrapperOne /> 
             <WrapperTwo />
             <WrapperThree />
             <WrapperFour />
             <WrapperFive />
           </div>
         </div>
+        <div 
+						className={css.categoriesButtonWrapper}>
+        		<div onClick={() => this.props.clickHandler(true)} className={css.categoriesButton}>
+        	  	Popularne kategorije
+        		</div>
+      		</div>
       </div>
     )
   }

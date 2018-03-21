@@ -5,7 +5,8 @@ import prazan from '../images/Ocena13.png';
 import pun from '../images/Ocena14.png';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import dolar from '../images/cena.png';
+import dolar from '../images/dolar1_novi.png';
+import dolar1 from '../images/dolar2_novi.png';
 import { randomBytes } from 'crypto';
 import ProfileComments from './profileComments';
 import { withRouter } from 'react-router';
@@ -90,7 +91,7 @@ class ProfileImpressions extends React.Component{
                     fullSymbol={
                     <img 
                     width={24}
-                    src={dolar}
+                    src={dolar1}
                   className={"icon"+" "+css.iconSize}/>}
                     stop={5}
                     initialRating={objectCl.avgPrice}
