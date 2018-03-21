@@ -84,8 +84,6 @@ import { BarLoader } from 'react-spinners';
 // }
 
 
-let location = false;
-
 @geolocated({
   positionOptions: {
     enableHighAccuracy: false,
@@ -96,6 +94,8 @@ let location = false;
 
 class Index extends React.Component{
   render(){
+    let {objectCl} = this.props.data || [];
+    console.log('IZ INDEXA', objectCl)
     return(
       <div className={css.lukaCar}>
         <Helmet>

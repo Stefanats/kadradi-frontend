@@ -16,15 +16,20 @@ import satRadi from '../images/Sat-radi.png';
 import satNeRadiVip from '../images/Sat-ne-radi-placeno.png';
 import satRadiVip from '../images/Sat-radi-placeno.png';
 import SelectFiltration from './selectFiltration';
+import { BarLoader } from 'react-spinners';
 
 @connect(state => ({ 
   filter: state.filter,
-  categoriesId: state.categoriesId
-
+  categoriesId: state.categoriesId,
+  closeToMe: state.closeToMe,
+  arrayCount: state.arrayCount,
 }))
 
 @graphql(gql`
- query objectCl(
+ query objectCll(
+    $lng: Float,
+    $lat: Float,
+    $distance: Float,
     $objectCategoryId: Int,
     $alphabetical: Boolean,
     $price: Int,
@@ -56,15 +61,42 @@ import SelectFiltration from './selectFiltration';
       }
     }
   }
-
+  nearestObjects(categoryId: $objectCategoryId, lat: $lat, lng: $lng, distance: $distance){
+    name
+    avgRating
+    ratingCount
+    verified
+    objectCategory{
+      id
+      nameJ
+    }
+    objectLocations{
+      address
+      lat
+      lng
+    }
+    images{
+      profileImage {
+        fileUrl
+      }
+    }
+    workingTimeInfo{
+      isWorking
+    }
+  }
  } `,
   {
     options: (props) => {
       let trimId = props.location.pathname;
       let id = trimId.split("/").pop();
 
+      let {latitude, longitude} = props.coords || 0;
+
       return ({
         variables: {
+          lng: longitude,
+          lat: latitude,
+          distance: 3,
           objectCategoryId: id,
           alphabetical: false,
           price: 0,
@@ -75,20 +107,32 @@ import SelectFiltration from './selectFiltration';
   }
 )
 
+
 class ObjectCard extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       niz: [],
+      niz2: [],
     }
   }
   componentWillReceiveProps(nextProps) {
     if(nextProps.data.objectCl != undefined) {
-      this.setState({niz: nextProps.data.objectCl})
+      this.setState({niz: nextProps.data.objectCl});
+    }
+    if(nextProps.data.nearestObjects != undefined) {
+      this.setState({niz2: nextProps.data.nearestObjects})
+    }
+    if(nextProps.data.objectCl !== this.props.data.objectCl){
+      this.props.dispatch({
+        type: "ARRAY_COUNT",
+        value: this.state.niz.length,
+      });
     }
     this.props.filter.filter !== nextProps.filter.filter ?
     this.sort(nextProps.filter.filter) : null
   }
+  //063 202 586-nikola
   slugify(text){
     return text.toString().toLowerCase()
       .replace(/\s+/g, '-')           // Replace spaces with -
@@ -116,22 +160,19 @@ class ObjectCard extends React.Component{
     }) : null
   }
   render(){
-    // let { filter } = this.props.filter;
-    // this.sort(filter);
-    let nizLength = this.state.niz.length;
-    let nesto = this.state.niz
+    let result = this.props.closeToMe.close ? this.state.niz2 : this.state.niz;
+    let sortedResult = _.sortBy( result, 'avgRating' ).reverse();
+
+    let objects = result
     .map((item, key) =>
         <div className={css.objectCardItem} key={key}>
-        
           <div className={css.objectImg} >
             <img alt={item.name} src={item.images.profileImage.fileUrl} />
           </div>
-
           <div className={css.objectInfoWrapper} >
-          
             <div className={css.objectName} >
               <div className={css.ratingNumber}>
-                <p>1</p>
+                <p>{sortedResult.indexOf(item)+1}</p>
               </div>
               <Link to={`/profile/${this.slugify(item.name)}/${item.id}`}>
                 <p>{item.name}</p>
@@ -183,7 +224,13 @@ class ObjectCard extends React.Component{
     )
     return(
       <div className={css.objectCard}>
-        {nesto}
+        { 
+          this.props.data.loading ? 
+          <div style={{height:'100%', display:'flex',justifyContent:'center',alignItems:'center'}}>
+            <BarLoader color='#019f9f'/>
+          </div> :
+          objects
+        }
         <div className={css.objectEmptyDiv}>
         </div>
       </div>
@@ -191,4 +238,3 @@ class ObjectCard extends React.Component{
   }
 }
 export default withRouter(ObjectCard);
- 

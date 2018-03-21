@@ -8,76 +8,59 @@ import FaAngleLeft from 'react-icons/lib/fa/angle-left';
 import { setTimeout } from 'timers';
 import { connect } from 'react-redux';
 import WhenWorksPhone from './whenWorksPhone';
+import map from '../images/mapa.png';
+import list from '../images/lista.png';
 
 class WhenWorks extends React.Component{
   constructor(props){
     super(props);
-      this.state = {
-        broj: 1,
-        klasa: css.whenWorksBodyMiddleR,
-        click: 'auto'
-      }
+    this.state = {
+      opacity: true
+    }
   }
-
-  clickHanderRight(){
+  andler(e){
     this.setState({
-      broj: this.state.broj + 1,
-      klasa: this.state.broj == 0 ?
-      css.whenWorksBodyMiddleR :
-      this.state.broj == 1 ?
-      css.whenWorksBodyLeft : null,
-      click: 'none'
+      opacity: e,
     })
-    setTimeout(() => {
-      this.setState({click: 'auto'});
-    }, 1000)
-  }
-  proba(){
-    this.forceUpdate();
-  }
-  clickHandlerLeft(){
-    this.setState({
-      broj: this.state.broj - 1,
-      klasa: this.state.broj == 2 ?
-      css.whenWorksBodyMiddleL :
-      this.state.broj == 1 ? 
-      css.whenWorksBodyRight : null,
-      click: 'none'
-    })
-    setTimeout(() => {
-      this.setState({click: 'auto'});
-    }, 1000)
   }
   render(){
-    console.log('whenworks', this.props)
     return(
       <div className={css.whenWorks}>
           <WhenWorksHeader />
-          <div className={this.state.klasa}>
-            <div className={css.leftHolder}>
-              <WhenWorksList />
-              {/* <div 
-                style={{pointerEvents:`${this.state.click}`}}
-                onClick={() => this.clickHandlerLeft()}
-                className={css.leftArrow}>
-                <div>
-                  <FaAngleLeft />
-                </div>
-              </div> */}
+          <div className={css.whenWorksBody}>
+            <div
+              style={{left:`${this.state.opacity ? '0' : '-100%'}`}}
+              className={css.listWrapperOne}>
+              <WhenWorksList {...this.props}/>
             </div>
-            <div  style={{overflow:"hidden"}}  className={css.rightHolder}>
-              <GoogleMap css='map' />
-              {/* <div 
-                style={{pointerEvents:`${this.state.click}`}}
-                onClick={()=> this.clickHanderRight()}
-                className={css.rightArrow}>
-                <div>
-                  <FaAngleRight />
-                </div>
-              </div> */}
+            <div
+              style={{left:`${this.state.opacity ? '100%' : '0'}`}} className={css.mapWrapperOne}>
+              <GoogleMap {...this.props} css='map' />
             </div>
           </div>
-        {/* // <WhenWorksPhone /> */}
+        <div 
+          className={css.mapButtons}
+          onClick={()=>this.andler(false)}
+          style={{
+            cursor:'pointer',
+            position:'fixed',
+            bottom:'20px',
+            left:'50%',
+            zIndex:'2'}}>
+            <img width={75} src={map} alt='map image'/>
+        </div>
+        <div 
+          className={css.mapButtons}
+          onClick={()=>this.andler(true)}
+          style={{
+              cursor:'pointer',
+              position:'fixed',
+              bottom: '20px',
+              transform: 'translate(-100%, 0)',
+              left:'50%',
+              zIndex:'2'}}>
+            <img width={75} src={list} alt='list image'/>
+        </div>
       </div>
     )
   }

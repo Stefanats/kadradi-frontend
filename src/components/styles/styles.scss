@@ -407,6 +407,7 @@ a:visited {
   width: 100%;
 }
 .dropDownItem, .dropDownItemTwo{
+  left: 0;
   padding: 10px;
   background: white;
   cursor: pointer;
@@ -419,7 +420,7 @@ a:visited {
 }
 .dropDownWrapperTwo{
   width: 230px;
-  left: 70px;
+  top: calc(100%+12px);
 }
 //END HOME
 
@@ -437,6 +438,7 @@ a:visited {
 .whenWorks{
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .whenWorksHeader{
   display: flex;
@@ -485,95 +487,24 @@ a:visited {
 .whenWorksNavigation p{
   color: #fff;
 }
-.whenWorksBodyMiddleR{
+.whenWorksBody{
   display: flex;
+  height: calc(100vh-70px);
   position: relative;
-  .leftHolder{
-    background-color: #fff;
-    transition: width 1s;
-    position: absolute;
-    margin-right: auto;
-    width: 50%;
-    top: 0;
-    left: 0;
-  }
-  .rightHolder{
-    margin-left: auto;
-    transition: width 1s;
-    position: absolute;
-    width: 50%;
-    top: 0;
-    right: 0;
-  }
+  overflow: hidden; 
 }
-.whenWorksBodyMiddleL{
-  display: flex;
-  position: relative;
-  .leftHolder{
-    background-color: #fff;
-    transition: 1s;
-    position: absolute;
-    margin-right: auto;
-    width: 50%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
-  .rightHolder{
-    margin-left: auto;
-    transition: 1s;
-    position: absolute;
-    width: 50%;
-    top: 0;
-    right: 0;
-  }
-}
-.whenWorksBodyLeft{
-  display: flex;
-  position: relative;
-  .leftHolder{
-    background-color: #fff;
-    margin-right: auto;
-    transition: 1s;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
-  .rightHolder{
-    margin-left: auto;
-    transition: 1s;
-    position: relative;
-    width: 50%;
-    top: 0;
-    right: 0;
-  }
-}
-.whenWorksBodyRight{
-  display: flex;
-  position: relative;
-  .leftHolder{
-    background-color: #fff;
-    margin-right: auto;
-    transition: 1s;
-    position: absolute;
-    width: 50%;
-    top: 0;
-    left: 0;
-  }
-  .rightHolder{
-    margin-left: auto;
-    transition: 1s;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    right: 0;
-  }
+
+.rightHolder{
+  margin-left: auto;
+  transition: 1s;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 0;
 }
 .whenWorksList{
   width: 100%;
-  height: calc(100vh - 66px);
+  height: calc(100vh - 70px);
   position: relative;
   overflow: hidden;
 }
@@ -662,12 +593,11 @@ a:visited {
   margin: auto 0 auto auto;
 }
 .map{
-  width: calc(200%-2px);
+  width: 100%;
   height: calc(100vh-70px);
   position: relative;
   border-left: 1px rgb(219, 219, 219) solid;
-  margin-left: auto;
-}
+} 
 .infoWindowRating{
   display: flex;
   flex-direction: row;
@@ -740,13 +670,13 @@ a:visited {
 }
 .objectCard{
   width: 100%;
-  height: calc(100%-70px);
+  height: calc(100vh-135px);
   overflow-y: scroll;
   // padding-left: 14px;
   // https://codepen.io/devstreak/pen/dMYgeO?editors=1000
 }
 .objectEmptyDiv{
-  height: 150px;
+  height: 80px;
   display: none;
 }
 .listedObjects{
@@ -767,6 +697,7 @@ a:visited {
 }
 .objectImg img{
   width: 250px;
+  height: 250px;
   border-radius: 5px;
 }
 .objectInfoWrapper{
@@ -1690,7 +1621,18 @@ a:visited {
 .navBox3{
   flex: 4;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+}
+.listWrapperOne{
+  width: 50vw;
+  height: 100vh;
+}
+.mapWrapperOne{
+  width: 50vw;
+  height: 100vh;
+}
+.mapButtons{
+  display: none;
 }
 // END FORMA STYLE //
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -1711,6 +1653,9 @@ a:visited {
 //MEDIA 425px
 
 @media screen and (max-width: 425px){
+  .mapButtons{
+    display: block;
+  }
   .whenWorksHeader{
     flex-direction: row-reverse;
     padding: 12px 10px;
@@ -1777,23 +1722,35 @@ a:visited {
 
 }
 .objectCard{
-  height: calc(100%-66px);//ispravi
+  height: calc(100vh-186px);//ispravi
 }
   .objectCardClock{
     width: 40px;
+    margin-left: 50px;
   }
   .objectCardRating{
     width: 15px;
   }
   .objectImg img{
     width: 100px;
+    height: 100px;
   }
   .ratingNumber{
     height: 18px;
     width: 18px;
   }
-  .objectName, .objectRating, .isWorkingWrapper{
+  .objectName{
+    flex:  none;
+    margin-bottom: 5px;
+  }
+  .isWorkingWrapper{
     flex: none;
+  }
+  .objectRating{
+    flex: none;
+  }
+  .objectRating p{
+    margin-left: 5px;
   }
   .isWorking{
     display: block;
@@ -1802,69 +1759,22 @@ a:visited {
     font-size: 10px;
     font-weight: 600;
   }
-
-  .whenWorksComputer{
-    display: none;
-  }
-  .whenWorksPhone{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  .whenWorksList{
-    position: absolute;
-    height: calc(100vh-66px);
-  }
-  .map{
-    position: absolute;
-    width: calc(100%-2px);
-    height: calc(100vh-66px);
-  }
-  .jebote{
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh-66px);
-    position: relative;
-    overflow: hidden;
-   
-  }
   .listWrapperOne{
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: calc(100vh-66px);
+    width: 100vw;
+    height: calc(100vh-70px);
     transition: 700ms;
   }
   .mapWrapperOne{
+    background: #fff;
     position: absolute;
     top: 0;
     left: 100%;
-    width: 100%;
-    height: 100vh;
+    width: 100vw;
     transition: 700ms;
   }
-  .listWrapperTwo{
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100vh;
-    transition: 700ms;
-  }
-  .mapWrapperTwo{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    transition: 700ms;
-  }
-
-
-
-
-
   .ratingImage{
     width: 20px;
   }
@@ -2135,8 +2045,30 @@ a:visited {
 }
 // END MEDIA QUERY min 425
 
+
+
+
 // MEDIA QUERY 426-768
 @media screen and (min-width: 426px) and (max-width: 768px){
+  .mapButtons{
+    display: block;
+  }
+  .listWrapperOne{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh-70px);
+    transition: 700ms;
+  }
+  .mapWrapperOne{
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100vw;
+    transition: 700ms;
+  }
   .whenWorksHeader{
     flex-direction: row-reverse;
   }
@@ -2326,6 +2258,25 @@ a:visited {
 
 // MEDIA QUERY 769-1024
 @media screen and (min-width: 769px) and (max-width: 1024px){
+  .mapButtons{
+    display: block;
+  }
+  .listWrapperOne{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh-70px);
+    transition: 700ms;
+  }
+  .mapWrapperOne{
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100vw;
+    transition: 700ms;
+  }
   .x{
     display: none;
   }
@@ -2481,17 +2432,18 @@ a:visited {
     display: block!important;
   }
 }
-
-// CUSTOM MEDIA QUERY
-@media screen and (max-width: 550px) {
-
-}
-
 // END CUSTOM MEDIA QUERY
 // MEDIA QUERY min 1450
 @media screen and (min-width: 1025px) and (max-width: 1440px) {
-  .categorieBoxBody{
-    // padding: 0 200px;
+  .objectImg img{
+    width: 200px;
+    height: 200px;
+  }
+  .objectCardRating{
+    width: 25px;
+  }
+  .objectCardClock{
+    width: 80px;
   }
   .borderOfImpressions {
     margin-right: 0px;
@@ -2578,3 +2530,37 @@ a:visited {
 
 
 
+@media screen and (min-width: 426px) and (max-width: 600px){
+  .objectName, .objectRating, .isWorking{
+    flex: none;
+  }
+  .isWorking{
+    display: block;
+  }
+  .objectImg img{
+    width: 150px;
+    height: 150px;
+  }
+  .objectName{
+    margin-bottom: 10px;
+  }
+  .objectName p{
+    font-size: 16px;
+  }
+  .circleRating{
+    display: none;
+  }
+  .ratingNumber{
+    width: 28px;
+    height: 28px;
+  }
+  .objectCardRating{
+    width: 20px;
+  }
+  .objectRating p{
+    margin-left: 15px;
+  }
+  .objectCardClock{
+    width: 60px;
+  }
+}

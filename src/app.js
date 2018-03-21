@@ -25,6 +25,7 @@ import counterReducer from 'reducers/counter';
 import filterReducer from 'reducers/filter';
 import categoriesIdReducer from 'reducers/categoriesId';
 import closeToMeReducer from 'reducers/closeToMe';
+import arrayCountReducer from 'reducers/arrayCount';
 
 // Main component -- i.e. the 'root' React component in our app
 import Main from 'components/main';
@@ -46,10 +47,11 @@ config.addReducer('counter', counterReducer, { count: 0 });
 config.addReducer('filter', filterReducer, { filter: 'name' });
 config.addReducer('categoriesId', categoriesIdReducer, { categoriesId: 0 });
 config.addReducer('closeToMe', closeToMeReducer, { close: false });
+config.addReducer('arrayCount', arrayCountReducer, { count: 0 });
 
 /* GRAPHQL */
 
-config.setGraphQLEndpoint('https://kadradi-backend.herokuapp.com/graphql');
+config.setGraphQLEndpoint('http://honestyapp.ga:4000/graphql');
 // Enable the internal GraphQL server.  This will do two things:
 //
 // 1.  On the server, it will set-up the necessary route handlers to 'listen'

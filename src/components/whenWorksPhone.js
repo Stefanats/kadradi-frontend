@@ -31,6 +31,8 @@ class WhenWorksPhone extends React.Component{
             <GoogleMap css='map3'/>
           </div>
         </div>
+
+        
         <div 
           onClick={()=>this.andler(false)}
           style={{

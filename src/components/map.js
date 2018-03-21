@@ -17,6 +17,7 @@ import pola from '../images/Ocena15.png';
 import Rating from 'react-rating';
 import {geolocated} from 'react-geolocated';
 import { resultKeyNameFromField } from 'apollo-client/data/storeUtils';
+import { BarLoader } from 'react-spinners';
 
 
 @graphql(gql`
@@ -127,7 +128,6 @@ class GoogleMap extends React.Component {
   }
 
   render() {
-    console.log('iz mape', this.props.stefan)
     let {latitude, longitude} = this.props.coords || [];
     let id = this.props.location.pathname.split("/").pop();
     let csss = this.props.css === 'map1' ? css.map1 : css.map;
@@ -136,17 +136,21 @@ class GoogleMap extends React.Component {
     let result = this.props.closeToMe.close ? resultNear : resultCl;
       return (
         <div className={csss}>
-        { latitude == null || longitude == null ? <div>LOUDUJE SE</div> :
+        { 
+          longitude == undefined || latitude == undefined ?
+          <div style={{height:'100%', display:'flex',justifyContent:'center',alignItems:'center'}}>
+              <BarLoader color='#019f9f'/>
+          </div> :
         <Map
           onClick={() => this.onMapClicked()}
           google={this.props.google}
           zoom={12}
           initialCenter={{
             lat: latitude,
-            lng: this.props.css == 'map' ? longitude+0.11 : longitude,
+            lng: longitude,
           }}>
           {
-            this.props.css != 'map' || 'map3' ? null :
+            this.props.css != 'map' ? null :
             result.map((item, key) => {
               return(
             <Marker
@@ -223,6 +227,14 @@ class GoogleMap extends React.Component {
 
 
   
+
+
+
+
+
+
+
+
 
 // class Map extends React.Component{
 //   static defaultProps = {
