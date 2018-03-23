@@ -26,10 +26,14 @@ class DownStore extends React.Component{
       <div style={{display:`${this.state.x == true ? 'block' : 'none'}`}} className={css.downStore}>
 				<div className={css.imgWrapper}>
 					<div className={css.first}>
-						<img src={googlePlay}/>
+						<a href="https://play.google.com/store/search?q=facebook&hl=sr">
+							<img src={googlePlay}/>
+						</a>
 					</div>
 					<div className={css.second}>
-						<img src={appStore}/>
+						<a href='https://itunes.apple.com/us/app/facebook/id284882215?mt=8'>
+							<img src={appStore}/>
+						</a>
 					</div>
 				</div>
 				<div className={css.textWrapper}>

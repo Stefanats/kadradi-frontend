@@ -134,6 +134,7 @@ class GoogleMap extends React.Component {
     let resultNear = this.props.data.nearestObjects || [];
     let resultCl = this.props.data.objectCl || [];
     let result = this.props.closeToMe.close ? resultNear : resultCl;
+    console.log('ovo je ', this.props, latitude)
       return (
         <div className={csss}>
         { 

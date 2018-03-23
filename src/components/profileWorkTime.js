@@ -34,7 +34,26 @@ import ProfileMap from './dumpComponents/profileMap';
       sectorTimeInfo {
         name
         isWorking
-
+        monday {
+          opening
+          closing
+        }
+        tuesday {
+          opening
+          closing
+        }
+        wednesday {
+          opening
+          closing
+        }
+        thursday {
+          opening
+          closing
+        }
+        friday {
+          opening
+          closing
+        }
         saturday {
           opening
           closing
@@ -61,30 +80,35 @@ class ProfileWorkTime extends React.Component{
   render(){
     let result = this.props.data.objectCl || [];
     let [objectCl] = result;
+
     return(
-      <div>
+      <div className={css.profileWorkTime}>
         {
-          this.props.data.loading ?
-          <p style={{color:'red', fontSize:'50px'}}>PRICEKAJ</p> :
+          this.props.data.loading ? null :
           objectCl == undefined ? null :
         <div>
           <div className={css.profileWorkTimeFirst}>
             <div className={css.profileWorkTimeFirstBox}>
-              <p>Radno vreme i praznici</p>
+              <p>Informacije</p>
             </div>
           </div>
           <div className={css.profileWorkTimeThirth}>
             <div className={css.profileWorkTimeThirthBox}>
               <ProfileInfo objectCl={objectCl}/>
-              <ProfileMap objectCl={objectCl}/>
+              <ProfileMap {...this.props} objectCl={objectCl}/>
             </div>
           </div>
-          <div className={css.profileWorkTimeSecond}>
+          <div>
+            <div className={css.profileWorkTimeHeader}>
+              <p>Radno vreme i praznici</p>
+            </div>
+            <div className={css.profileWorkTimeSecond}>
+            <ObjectWorkTime objectCl={objectCl}/>
             <ProfileWorkClock
             isWorking={objectCl.workingTimeInfo.isWorking}
             verified={objectCl.verified}/>
-            {/* <ObjectWorkTime objectCl={objectCl}/> */}
-            <ProfileCalendar />
+            </div>
+            {/* <ProfileCalendar /> */}
           </div>
         </div>
         }

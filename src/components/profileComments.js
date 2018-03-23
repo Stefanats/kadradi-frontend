@@ -8,6 +8,7 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { withRouter } from 'react-router';
 import RatingButton from './ratingButton';
+import DownloadModal from './downloadModal';
 
 @graphql(gql`
   query ObjectReview($objectClId: Int!, $page: Int) {
@@ -45,10 +46,15 @@ class ProfileComments extends React.Component{
     super(props);
     this.state = {
       page: 1,
+      modalDisplay: false,
     }
   }
-  moreComents = () => {
-  }
+  modalDisplay(){
+		this.setState({
+			modalDisplay: true,
+    })
+    console.log('KURAC')
+	}
   render(){
     let result = this.props.data.ObjectReview || [];
     let ObjectReview = result;
@@ -64,16 +70,16 @@ class ProfileComments extends React.Component{
                 <p className={css.userNameName}>{item.person.firstName}</p>
                 <div>
                   <img src={img} className={css.userIcons}/>
-                  <span className={css.userNum}>13</span>
+                  <span className={css.userNum}>{item.person.profileInfo.followers}</span>
                   <img src={img} className={css.userIcons}/>
-                  <span className={css.userNum}>122</span>
+                  <span className={css.userNum}>{item.person.profileInfo.stars}</span>
                   <img src={img} className={css.userIcons}/>
-                  <span className={css.userNum}>19</span>
+                  <span className={css.userNum}>{item.person.profileInfo.photos}</span>
                 </div>
               </div>
             </div>
             <div className={css.userRating}>
-            <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center',marginLeft:'auto'}}>
+            <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center',marginLeft:'auto',marginTop:'auto'}}>
               <img src={img} className={css.userRatings}/>
               <span className={css.userNumPhotos}>{item.photoCount}</span>
               <Rating
@@ -105,12 +111,16 @@ class ProfileComments extends React.Component{
     })
     return(
       <div className={css.profileComments}>
+
+          <DownloadModal 
+            comment='komentara'
+            display={this.state.modalDisplay}/>
         {comments}
         {
           ObjectReview[0] === undefined ? null :
-          <RatingButton 
+          <RatingButton
             page={ObjectReview[0].maxPages}
-            moreComents={this.moreComents}  />
+            callFunction={()=>this.modalDisplay()}  />
         }
       </div>
     )

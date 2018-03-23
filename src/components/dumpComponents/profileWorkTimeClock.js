@@ -17,7 +17,7 @@ class ProfileWorkClock extends React.Component{
     return(
       <div className={css.profileWorkClock}>
         <div className={css.profileWorkClockBox}>
-          <img src={clock} alt={imgName} />
+          <img width={75} src={clock} alt={imgName} />
           <p style={{color:`${color}`}}>{isOpen}</p>
         </div>
       </div>

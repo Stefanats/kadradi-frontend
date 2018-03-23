@@ -7,7 +7,7 @@ import gql from 'graphql-tag';
 import { withRouter } from 'react-router';
 import pun from '../images/Ocena14.png';
 import prazan from '../images/Ocena13.png';
-import Loading from 'react-loading-components';
+import { BarLoader } from 'react-spinners';
 
 let stylez = {
   width: "100%",
@@ -45,7 +45,8 @@ let stylez = {
     options: (props) => {
       return ({
         variables: {
-          id: parseInt(props.match.params.id),
+          id: parseInt
+          (props.match.params.id)
         }
       })
     },
@@ -66,9 +67,11 @@ class ProfileHome extends React.Component{
     // let vremeDo = splitedVremeDo[0]+splitedVremeDo[1]+':'+splitedVremeDo[2]+splitedVremeDo[3];
 
     return(
-      <div>
+      <div style={{marginBottom:'20px'}}>
         {this.props.data.loading ?
-        <Loading type='oval' width={100} height={100} fill='#f44242' /> :
+          <div style={{background:'#fff', height:'100vh', display:'flex',justifyContent:'center',alignItems:'center'}}>
+            <BarLoader color='#019f9f'/>
+          </div> : 
         objectCl === undefined ? null :
         <div>
           <div className={css.relative}>
@@ -79,6 +82,8 @@ class ProfileHome extends React.Component{
               <img src={img}/>
             </div>
           </div>
+          <div style={{boxShadow: '0px 2px 5px 2px rgba(0,0,0,0.2)',
+          background:'#fff',width:"80vw",borderRadius:'5px',margin:"auto"}}>
           <div className={css.profileTitle}>
             <div className={css.profileTitleBox}>
               <div className={css.profileTitleName}>
@@ -139,6 +144,7 @@ class ProfileHome extends React.Component{
                 </p>
                 </div>
               </div>
+          </div>
           </div>
         </div>}
       </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './styles/styles.scss';
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
 import DownStore from './downStore';
 import Categories from './categories';
 import InputBox from './inputBox';
@@ -29,7 +29,11 @@ class Home extends React.Component{
 		}
 	}
 	componentWillMount(){
-		window.scroll(0,0);
+		if (typeof(window) !== 'undefined') {
+			var timer = setTimeout(function() {
+				window.scroll(0,0);
+			}, 200);
+	}
 
 		this.setState({
 			switch: true

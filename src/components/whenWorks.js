@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import WhenWorksPhone from './whenWorksPhone';
 import map from '../images/mapa.png';
 import list from '../images/lista.png';
+import DownStore from './downStore';
 
 class WhenWorks extends React.Component{
   constructor(props){
@@ -26,6 +27,9 @@ class WhenWorks extends React.Component{
   render(){
     return(
       <div className={css.whenWorks}>
+        <div className={css.downStoreWW}>
+					<DownStore />
+        </div>
           <WhenWorksHeader />
           <div className={css.whenWorksBody}>
             <div
