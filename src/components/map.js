@@ -10,7 +10,6 @@ import { withRouter } from 'react-router';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import { read } from 'fs';
 import pun from '../images/Ocena14.png';
 import prazan from '../images/Ocena13.png';
 import pola from '../images/Ocena15.png';
