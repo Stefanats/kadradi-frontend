@@ -6,10 +6,12 @@ import FaMailForward from 'react-icons/lib/fa/mail-forward';
 class ProfileMap extends React.Component{
   render(){
     let objectCl = this.props.objectCl;
+    console.log('TBEEEE', objectCl)
     return(
       <div className={css.profileMap}>
         <div className={css.profileMapWrapper}>
-          <GoogleMap 
+          <GoogleMap
+            {...this.props}
             css='map1'/> 
         </div>
         <div className={css.profileMapBar}>

@@ -62,6 +62,7 @@ import Proba from '../proba';
 import ContactForm from '../contactForm';
 import Home from '../home';
 import ObjectProfile from '../objectProfile';
+import Verification from '../verification';
 import {geolocated} from 'react-geolocated';
 import { withRouter } from 'react-router'
 
@@ -118,9 +119,10 @@ class Index extends React.Component{
             <Route path="/addobject" render={()=><AddObject {...this.props}/>} />
             <Route path="/about" component={About} />
             <Route path="/view" render={()=><WhenWorks {...this.props}/>} />
-            <Route path="/profile/:name/:id" component={ObjectProfile} />
+            <Route path="/profile/:name/:id" render={()=><ObjectProfile {...this.props}/>} />
             <Route path="/proba" component={Proba} />
             <Route path="/contactForm" component={ContactForm} />
+            <Route path="/verification/:hash" component={Verification} />
             <Route component={NotFound} />
           </Switch>
           {/* : <div style={{

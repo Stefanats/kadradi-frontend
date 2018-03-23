@@ -9,11 +9,11 @@ import ProfileImpressions from './profileImpressions';
 class ObjectProfile extends React.Component{
   render(){
     return(
-      <div>
-          {/* <WhenWorksHeader /> */}
+      <div style={{background:'#e9e9e9'}}>
+          <WhenWorksHeader />
           <ProfileHome/>
           <ProfileGallery />
-          <ProfileWorkTime/>
+          <ProfileWorkTime {...this.props}/>
           <ProfileImpressions /> 
       </div>
     )

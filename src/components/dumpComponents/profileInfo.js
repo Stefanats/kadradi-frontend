@@ -23,7 +23,7 @@ class ProfileInfo extends React.Component{
             !objectInfo.phone.length ? null :
             <div className={css.profileInformationPhone}>
               <h3>Telefon</h3>
-              <p>{phone}</p>
+              <div>{phone}</div>
             </div>
           }
           {

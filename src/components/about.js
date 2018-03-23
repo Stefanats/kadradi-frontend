@@ -6,23 +6,27 @@ import Hamburger from './hamburger';
 import ReactTransitionGroup from 'react-addons-transition-group'
 import { setTimeout } from 'timers';
 import Ham from './ham';
+import DownloadModal from './downloadModal';
 
 class About extends React.Component{
-  constructor(props){
+  constructor(props) {
     super(props);
-
+		this.state = {
+			modalDisplay: false,
+		}
   }
-  showSettings(){
-    console.log('sdds')
-  }
+	modalDisplay(){
+		this.setState({
+			modalDisplay: true,
+		})
+	}
   render(){
-
     return(
-      <div className={css.about}>
-        <Hamburger />
-        <Navigation />
-        <DownStore />
-        <Ham />
+      <div>
+				<button onClick={() => this.modalDisplay()}>lalaal</button>
+				<DownloadModal
+					display={this.state.modalDisplay}
+					comment='slike' />
       </div>
     )
   }

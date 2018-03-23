@@ -91,16 +91,16 @@ import { BarLoader } from 'react-spinners';
       let id = trimId.split("/").pop();
 
       let {latitude, longitude} = props.coords || 0;
-
+      let args = props.filter.filter;
       return ({
         variables: {
           lng: longitude,
           lat: latitude,
           distance: 3,
           objectCategoryId: id,
-          alphabetical: false,
-          price: 0,
-          byRating: false,
+          alphabetical: args === 'alphabetical' ? true : false,
+          price: args === 'priceUp' ? 1 : args === 'priceDown' ? 2 : 0,
+          byRating: args === 'ratingCount' ? true : false,
         }
       })
     },
@@ -142,6 +142,7 @@ class ObjectCard extends React.Component{
       .replace(/-+$/, '');            // Trim - from end of text
   }
   sort = async (filter) => {
+    console.log('FILTER', filter)
     filter === 'alphabetical' ?
     await this.props.data.refetch({
       alphabetical: true,
@@ -162,7 +163,7 @@ class ObjectCard extends React.Component{
   render(){
     let result = this.props.closeToMe.close ? this.state.niz2 : this.state.niz;
     let sortedResult = _.sortBy( result, 'avgRating' ).reverse();
-
+    console.log("result", result)
     let objects = result
     .map((item, key) =>
         <div className={css.objectCardItem} key={key}>
@@ -192,6 +193,7 @@ class ObjectCard extends React.Component{
                   stop={5}
                   initialRating={item.avgRating}
               />
+              <div className={css.ratingNewRow}>
               <div className={css.circleRating}>
                 <div>
                   <p>{item.avgRating}</p>
@@ -199,6 +201,7 @@ class ObjectCard extends React.Component{
               </div>
               <div className={css.ratingCount}>
                 <p>{item.ratingCount} Reviews</p>
+              </div>
               </div>
             </div>
             <div className={css.isWorkingWrapper}>
