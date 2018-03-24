@@ -409,7 +409,7 @@ const listen = () => {
   // Plain HTTP
   if (config.enableHTTP) {
     servers.push(
-      http.createServer(app.callback()).listen(process.env.PORT || 5000),
+      http.createServer(app.callback()).listen(process.env.PORT),
     );
   }
 

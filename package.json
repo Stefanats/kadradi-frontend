@@ -132,8 +132,4 @@
     "run-p": "0.0.0",
     "seamless-immutable": "^7.1.2"
   },
-  "engines": {
-    "node": ">=7",
-    "npm": ">=4"
-  }
 }
