@@ -1071,7 +1071,7 @@ a:visited {
     color: #9b9b9b;
     font-weight: 400;
   }
-  p{
+  a{
     color: #33cc66;
     font-size: 17px;
     font-weight: 400;
@@ -1694,8 +1694,9 @@ a:visited {
 .mapButtons{
   display: none;
 }
-.objectProfileStyle{
-  
+.disablePhone{
+  pointer-events: none;
+  cursor: default;
 }
 // END FORMA STYLE //
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -1716,6 +1717,9 @@ a:visited {
 //MEDIA 425px
 
 @media screen and (max-width: 425px){
+  .disablePhone{
+    pointer-events: auto;
+  }
   .downStoreWW{
     display: block;
   }

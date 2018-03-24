@@ -15,7 +15,6 @@ import prazan from '../images/Ocena13.png';
 import pola from '../images/Ocena15.png';
 import Rating from 'react-rating';
 import {geolocated} from 'react-geolocated';
-import { resultKeyNameFromField } from 'apollo-client/data/storeUtils';
 import { BarLoader } from 'react-spinners';
 
 

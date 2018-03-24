@@ -12,7 +12,7 @@ class ProfileInfo extends React.Component{
     let phone = objectInfo.phone.map((item, key) => {
       return(
         <div key={key}>
-          <p>{item.number}</p>
+          <p><a className={css.disablePhone} href={`tel:${item.number}`}>{item.number}</a></p>
         </div>
       )
     })
