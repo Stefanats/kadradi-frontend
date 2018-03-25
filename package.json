@@ -13,10 +13,10 @@
     "lint": "eslint .",
     "server": "node dist/server",
     "server-dev": "cross-env NODE_ENV=development WEBPACK_CONFIG=server_dev webpack --colors",
-    "start": "run-p browser server-dev",
+    "start": "server-dev",
     "static": "serve -s dist/public",
     "test": "jest",
-    "postinstall": "npm run build"
+    "postinstall": "run-p browser"
   },
   "devDependencies": {
 
