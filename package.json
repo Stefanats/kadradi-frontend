@@ -11,7 +11,7 @@
     "build-static-run": "npm run build-static && npm run static",
     "clean": "rimraf dist",
     "lint": "eslint .",
-    "server": "node dist/server SERVER_PROD_PORT=$PORT",
+    "server": "node dist/server SERVER_PROD_PORT=4000",
     "server-dev": "cross-env NODE_ENV=development WEBPACK_CONFIG=server_dev webpack --colors",
     "start": "run-p browser server-dev",
     "static": "serve -s dist/public",
