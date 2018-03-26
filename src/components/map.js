@@ -3,7 +3,6 @@ import satNeRadi from '../images/Sat-ne-radi1.png';
 import satRadi from '../images/Sat-radi1.png';
 import satNeRadiVip from '../images/Sat-ne-radi-placeno1.png';
 import satRadiVip from '../images/Sat-radi-placeno1.png';
-
 import css from './styles/styles.scss';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
