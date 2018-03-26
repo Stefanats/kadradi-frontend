@@ -39,7 +39,10 @@ class WhenWorks extends React.Component{
             </div>
             <div
               style={{left:`${this.state.opacity ? '100%' : '0'}`}} className={css.mapWrapperOne}>
-              <GoogleMap {...this.props} css='map' />
+              {
+                typeof(window) == 'undefined' ? null :
+                <GoogleMap {...this.props} css='map' />
+              }
             </div>
           </div>
         <div 
