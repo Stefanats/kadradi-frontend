@@ -429,7 +429,7 @@ a:visited {
   background: #fff;
   position: absolute;
   flex-direction: column;
-  top: calc(100%);
+  top: calc(100%-5px);
   left: 0;
   z-index: 1000;
   box-shadow: 0 6px 12px rgba(0,0,0,.175);
@@ -452,8 +452,8 @@ a:visited {
   background: red;
 }
 .dropDownWrapperTwo{
-  width: 230px;
-  top: calc(100%+12px);
+  max-width: 280px;
+  top: calc(100%+10px);
 }
 //END HOME
 
@@ -920,13 +920,6 @@ a:visited {
     font-size: 20px;
   }
 }
-.profileWorkTime{
-  background: #fff;
-  width: 80vw;
-  margin: auto;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.2);
-}
 .profileWorkTimeHeader{
   display: flex;
   justify-content: center;
@@ -1197,11 +1190,6 @@ a:visited {
 .profileGallery{
   display: flex;
   flex-direction: column;
-  background: #fff;
-  width: 80vw;
-  margin: 0 auto 20px auto;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.2);
 }
 .galleryHeader{
   display: flex;
@@ -1699,6 +1687,13 @@ a:visited {
   cursor: default;
 }
 // END FORMA STYLE //
+.objectProfileStyle{
+  box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.2);
+  background: #fff;
+  width: 80vw;
+  border-radius: 5px;
+  margin: 0 auto 20px auto;
+}
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -1715,8 +1710,42 @@ a:visited {
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 //MEDIA 425px
-
+@media screen and (min-width: 426px) and (max-width: 600px){
+  .objectProfileStyle{
+    width: 100vw;
+  }
+  .objectWorkTimeBox{
+    p{
+      font-size: 12px;
+    }
+  }
+}
 @media screen and (max-width: 425px){
+  .objectWorkTimeBox{
+    padding: 0;
+    p{
+      font-size: 10px;
+    }
+  }
+  .objectProfileStyle{
+    width: 100vw;
+    margin-bottom: 10px;
+  }
+  .profileMapWrapper{
+    min-height: 150px;
+  }
+  .profileMapButton{
+    width: 60px;
+    height: 60px;
+    top: -35px;
+    right: 30px;
+  }
+  .map1{
+    height: 150px;
+  }
+  .dropDownWrapperTwo{
+    top: calc(100%+12px);
+  }
   .disablePhone{
     pointer-events: auto;
   }
@@ -1897,7 +1926,7 @@ a:visited {
     }
   }
   .profileWorkTimeSecond{
-    padding: 20px;
+    padding: 0;
     flex-direction: column;
   }
   .profileWorkTimeThirthBox{
@@ -1913,7 +1942,7 @@ a:visited {
     display: none;
   }
   .whatWrapper{
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
   .search{
     border-radius: 0 5px 5px 0;

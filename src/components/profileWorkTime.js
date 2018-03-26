@@ -82,7 +82,7 @@ class ProfileWorkTime extends React.Component{
     let [objectCl] = result;
 
     return(
-      <div className={css.profileWorkTime}>
+      <div className={css.objectProfileStyle}>
         {
           this.props.data.loading ? null :
           objectCl == undefined ? null :

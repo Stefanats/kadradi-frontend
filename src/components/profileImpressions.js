@@ -51,7 +51,7 @@ class ProfileImpressions extends React.Component{
     avgRating = avgRating.toString();
     avgRating = avgRating.replace(".",",");
     return(
-    <div className={css.impressionsWrapper}>
+    <div style={{marginBottom:'0'}} className={css.objectProfileStyle}>
       {
         this.props.data.loading ? <Loading /> :
         objectCl === undefined ? null :

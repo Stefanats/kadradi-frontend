@@ -6,7 +6,7 @@ import GalleryButton from './galleryButton';
 class ProfileGalerry extends React.Component{
   render(){
     return(
-      <div className={css.profileGallery}>
+      <div className={css.profileGallery + " " + css.objectProfileStyle}>
           <div className={css.galleryHeader}>
             <div className={css.galleryHeaderWrapper}>
               <h3>Galerija</h3>

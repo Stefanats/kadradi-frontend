@@ -82,8 +82,7 @@ class ProfileHome extends React.Component{
               <img src={img}/>
             </div>
           </div>
-          <div style={{boxShadow: '0px 2px 5px 2px rgba(0,0,0,0.2)',
-          background:'#fff',width:"80vw",borderRadius:'5px',margin:"auto"}}>
+          <div className={css.objectProfileStyle}>
           <div className={css.profileTitle}>
             <div className={css.profileTitleBox}>
               <div className={css.profileTitleName}>

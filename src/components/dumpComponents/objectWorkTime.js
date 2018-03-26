@@ -15,8 +15,6 @@ class ObjectWorkTime extends React.Component{
     }
   }
   render(){
-
-  console.log('AU SANEEEEEEEE', this.props.objectCl)
     let sectorTimeInfo = this.props.objectCl.sectorTimeInfo.map((item, key) => {
       let openMonday = this.splitArray(item.monday.opening);
       let closeMonday = this.splitArray(item.monday.closing);

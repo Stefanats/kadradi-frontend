@@ -18,9 +18,7 @@
     "test": "jest",
     "heroku-server": "cross-env SERVER_PROD_PORT=$PORT SERVER_PROD_HOST=0.0.0.0 npm run server"
   },
-  "devDependencies": {
-
-  },
+  "devDependencies": {},
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
