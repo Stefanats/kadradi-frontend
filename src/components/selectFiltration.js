@@ -7,7 +7,10 @@ import star from '../images/zvezdamala.png';
 import letterA from '../images/slovoa.png';
 import { connect } from 'react-redux';
 
-@connect(state => ({ filter: state.filter }))
+@connect(state => ({ 
+  filter: state.filter,
+  closeToMe: state.closeToMe,
+}))
 
 class SelectFiltration extends React.Component{
   constructor(props){
@@ -69,22 +72,21 @@ class SelectFiltration extends React.Component{
       )
     })
     return(
-      // <select className={css.selectFiltration} onChange={this.one}>
-      //   <option hidden>Poredjaj po</option>
-      //   <option value='alphabetical' >Abc</option>
-      //   <option value='priceUp'>Cena uzlazno</option>
-      //   <option value='priceDown'>Cena silazno</option>
-      //   <option value='ratingCount'>Najbolje ocenjeno</option>
-      // </select>
-      <div 
-        onClick={() => this.clickHandle()}
-        className={css.selectButton}>
-        <img src={arrowDown} alt='down arrow'/><p>{this.state.selectName}</p>
-        <div
-          style={{display:`${this.state.dropDown}`}} 
-          className={css.selectDropDown}>
-          {dropDownItems}
-        </div>
+      <div>
+        {
+          // upitom gasim filtracuju jer za "closeToMe" nema query-ja
+          this.props.closeToMe.close ? null :
+          <div 
+            onClick={() => this.clickHandle()}
+            className={css.selectButton}>
+            <img src={arrowDown} alt='down arrow'/><p>{this.state.selectName}</p>
+            <div
+              style={{display:`${this.state.dropDown}`}} 
+              className={css.selectDropDown}>
+              {dropDownItems}
+            </div>
+          </div>
+        }
       </div>
     )
   }

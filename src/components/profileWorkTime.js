@@ -16,6 +16,8 @@ import ProfileMap from './dumpComponents/profileMap';
       objectLocations{
         address
         city
+        lat
+        lng
       }
       avgPrice
       objectInfo{
@@ -95,7 +97,7 @@ class ProfileWorkTime extends React.Component{
           <div className={css.profileWorkTimeThirth}>
             <div className={css.profileWorkTimeThirthBox}>
               <ProfileInfo objectCl={objectCl}/>
-              {/* <ProfileMap {...this.props} objectCl={objectCl}/> */}
+              <ProfileMap {...this.props} objectCl={objectCl}/>
             </div>
           </div>
           <div>

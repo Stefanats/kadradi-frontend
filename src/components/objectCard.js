@@ -116,6 +116,9 @@ class ObjectCard extends React.Component{
       niz2: [],
     }
   }
+  componentWillMount() {
+    console.log("PROPS U MOUNTU", this.props)
+  }
   componentWillReceiveProps(nextProps) {
     if(nextProps.data.objectCl != undefined) {
       this.setState({niz: nextProps.data.objectCl});
@@ -123,10 +126,13 @@ class ObjectCard extends React.Component{
     if(nextProps.data.nearestObjects != undefined) {
       this.setState({niz2: nextProps.data.nearestObjects})
     }
-    if(nextProps.data.objectCl !== this.props.data.objectCl){
+    if(nextProps.data.objectCl != undefined){
+      console.log("nextPROps", nextProps.closeToMe.close)
       this.props.dispatch({
         type: "ARRAY_COUNT",
-        value: this.state.niz.length,
+        value: nextProps.closeToMe.close ?
+        nextProps.data.nearestObjects.length :
+        nextProps.data.objectCl.length
       });
     }
     this.props.filter.filter !== nextProps.filter.filter ?
@@ -142,7 +148,6 @@ class ObjectCard extends React.Component{
       .replace(/-+$/, '');            // Trim - from end of text
   }
   sort = async (filter) => {
-    console.log('FILTER', filter)
     filter === 'alphabetical' ?
     await this.props.data.refetch({
       alphabetical: true,
@@ -163,7 +168,6 @@ class ObjectCard extends React.Component{
   render(){
     let result = this.props.closeToMe.close ? this.state.niz2 : this.state.niz;
     let sortedResult = _.sortBy( result, 'avgRating' ).reverse();
-    console.log("result", result)
     let objects = result
     .map((item, key) =>
         <div className={css.objectCardItem} key={key}>

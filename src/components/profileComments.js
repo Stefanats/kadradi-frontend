@@ -46,15 +46,8 @@ class ProfileComments extends React.Component{
     super(props);
     this.state = {
       page: 1,
-      modalDisplay: false,
     }
   }
-  modalDisplay(){
-		this.setState({
-			modalDisplay: true,
-    })
-    console.log('KURAC')
-	}
   render(){
     let result = this.props.data.ObjectReview || [];
     let ObjectReview = result;
@@ -119,8 +112,7 @@ class ProfileComments extends React.Component{
         {
           ObjectReview[0] === undefined ? null :
           <RatingButton
-            page={ObjectReview[0].maxPages}
-            callFunction={()=>this.modalDisplay()}  />
+            page={ObjectReview[0].maxPages}  />
         }
       </div>
     )

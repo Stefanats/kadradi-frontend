@@ -26,6 +26,8 @@ import filterReducer from 'reducers/filter';
 import categoriesIdReducer from 'reducers/categoriesId';
 import closeToMeReducer from 'reducers/closeToMe';
 import arrayCountReducer from 'reducers/arrayCount';
+import modalReducer from 'reducers/modal';
+import menuModalReducer from 'reducers/menuModal';
 
 // Main component -- i.e. the 'root' React component in our app
 import Main from 'components/main';
@@ -48,6 +50,8 @@ config.addReducer('filter', filterReducer, { filter: 'name' });
 config.addReducer('categoriesId', categoriesIdReducer, { categoriesId: 0 });
 config.addReducer('closeToMe', closeToMeReducer, { close: false });
 config.addReducer('arrayCount', arrayCountReducer, { count: 0 });
+config.addReducer('modal', modalReducer, { display: false });
+config.addReducer('menuModal', menuModalReducer, { display: false });
 
 /* GRAPHQL */
 

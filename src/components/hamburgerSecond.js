@@ -1,7 +1,9 @@
 import React from 'react';
 import css from './styles/styles.scss';
 import { HamburgerButton } from 'react-hamburger-button';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+@connect(state => ({ menuModal: state.menuModal }))
 
 class HamburgerSecond extends React.Component{
   constructor(props){
@@ -14,6 +16,10 @@ class HamburgerSecond extends React.Component{
     this.setState({
         open: this.state.open == false ? true : false
     });
+    this.props.dispatch({
+      type: 'MENU_MODAL',
+      value: true,
+    })
   }
   componentWillMount(){
     this.setState({
@@ -21,15 +27,16 @@ class HamburgerSecond extends React.Component{
     })
   }
   render(){
+    let display = this.props.menuModal.display;
     return(
 			<div className={css.hamburgerWrapperS}>
         <div className={css.hamburgerS}>
           <HamburgerButton
             color="#fff"
-            open={this.state.open}
+            open={display}
             onClick={this.handleClick.bind(this)}
           />
-          <div 
+          {/* <div 
             style={{display: `${this.state.open == true ? 'block' : 'none'}`}}
             className={css.hamburgerListWrapperS}>
             <ul className={css.hamburgerListS}>
@@ -37,7 +44,7 @@ class HamburgerSecond extends React.Component{
               <Link to="/addobject"><li>Dodaj Objekat</li></Link>
               <Link to="/about"><li>O nama</li></Link>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     )

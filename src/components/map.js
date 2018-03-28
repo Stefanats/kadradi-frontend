@@ -131,7 +131,6 @@ class GoogleMap extends React.Component {
     let resultNear = this.props.data.nearestObjects || [];
     let resultCl = this.props.data.objectCl || [];
     let result = this.props.closeToMe.close ? resultNear : resultCl;
-    console.log('ovo je ', this.props, latitude)
       return (
         <div className={csss}>
         { 
@@ -144,8 +143,8 @@ class GoogleMap extends React.Component {
           google={this.props.google}
           zoom={12}
           initialCenter={{
-            lat: latitude,
-            lng: longitude,
+            lat: this.props.css === 'map1' ? this.props.objLat : latitude,
+            lng: this.props.css === 'map1' ? this.props.objLng : longitude, 
           }}>
           {
             this.props.css != 'map' ? null :
@@ -173,8 +172,9 @@ class GoogleMap extends React.Component {
             <Marker
               icon={satNeRadi}
               position={{
-                lat: latitude,
-                lng: longitude}}/>
+                lat: this.props.css === 'map1' ? this.props.objLat : latitude,
+                lng: this.props.css === 'map1' ? this.props.objLng : longitude, 
+                }}/>
               <InfoWindow
               marker={this.state.marker}
               style={{marginBottom:'20px'}}

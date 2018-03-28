@@ -5,6 +5,8 @@ import ObjectCard from './objectCard';
 import SelectFiltration from './selectFiltration';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 @connect(state => ({ 
   arrayCount: state.arrayCount,
@@ -18,6 +20,7 @@ class WhenWorksList extends React.Component{
     }
   }
   render(){
+    console.log('props wwl', this.props.data)
     return(
       <div className={css.whenWorksList}>
         <WwListHeader />

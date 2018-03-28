@@ -1,25 +1,20 @@
 import React from 'react';
 import css from './styles/styles.scss';
 import DownloadModal from './downloadModal';
+import { connect } from 'react-redux';
+
+@connect(state => ({ modal: state.modal }))
 
 class FrontGallery extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      modalDisplay: false,
-    }
-  }
-  modalDisplay() {
-    this.setState({
-      modalDisplay: true,
-    })
+  modalDisplay = () => {
+    this.props.dispatch({
+      type: "MODAL_DISPLAY",
+      value: true,
+    });
   }
   render(){
     return(
       <div className={css.frontGallery}>
-        <DownloadModal 
-          comment='komentara'
-          display={this.state.modalDisplay}/>
         <div className={css.frontGalleryWrapper}>
           <div className={css.galleryLeftBox}>
             <div

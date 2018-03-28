@@ -67,7 +67,7 @@ class ProfileHome extends React.Component{
     // let vremeDo = splitedVremeDo[0]+splitedVremeDo[1]+':'+splitedVremeDo[2]+splitedVremeDo[3];
 
     return(
-      <div style={{marginBottom:'20px'}}>
+      <div >
         {this.props.data.loading ?
           <div style={{background:'#fff', height:'100vh', display:'flex',justifyContent:'center',alignItems:'center'}}>
             <BarLoader color='#019f9f'/>

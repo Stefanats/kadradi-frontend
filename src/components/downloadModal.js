@@ -3,35 +3,23 @@ import css from './styles/styles.scss';
 import { Link } from 'react-router-dom';
 import appStore from '../images/app_store.png';
 import googlePlay from '../images/google_play.png';
+import { connect } from 'react-redux';
+
+@connect(state => ({ modal: state.modal }))
 
 class DownloadModal extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      display: false,
-    }
-  }
-  componentWillReceiveProps(nextProps){
-    if(nextProps.display){
-      this.setState({
-        display: true,
-      })
-    }
-  }
-  clickHandler(e){
-    e.stopPropagation();
-    console.log('kakakaka')
-  }
-  closeModal(){
-    this.setState({
-      display: false,
-    })
+  closeModal = () => {
+    this.props.dispatch({
+      type: "MODAL_DISPLAY",
+      value: false,
+    });
   }
   render(){
+    let display = this.props.modal.display;
     return(
       <div
         onClick={() => this.closeModal()}
-        style={{display:`${this.state.display ? 'flex' : 'none'}`}}
+        style={{display:`${display ? 'flex' : 'none'}`}}
         className={css.downloadModal}>
         <div 
           onClick={(e) => this.clickHandler(e)}
