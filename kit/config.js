@@ -104,7 +104,7 @@ if (SERVER) {
       this.koaHelmetOptions = null;
 
       // Force SSL. Rewrites all non-SSL queries to SSL.  False, by default.
-      this.enableForceSSL = false;
+      this.enableForceSSL = true;
 
       // Options for enabling SSL. By default, this is null. If SSL is enabled
       // in userland, this would instead hold an object of options
