@@ -55,7 +55,7 @@ config.addReducer('menuModal', menuModalReducer, { display: false });
 
 /* GRAPHQL */
 
-config.setGraphQLEndpoint('https://kadradi-frontend.ml/graphql');
+config.setGraphQLEndpoint('https://kadradi-backend.ml/graphql');
 // Enable the internal GraphQL server.  This will do two things:
 //
 // 1.  On the server, it will set-up the necessary route handlers to 'listen'
