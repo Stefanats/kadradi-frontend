@@ -113,7 +113,7 @@ class Index extends React.Component{
           {/* <base href="http://localhost:8081/" /> */}
         </Helmet>
         
-          {/* !this.props.isGeolocationAvailable
+          {!this.props.isGeolocationAvailable
             ? <div style={{
                 background:'#009797',
                 display:'flex',height:'100vh'}}><p style={{margin:'auto',fontSize:"30px",fontWeight:"700",color:"#fff"}}>Your browser does not support Geolocation</p></div>
@@ -121,7 +121,7 @@ class Index extends React.Component{
                 ? <div style={{
                   background:'#009797',
                   display:'flex',height:'100vh'}}><p  style={{margin:'auto',fontSize:"30px",fontWeight:"700",color:"#fff"}}>Geolocation is not enabled</p></div>
-                  : this.props.coords ? */}
+                  : this.props.coords ?
           <div style={{position:'relative'}}>
           <Menu />
           <Switch >
@@ -136,7 +136,7 @@ class Index extends React.Component{
             <Route component={NotFound} />
           </Switch>
           </div>
-          {/* : <div style={{
+          : <div style={{
             background:'#009797',
             display:'flex',height:'100vh'}}>
               
@@ -145,7 +145,7 @@ class Index extends React.Component{
           color={'#fff'}
         />
       </div>
-            </div> */}
+            </div>}
         
       </div>
     )
