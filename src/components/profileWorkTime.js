@@ -110,7 +110,7 @@ class ProfileWorkTime extends React.Component{
             isWorking={objectCl.workingTimeInfo.isWorking}
             verified={objectCl.verified}/>
             </div>
-            {/* <ProfileCalendar /> */}
+            <ProfileCalendar />
           </div>
         </div>
         }

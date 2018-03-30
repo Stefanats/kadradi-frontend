@@ -1043,11 +1043,14 @@ a:visited {
   justify-content: center;
 }
 .calendarCircleWrapper{
+  height: 300px;
+  background: rgb(197, 153, 10);
   display: flex;
   flex: 1;
   max-width: 1440px;
   justify-content: space-around;
   align-items: center;
+  border-radius: 0 0 5px 5px;
 }
 .blueCircle{
   background: rgb(24, 159, 177);
