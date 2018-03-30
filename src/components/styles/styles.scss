@@ -446,6 +446,10 @@ a:visited {
   flex-direction: column;
   height: 100%;
 }
+.ratingNewRow {
+  display: flex;
+  align-items: center;
+}
 .x{
   position: absolute;
   top: 10px;
@@ -479,6 +483,7 @@ a:visited {
 }
 .dropDownItem:hover, .dropDownItemTwo:hover{
   background: red;
+  color: #fff;
 }
 .dropDownWrapperTwo{
   max-width: 280px;
@@ -1038,11 +1043,14 @@ a:visited {
   justify-content: center;
 }
 .calendarCircleWrapper{
+  height: 300px;
+  background: rgb(197, 153, 10);
   display: flex;
   flex: 1;
   max-width: 1440px;
   justify-content: space-around;
   align-items: center;
+  border-radius: 0 0 5px 5px;
 }
 .blueCircle{
   background: rgb(24, 159, 177);
@@ -1751,6 +1759,9 @@ a:visited {
   }
 }
 @media screen and (max-width: 425px){
+  .categorieBoxBodyL, .categorieBoxBodyR{
+    margin: auto;
+  }
   .menuIndexWrapper{
     display: block;
   }
@@ -2201,6 +2212,49 @@ a:visited {
 
 // MEDIA QUERY 426-768
 @media screen and (min-width: 426px) and (max-width: 768px){
+  .header{
+    height: 100vh;
+  }
+  .categorieBoxBodyL, .categorieBoxBodyR{
+    margin: auto!important;
+  }
+  .singleCategorie{
+    width: calc((100vw)/3-5px);
+    height: 18vw;
+  }
+  .singleText{
+    font-size: 2vw;
+  }
+  .singleImg{
+    width: 8vw;
+  }
+  .categorieBoxItemWrapper{
+    width: calc((100vw)/3-5px);
+    height: 18vw;
+    max-width: 220px;
+    max-height: 220px;
+  }
+  .categorieBoxItem p{
+    font-size: 2vw;
+  }
+ .categorieBoxImg{
+   width: 8vw;
+ }
+  .categorieBoxItemWrapperThree{
+    height: 18vw;
+  }
+  .categorieBoxBody{
+    max-width: 670px;
+  }
+  .categorieWrappers{
+    flex-direction: column;
+  }
+  .categorieBoxContainer{
+    height: 60px;
+  }
+  .menuIndexWrapper{
+    display: block;
+  }
   .downStoreWW{
     display: block;
   }
@@ -2563,12 +2617,6 @@ a:visited {
   .borderOfMemory {
     margin: 0px 65px;
   }
-  .objectImg img {
-    width: 140px;
-  }
-  .objectName {
-    
-  }
   .objectName p {
     font-size: 14px;
     max-width: 150px;
@@ -2587,10 +2635,7 @@ a:visited {
     flex-direction: column;
     align-items: left;
   }
-  .ratingNewRow {
-    display: flex;
-    flex-direction: row;
-  }
+
   .circleRating {
     margin-left: 0px;
     width: 25px;
