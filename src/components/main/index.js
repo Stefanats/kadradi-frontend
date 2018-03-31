@@ -133,8 +133,8 @@ class Index extends React.Component{
             <Route component={NotFound} />
           </Switch>
           </div> 
-          : 
-          {/* <div style={{
+          {/*: 
+           <div style={{
             background:'#009797',
             display:'flex',height:'100vh'}}>
             <div style={{margin: 'auto'}} className='sweet-loading'>
