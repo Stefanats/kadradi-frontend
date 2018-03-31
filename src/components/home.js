@@ -45,14 +45,14 @@ class Home extends React.Component{
 		})
 	}
   render(){
-		if (/iPhone/i.test(navigator.userAgent)) {
-		// Take the user to a different screen here.
-		alert('OVO JE IPHONE')
-}else if(/Android/i.test(navigator.userAgent)){
-	alert('OVO JE ANDROID')
-}else{
-	alert('IPAK NESTO DRUGO')
-}
+	// 	if (/iPhone/i.test(navigator.userAgent)) {
+	// 		// Take the user to a different screen here.
+	// 		alert('OVO JE IPHONE')
+	// }else if(/Android/i.test(navigator.userAgent)){
+	// 	alert('OVO JE ANDROID')
+	// }else{
+	// 	alert('IPAK NESTO DRUGO')
+	// }
 		return(
 			<div>
 				<div className={css.header}>
