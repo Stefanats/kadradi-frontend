@@ -116,8 +116,11 @@ class ObjectCard extends React.Component{
       niz2: [],
     }
   }
-  componentWillMount() {
-    console.log("PROPS U MOUNTU", this.props)
+  componentWillUnmount(){
+    this.props.dispatch({
+      type: "ARRAY_COUNT",
+      value: 0,
+    });
   }
   componentWillReceiveProps(nextProps) {
     if(nextProps.data.objectCl != undefined) {
@@ -138,7 +141,6 @@ class ObjectCard extends React.Component{
     this.props.filter.filter !== nextProps.filter.filter ?
     this.sort(nextProps.filter.filter) : null
   }
-  //063 202 586-nikola
   slugify(text){
     return text.toString().toLowerCase()
       .replace(/\s+/g, '-')           // Replace spaces with -

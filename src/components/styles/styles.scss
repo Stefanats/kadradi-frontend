@@ -62,7 +62,8 @@ a:visited {
   transition: 600ms;
   padding: 40px;
 }
-.menuIndexNav{
+.menuIndexNav a, .menuIndexNav a:visited{
+  color: #fff;
 }
 .menuIndexNav li{
   margin: 20px;
@@ -76,7 +77,7 @@ a:visited {
   background-size: cover;
   flex-direction: column;
   position: relative;
-  height: 90vh;
+  min-height: 90vh;
 }
 .menuHolder{
   margin: 0 auto;
@@ -1758,6 +1759,9 @@ a:visited {
   }
 }
 @media screen and (max-width: 425px){
+  .profileWorkClock{
+    margin-bottom: 40px;
+  }
   .categorieBoxBodyL, .categorieBoxBodyR{
     margin: auto;
   }
@@ -2211,6 +2215,9 @@ a:visited {
 
 // MEDIA QUERY 426-768
 @media screen and (min-width: 426px) and (max-width: 768px){
+  .profileWorkClock{
+    margin-bottom: 40px;
+  }
   .header{
     height: 100vh;
   }
