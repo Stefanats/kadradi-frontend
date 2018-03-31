@@ -45,9 +45,13 @@ class Home extends React.Component{
 		})
 	}
   render(){
-		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+		if (/iPhone/i.test(navigator.userAgent)) {
 		// Take the user to a different screen here.
-		console.log('OVO JE: ', test())
+		console.log('OVO JE IPHONE')
+}else if(/Android/i.test(navigator.userAgent)){
+	console.log('OVO JE ANDROID')
+}else{
+	console.log('IPAK NESTO DRUGO')
 }
 		return(
 			<div>
