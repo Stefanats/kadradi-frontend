@@ -47,11 +47,11 @@ class Home extends React.Component{
   render(){
 		if (/iPhone/i.test(navigator.userAgent)) {
 		// Take the user to a different screen here.
-		console.log('OVO JE IPHONE')
+		alert('OVO JE IPHONE')
 }else if(/Android/i.test(navigator.userAgent)){
-	console.log('OVO JE ANDROID')
+	alert('OVO JE ANDROID')
 }else{
-	console.log('IPAK NESTO DRUGO')
+	alert('IPAK NESTO DRUGO')
 }
 		return(
 			<div>
