@@ -141,8 +141,9 @@ class Index extends React.Component{
 
               <BarLoader color={'#fff'}/>
             </div>
-          </div> */}
-        }
+          </div>
+           }
+          */}
       </div>
     )
   }

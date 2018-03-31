@@ -141,6 +141,7 @@ class ObjectCard extends React.Component{
     this.props.filter.filter !== nextProps.filter.filter ?
     this.sort(nextProps.filter.filter) : null
   }
+  //063 202 586-nikola
   slugify(text){
     return text.toString().toLowerCase()
       .replace(/\s+/g, '-')           // Replace spaces with -
