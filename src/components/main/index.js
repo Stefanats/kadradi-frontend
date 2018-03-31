@@ -110,7 +110,7 @@ class Index extends React.Component{
           <meta name="description" content="ReactQL starter kit app" />
           {/* <base href="http://localhost:8081/" /> */}
         </Helmet>
-          {!this.props.isGeolocationAvailable
+          {/* {!this.props.isGeolocationAvailable
             ? <div style={{
                 background:'#009797',
                 display:'flex',height:'100vh'}}><p style={{margin:'auto',fontSize:"30px",fontWeight:"700",color:"#fff"}}>Your browser does not support Geolocation</p></div>
@@ -118,7 +118,7 @@ class Index extends React.Component{
                 ? <div style={{
                   background:'#009797',
                   display:'flex',height:'100vh'}}><p style={{margin:'auto',fontSize:"30px",fontWeight:"700",color:"#fff"}}>Geolocation is not enabled</p></div>
-                  : this.props.coords ?
+                  : this.props.coords ? */}
           <div style={{position:'relative'}}>
           <Menu />
           <Switch >
@@ -132,15 +132,16 @@ class Index extends React.Component{
             <Route path="/verification/:hash" component={Verification} />
             <Route component={NotFound} />
           </Switch>
-          </div> : 
-          <div style={{
+          </div> 
+          : 
+          {/* <div style={{
             background:'#009797',
             display:'flex',height:'100vh'}}>
             <div style={{margin: 'auto'}} className='sweet-loading'>
 
               <BarLoader color={'#fff'}/>
             </div>
-          </div>
+          </div> */}
         }
       </div>
     )
