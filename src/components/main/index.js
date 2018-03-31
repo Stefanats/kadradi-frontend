@@ -103,8 +103,6 @@ class Index extends React.Component{
     }
   }
   render(){
-    let {objectCl} = this.props.data || [];
-    console.log('IZ INDEXA', objectCl)
     return(
       <div className={css.lukaCar}>
         <Helmet>
@@ -139,7 +137,7 @@ class Index extends React.Component{
             background:'#009797',
             display:'flex',height:'100vh'}}>
             <div style={{margin: 'auto'}} className='sweet-loading'>
-              
+
               <BarLoader color={'#fff'}/>
             </div>
           </div>

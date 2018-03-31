@@ -45,6 +45,10 @@ class Home extends React.Component{
 		})
 	}
   render(){
+		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+		// Take the user to a different screen here.
+		console.log('OVO JE: ', test())
+}
 		return(
 			<div>
 				<div className={css.header}>
