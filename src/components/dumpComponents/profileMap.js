@@ -8,9 +8,11 @@ class ProfileMap extends React.Component{
   render(){
     let objectCl = this.props.objectCl;
     let { coords } = this.props || [];
+    let { latitude, longitude } = coords;
     let lat = objectCl.objectLocations.lat;
     let lng = objectCl.objectLocations.lng;
     console.log('lat lng', coords)
+    console.log('MYYYYYYYYYYY lat lng', this.props)
     return(
       <div className={css.profileMap}>
         <div className={css.profileMapWrapper}>
@@ -31,7 +33,7 @@ class ProfileMap extends React.Component{
               <div><FaMailForward/></div>
             </div>
           </Link> :
-          <Link target='blank' to={`https://maps.google.com?saddr=Current+Location&daddr=${lat},${lng}`}> 
+          <Link target='blank' to={`https://www.google.com/maps/dir/${latitude},${longitude}/${lat},${lng}`}> 
             <div className={css.profileMapButton}>
               <div><FaMailForward/></div>
             </div>

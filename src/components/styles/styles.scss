@@ -1084,6 +1084,7 @@ a:visited {
   flex: 1;
   border-top: 0.75px solid #e6e6e6;
   border-bottom: 0.75px solid #e6e6e6;
+  border-right: 0.75px solid #e6e6e6;
 }
 .profileInformation h3{
   font-size: 18px;
@@ -1181,7 +1182,6 @@ a:visited {
   margin-right: 3px;
 }
 .profileMap{
-  border-left: 0.75px solid #e6e6e6;
   border-bottom: 0.75px solid #e6e6e6;
   flex-direction: column;
   display: flex;
@@ -1196,7 +1196,7 @@ a:visited {
   background: #fff;
   position: relative;
   display: flex;
-  border-top: 1px solid rgb(212, 212, 212);
+  border-top: 0.75px solid #e6e6e6;
   height: 100%;
 }
 .profileMapContent{
