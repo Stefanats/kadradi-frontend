@@ -54,8 +54,24 @@ let niz = [
 @connect(state => ({ filter: state.filter }))
 
 class Categories extends React.Component {
-
-
+	constructor(props){
+		super(props);
+		this.state = {
+			left: false,
+		}
+	}
+	componentWillMount(){
+		setTimeout(() => {
+			this.setState({
+				left: true,
+			})
+		}, 1);
+	}
+	componentWillUnmount (){
+		this.setState({
+			left: false,
+		})
+	}
 	sendCategoriesId = (item) => {
     this.props.dispatch({
       type: "SEND_CATEGORIESID",
@@ -79,7 +95,9 @@ class Categories extends React.Component {
 			)
 		})
     return(
-      <div className={css.categories}>
+			<div
+				style={{left:`${this.state.left ? '0' : '-100%'}`}}
+				className={css.categories}>
         <div className={css.categoriesHeader}>
 					<h2>Popularne Kategorije</h2>
 				</div>

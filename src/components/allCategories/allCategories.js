@@ -7,9 +7,29 @@ import WrapperFour from './wrappers/wrapperFour';
 import WrapperFive from './wrappers/wrapperFive';
 
 class AllCategories extends React.Component{
+  constructor(props){
+		super(props);
+		this.state = {
+			left: false,
+		}
+	}
+	componentWillMount(){
+		setTimeout(() => {
+			this.setState({
+				left: true,
+			})
+		}, 1);
+	}
+	componentWillUnmount (){
+		this.setState({
+			left: false,
+		})
+	}
   render() {
     return (
-      <div className={css.allCategories}>
+      <div 
+        style={{left:`${this.state.left ? '0' : '-100%'}`}}
+        className={css.allCategories}>
         <div className={css.allCategoriesHeader}>
 					<h2>Sve Kategorije</h2>
 				</div>

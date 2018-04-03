@@ -259,6 +259,8 @@ a:visited {
 .categories{
   display: flex;
   flex-direction: column;
+  position: relative;
+  transition: 0.6s;
 }
 .categoriesHeader{
   padding: 20px;
@@ -302,6 +304,8 @@ a:visited {
 .allCategories{
   display: flex;
   flex-direction: column;
+  position: relative;
+  transition: 0.6s;
 }
 .allCategoriesHeader{
   padding: 20px;
@@ -1750,7 +1754,7 @@ a:visited {
 
 
 
-@media screen and (min-width: 426px) and (max-height: 425px){
+@media screen and (min-width: 426px) and (max-height: 425px) {
   .header{
     height: 100vw!important;
   }

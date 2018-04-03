@@ -70,8 +70,11 @@ class Home extends React.Component{
 					<DownStore />
 				</div>
 				<div className={css.categoriesWrapper}>
-						<Categories clickHandler={(e) => this.clickHandler(e)} />
+					{
+						this.state.switch ?
+						<Categories clickHandler={(e) => this.clickHandler(e)}/> :
 						<AllCategories clickHandler={(e) => this.clickHandler(e)}/>
+					}
 					{/* <PopularCategories /> */}
 				</div> 
 			</div>
