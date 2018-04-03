@@ -121,6 +121,10 @@ class ObjectCard extends React.Component{
       type: "ARRAY_COUNT",
       value: 0,
     });
+    this.props.dispatch({
+      type: "CLOSE_TOME",
+      value: false,
+    });
   }
   componentWillReceiveProps(nextProps) {
     if(nextProps.data.objectCl != undefined) {
