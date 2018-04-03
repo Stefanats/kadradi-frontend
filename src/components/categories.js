@@ -51,29 +51,39 @@ let niz = [
 	},
 ]
 
-@connect(state => ({ filter: state.filter }))
+@connect(state => 
+	({ 
+		filter: state.filter,
+		switch: state.switch,
+	}))
 
 class Categories extends React.Component {
 	constructor(props){
 		super(props);
-		this.state = {
-			left: false,
-		}
 	}
-	componentWillMount(){
-		setTimeout(() => {
-			this.setState({
-				left: true,
-			})
-		}, 100);
-	}
+
 	sendCategoriesId = (item) => {
     this.props.dispatch({
       type: "SEND_CATEGORIESID",
       value: item.id
     });
-  }
+	}
+	componentWillMount() {
+		setTimeout(() => {
+			this.props.dispatch({
+				type: "CATEGORIES_SWITCH",
+				value: false,
+			});
+		}, 100);
+	}
+	componentWillUnmount() {
+		this.props.dispatch({
+			type: "CATEGORIES_SWITCH",
+			value: true,
+		});
+	}
   render() {
+		let checkSwitch = this.props.switch.switch;
 		let singleCategorie = niz.map((item,key) => {
 			return(
 				<div 
@@ -91,7 +101,7 @@ class Categories extends React.Component {
 		})
     return(
 			<div
-				style={{left:`${this.state.left ? '0' : '-100%'}`}}
+				style={{left:`${checkSwitch ? '-100%' : '0'}`}}
 				className={css.categories}>
         <div className={css.categoriesHeader}>
 					<h2>Popularne Kategorije</h2>

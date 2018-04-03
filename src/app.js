@@ -28,6 +28,7 @@ import closeToMeReducer from 'reducers/closeToMe';
 import arrayCountReducer from 'reducers/arrayCount';
 import modalReducer from 'reducers/modal';
 import menuModalReducer from 'reducers/menuModal';
+import categoriesSwitch from 'reducers/categoriesSwitch';
 
 // Main component -- i.e. the 'root' React component in our app
 import Main from 'components/main';
@@ -52,6 +53,7 @@ config.addReducer('closeToMe', closeToMeReducer, { close: false });
 config.addReducer('arrayCount', arrayCountReducer, { count: 0 });
 config.addReducer('modal', modalReducer, { display: false });
 config.addReducer('menuModal', menuModalReducer, { display: false });
+config.addReducer('switch', categoriesSwitch, { switch: true });
 
 /* GRAPHQL */
 

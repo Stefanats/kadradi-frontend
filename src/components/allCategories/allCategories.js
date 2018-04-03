@@ -5,25 +5,35 @@ import WrapperTwo from './wrappers/wrapperTwo';
 import WrapperThree from './wrappers/wrapperThree';
 import WrapperFour from './wrappers/wrapperFour';
 import WrapperFive from './wrappers/wrapperFive';
+import { connect } from 'react-redux';
+
+@connect(state => 
+	({ switch: state.switch}))
+
 
 class AllCategories extends React.Component{
   constructor(props){
 		super(props);
-		this.state = {
-			left: false,
-		}
-	}
-	componentWillMount(){
+  }
+  componentWillMount() {
 		setTimeout(() => {
-			this.setState({
-				left: true,
-			})
+			this.props.dispatch({
+				type: "CATEGORIES_SWITCH",
+				value: false,
+			});
 		}, 100);
 	}
+	componentWillUnmount() {
+		this.props.dispatch({
+			type: "CATEGORIES_SWITCH",
+			value: true,
+		});
+	}
   render() {
+		let checkSwitch = this.props.switch.switch;
     return (
       <div 
-        style={{left:`${this.state.left ? '0' : '-100%'}`}}
+        style={{left:`${checkSwitch ? '-100%' : '0'}`}}
         className={css.allCategories}>
         <div className={css.allCategoriesHeader}>
 					<h2>Sve Kategorije</h2>
