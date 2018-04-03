@@ -3,6 +3,7 @@ import css from './styles/styles.scss';
 import { history } from 'kit/lib/routing';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import { BeatLoader } from 'react-spinners';
 
 @graphql(gql`
  query
@@ -104,6 +105,7 @@ class InputBox extends React.Component {
     console.log('molimo vas oznacite nesto')
   }
   render() {
+    console.log('LOADING', this.props.data.loading)
     let dropDownObjects = this.state.objectsArray.map((item, key) => {
       return(
         <div 
@@ -128,12 +130,18 @@ class InputBox extends React.Component {
     return(
       <div className={css.whatWhere}>
         <div className={css.whatWrapper}>
-          <div 
-            style={{display: `${this.state.objectsArray.length == 0 &&
-                                this.state.categoryArray.length == 0 ? 'none' : 'flex'}`}}
-            className={css.dropDownWrapper}>
-              {dropDown}
-          </div>
+          {
+            this.props.data.loading ? <div style={{position:'absolute',right:'5px',
+            display:'flex',height:'100%',alignItems:'center'}}>
+              <BeatLoader color={'red'} size={10} />
+            </div> :
+            <div 
+              style={{display: `${this.state.objectsArray.length == 0 &&
+                                  this.state.categoryArray.length == 0 ? 'none' : 'flex'}`}}
+              className={css.dropDownWrapper}>
+                {dropDown}
+            </div>
+          }
           <div className={css.what}>Sta</div>
           <input
             value={this.state.inputValue}

@@ -184,6 +184,7 @@ class GoogleMap extends React.Component {
                     <img src={this.state.img} className={css.infoWindowImg}/>
                   </div>
                   <div className={css.infoWindowName}>
+                    
                     <p>{this.state.name}</p>
                   </div>
                   <div className={css.infoWindowRating}>
