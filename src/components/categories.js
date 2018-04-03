@@ -65,12 +65,7 @@ class Categories extends React.Component {
 			this.setState({
 				left: true,
 			})
-		}, 1);
-	}
-	componentWillUnmount (){
-		this.setState({
-			left: false,
-		})
+		}, 100);
 	}
 	sendCategoriesId = (item) => {
     this.props.dispatch({

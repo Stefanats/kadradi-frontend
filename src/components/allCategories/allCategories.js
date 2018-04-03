@@ -18,12 +18,7 @@ class AllCategories extends React.Component{
 			this.setState({
 				left: true,
 			})
-		}, 1);
-	}
-	componentWillUnmount (){
-		this.setState({
-			left: false,
-		})
+		}, 100);
 	}
   render() {
     return (
