@@ -20,10 +20,9 @@ class WhenWorksList extends React.Component{
     }
   }
   render(){
-    console.log('props wwl', this.props.data)
     return(
       <div className={css.whenWorksList}>
-        <WwListHeader />
+        <WwListHeader {...this.props}/>
         <div className={css.listedObjects}>
           <div>
             <p>potvrdjeno ({this.props.arrayCount.count})</p>

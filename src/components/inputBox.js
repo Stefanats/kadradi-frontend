@@ -102,10 +102,9 @@ class InputBox extends React.Component {
     history.push(`/profile/${this.state.sendName}/${this.state.sendValue}`):
     this.state.category ?
     history.push(`/view/${this.state.sendName}/${this.state.sendValue}`) :
-    console.log('molimo vas oznacite nesto')
+    null
   }
   render() {
-    console.log('LOADING', this.props.data.loading)
     let dropDownObjects = this.state.objectsArray.map((item, key) => {
       return(
         <div 
@@ -161,7 +160,7 @@ class InputBox extends React.Component {
             onClick={() => this.search()}
             className={css.submit}>
             <p>Traži</p>
-            </div>
+            </div>  
         </div>
       </div>
     )

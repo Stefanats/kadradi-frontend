@@ -11,8 +11,6 @@ class ProfileMap extends React.Component{
     let { latitude, longitude } = coords;
     let lat = objectCl.objectLocations.lat;
     let lng = objectCl.objectLocations.lng;
-    console.log('lat lng', coords)
-    console.log('MYYYYYYYYYYY lat lng', this.props)
     return(
       <div className={css.profileMap}>
         <div className={css.profileMapWrapper}>

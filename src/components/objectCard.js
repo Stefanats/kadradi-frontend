@@ -26,42 +26,20 @@ import { BarLoader } from 'react-spinners';
 }))
 
 @graphql(gql`
- query objectCll(
+  query objectCll(
     $lng: Float,
     $lat: Float,
     $distance: Float,
     $objectCategoryId: Int,
-    $alphabetical: Boolean,
-    $price: Int,
-    $byRating: Boolean) {
-  objectCl(
-    objectCategoryId: $objectCategoryId,
-    alphabetical: $alphabetical
-    price: $price,
-    byRating: $byRating) {
-    id
-    verified
-    name
-    ratingCount
-    avgRating
-    workingTimeInfo{
-      isWorking
-    }
-    objectLocations {
-      city
-    }
-    objectCategory {
-      nameJ
-      name
-    }
-    images {
-      profileImage {
-        desc
-        fileUrl
-      }
-    }
-  }
-  nearestObjects(categoryId: $objectCategoryId, lat: $lat, lng: $lng, distance: $distance){
+    $radiSada: Boolean,
+  ) {
+  nearestObjects(
+    categoryId: $objectCategoryId,
+    lat: $lat,
+    lng: $lng,
+    distance: $distance,
+    radiSada: $radiSada,
+  ) {
     name
     avgRating
     ratingCount
@@ -92,15 +70,18 @@ import { BarLoader } from 'react-spinners';
 
       let {latitude, longitude} = props.coords || 0;
       let args = props.filter.filter;
+      
+      let distance = props.closeToMe.blizuMene ? 0.1 : 3;
+      let radiSada = props.closeToMe.radiSada;
+      console.log('IZ OPTIONA', distance, radiSada)
+      
       return ({
         variables: {
           lng: longitude,
           lat: latitude,
-          distance: 3,
+          distance: distance,
           objectCategoryId: id,
-          alphabetical: args === 'alphabetical' ? true : false,
-          price: args === 'priceUp' ? 1 : args === 'priceDown' ? 2 : 0,
-          byRating: args === 'ratingCount' ? true : false,
+          radiSada: radiSada,
         }
       })
     },
@@ -108,44 +89,37 @@ import { BarLoader } from 'react-spinners';
 )
 
 
-class ObjectCard extends React.Component{
-  constructor(props){
+class ObjectCard extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       niz: [],
-      niz2: [],
     }
   }
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.props.dispatch({
       type: "ARRAY_COUNT",
       value: 0,
     });
     this.props.dispatch({
       type: "CLOSE_TOME",
-      value: false,
+      blizuMene: true,
+      radiSada: false,
     });
   }
   componentWillReceiveProps(nextProps) {
-    if(nextProps.data.objectCl != undefined) {
-      this.setState({niz: nextProps.data.objectCl});
+    if(nextProps.data.nearestObjects !== undefined) {
+      this.setState({niz: nextProps.data.nearestObjects})
     }
-    if(nextProps.data.nearestObjects != undefined) {
-      this.setState({niz2: nextProps.data.nearestObjects})
-    }
-    if(nextProps.data.objectCl != undefined){
-      console.log("nextPROps", nextProps.closeToMe.close)
-      this.props.dispatch({
-        type: "ARRAY_COUNT",
-        value: nextProps.closeToMe.close ?
-        nextProps.data.nearestObjects.length :
-        nextProps.data.objectCl.length
-      });
-    }
-    this.props.filter.filter !== nextProps.filter.filter ?
-    this.sort(nextProps.filter.filter) : null
+    // if(nextProps.data.objectCl != undefined) {
+    //   this.props.dispatch({
+    //     type: "ARRAY_COUNT",
+    //     value: nextProps.nearestObjects.length,
+    //   });
+    // }
+    // this.props.filter.filter !== nextProps.filter.filter ?
+    // this.sort(nextProps.filter.filter) : null
   }
-  //063 202 586-nikola
   slugify(text){
     return text.toString().toLowerCase()
       .replace(/\s+/g, '-')           // Replace spaces with -
@@ -154,100 +128,107 @@ class ObjectCard extends React.Component{
       .replace(/^-+/, '')             // Trim - from start of text
       .replace(/-+$/, '');            // Trim - from end of text
   }
-  sort = async (filter) => {
-    filter === 'alphabetical' ?
-    await this.props.data.refetch({
-      alphabetical: true,
-    }) :
-    filter === 'priceUp' ?
-    await this.props.data.refetch({
-      price: 1,
-    }) :
-    filter === 'priceDown' ?
-    await this.props.data.refetch({
-      price: 2,
-    }) :
-    filter === 'ratingCount' ?
-    await this.props.data.refetch({
-      byRating: true,
-    }) : null
-  }
+  // sort = async (filter) => {
+  //   filter === 'alphabetical' ?
+  //   await this.props.data.refetch({
+  //     alphabetical: true,
+  //   }) :
+  //   filter === 'priceUp' ?
+  //   await this.props.data.refetch({
+  //     price: 1,
+  //   }) :
+  //   filter === 'priceDown' ?
+  //   await this.props.data.refetch({
+  //     price: 2,
+  //   }) :
+  //   filter === 'ratingCount' ?
+  //   await this.props.data.refetch({
+  //     byRating: true,
+  //   }) : null
+  // }
   render(){
-    let result = this.props.closeToMe.close ? this.state.niz2 : this.state.niz;
-    let sortedResult = _.sortBy( result, 'avgRating' ).reverse();
-    let objects = result
-    .map((item, key) =>
-        <div className={css.objectCardItem} key={key}>
-          <div className={css.objectImg} >
-            <img alt={item.name} src={item.images.profileImage.fileUrl} />
-          </div>
-          <div className={css.objectInfoWrapper} >
-            <div className={css.objectName} >
-              <div className={css.ratingNumber}>
-                <p>{sortedResult.indexOf(item)+1}</p>
-              </div>
-              <Link to={`/profile/${this.slugify(item.name)}/${item.id}`}>
-                <p>{item.name}</p>
-              </Link>
-            </div>
-            <div className={css.objectRating}>
-              <Rating
-                readonly
-                emptySymbol={
-                  <img
-                    src={prazan}
-                    className={"icon"+" "+css.objectCardRating}/>}
-                fullSymbol={
-                  <img
-                  src={pun}
-                  className={"icon"+" "+css.objectCardRating}/>}
-                  stop={5}
-                  initialRating={item.avgRating}
-              />
-              <div className={css.ratingNewRow}>
-              <div className={css.circleRating}>
-                <div>
-                  <p>{item.avgRating}</p>
-                </div>
-              </div>
-              <div className={css.ratingCount}>
-                <p>{item.ratingCount} Reviews</p>
-              </div>
-              </div>
-            </div>
-            <div className={css.isWorkingWrapper}>
-              <div className={css.objectInfo}>
-                <p>
-                  {item.objectCategory.nameJ}, {item.objectLocations.city}
-                </p>
-              </div>
-              <div className={css.isWorking}>
-                {
-                  <img 
-                    className={css.objectCardClock}
-                    alt='clock image'
-                    src={
-                  item.workingTimeInfo.isWorking && item.verified ? satRadiVip :
-                  !item.workingTimeInfo.isWorking && item.verified ? satRadi :
-                  item.workingTimeInfo.isWorking && !item.verified ? satNeRadiVip : satNeRadi}/>
-                }
-              </div>
-            </div>
-          </div>
-        </div>
-    )
+    let { data } = this.props || [];
+    let { nearestObjects } = data;
+    console.log('nearestObj', nearestObjects)
+    // let result = this.props.closeToMe.close ? this.state.niz2 : this.state.niz;
+    // let sortedResult = _.sortBy( result, 'avgRating' ).reverse();
+    // let objects = result
+
+
+
+    // .map((item, key) =>
+    //     <div className={css.objectCardItem} key={key}>
+    //       <div className={css.objectImg} >
+    //         <img alt={item.name} src={item.images.profileImage.fileUrl} />
+    //       </div>
+    //       <div className={css.objectInfoWrapper} >
+    //         <div className={css.objectName} >
+    //           <div className={css.ratingNumber}>
+    //             <p>{sortedResult.indexOf(item)+1}</p>
+    //           </div>
+    //           <Link to={`/profile/${this.slugify(item.name)}/${item.id}`}>
+    //             <p>{item.name}</p>
+    //           </Link>
+    //         </div>
+    //         <div className={css.objectRating}>
+    //           <Rating
+    //             readonly
+    //             emptySymbol={
+    //               <img
+    //                 src={prazan}
+    //                 className={"icon"+" "+css.objectCardRating}/>}
+    //             fullSymbol={
+    //               <img
+    //               src={pun}
+    //               className={"icon"+" "+css.objectCardRating}/>}
+    //               stop={5}
+    //               initialRating={item.avgRating}
+    //           />
+    //           <div className={css.ratingNewRow}>
+    //           <div className={css.circleRating}>
+    //             <div>
+    //               <p>{item.avgRating}</p>
+    //             </div>
+    //           </div>
+    //           <div className={css.ratingCount}>
+    //             <p>{item.ratingCount} Reviews</p>
+    //           </div>
+    //           </div>
+    //         </div>
+    //         <div className={css.isWorkingWrapper}>
+    //           <div className={css.objectInfo}>
+    //             <p>
+    //               {item.objectCategory.nameJ}, {item.objectLocations.city}
+    //             </p>
+    //           </div>
+    //           <div className={css.isWorking}>
+    //             {
+    //               <img 
+    //                 className={css.objectCardClock}
+    //                 alt='clock image'
+    //                 src={
+    //               item.workingTimeInfo.isWorking && item.verified ? satRadiVip :
+    //               !item.workingTimeInfo.isWorking && item.verified ? satRadi :
+    //               item.workingTimeInfo.isWorking && !item.verified ? satNeRadiVip : satNeRadi}/>
+    //             }
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    // )
     return(
-      <div className={css.objectCard}>
-        { 
-          this.props.data.loading ? 
-          <div style={{height:'100%', display:'flex',justifyContent:'center',alignItems:'center'}}>
-            <BarLoader color='#019f9f'/>
-          </div> :
-          objects
-        }
-        <div className={css.objectEmptyDiv}>
-        </div>
-      </div>
+      <div>lala</div>
+      // <div className={css.objectCard}>
+      //   { 
+      //     this.props.data.loading ? 
+      //     <div style={{height:'100%', display:'flex',justifyContent:'center',alignItems:'center'}}>
+      //       <BarLoader color='#019f9f'/>
+      //     </div> :
+      //     objects
+      //   }
+      //   <div className={css.objectEmptyDiv}>
+      //   </div>
+      // </div>
     )
   }
 }

@@ -49,7 +49,7 @@ import categories from './components/categories';
 config.addReducer('counter', counterReducer, { count: 0 });
 config.addReducer('filter', filterReducer, { filter: 'name' });
 config.addReducer('categoriesId', categoriesIdReducer, { categoriesId: 0 });
-config.addReducer('closeToMe', closeToMeReducer, { close: false });
+config.addReducer('closeToMe', closeToMeReducer, { radiSada: false, blizuMene: true });
 config.addReducer('arrayCount', arrayCountReducer, { count: 0 });
 config.addReducer('modal', modalReducer, { display: false });
 config.addReducer('menuModal', menuModalReducer, { display: false });

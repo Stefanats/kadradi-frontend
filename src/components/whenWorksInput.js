@@ -4,6 +4,7 @@ import { history } from 'kit/lib/routing';
 import FaSearch from 'react-icons/lib/fa/search';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import { DIRECTIVE } from 'graphql/language/kinds';
 
 @graphql(gql`
  query
@@ -98,7 +99,7 @@ class WhenWorksInput extends React.Component{
     history.push(`/profile/${item.name}/${item.id}`):
     broj === 2 ?
     history.push(`/view/${item.name}/${item.id}`) :
-    console.log('molimo vas oznacite nesto')
+    null
     this.setState({
       category: false,
       object: false,

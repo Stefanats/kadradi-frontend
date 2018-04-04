@@ -9,28 +9,40 @@ class WwListHeader extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      class: false,
+      blizuMene: true,
+      radiSada: false,
     }
   }
-  one = (e) => {
+  blizuMene = () => {
     this.props.dispatch({
       type: "CLOSE_TOME",
-      value: e,
+      blizuMene: !this.state.blizuMene,
+      radiSada: this.state.radiSada,
     });
     this.setState({
-      class: e,
+      blizuMene: !this.state.blizuMene,
+    })
+  }
+  radiSada = () => {
+    this.props.dispatch({
+      type: "CLOSE_TOME",
+      radiSada: !this.state.radiSada,
+      blizuMene: this.state.blizuMene,
+    });
+    this.setState({
+      radiSada: !this.state.radiSada,
     })
   }
   render(){
     return(
       <div className={css.wwListHeader}>
         <div 
-          onClick={() => this.one(false)} 
-          className={this.state.class ? css.wwListOn : css.wwListOff}
+          onClick={() => this.radiSada()} 
+          className={!this.state.radiSada ? css.wwListOn : css.wwListOff}
           >Radi sada</div>
         <div
-          onClick={() => this.one(true)}
-          className={this.state.class ? css.wwListOff : css.wwListOn}
+          onClick={() => this.blizuMene()}
+          className={!this.state.blizuMene ? css.wwListOn : css.wwListOff}
           >Blizu mene</div>
         <div className={css.selectFiltration}>
           <SelectFiltration />
