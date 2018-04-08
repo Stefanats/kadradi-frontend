@@ -1,8 +1,7 @@
 export default function reducer(state, action) {
-  if(action.type=="SEND_VALUE"){
+  if(action.type=="COUNTIES_NAME"){
     return state.merge({
-      filter: action.value,
-      kako: action.kako,
+      name: state.action
     });
   }
   return state;

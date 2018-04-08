@@ -23,7 +23,8 @@ class SelectFiltration extends React.Component{
   sendToRedux = (item) => {
     this.props.dispatch({
       type: "SEND_VALUE",
-      value: item.value
+      value: item.value,
+      kako: item.kako,
     });
   }
   clickHandle = () => {
@@ -42,22 +43,26 @@ class SelectFiltration extends React.Component{
       {
         name: 'Najbolje ocenjeno',
         img: star,
-        value: 'ratingCount',
+        value: 'avgRating',
+        kako: 'desc',
       },
       {
         name: 'ABC',
         img: letterA,
-        value: 'alphabetical',
+        value: 'name',
+        kako: 'asc',
       },
       {
         name: 'Cena uzlazno',
         img: priceUp,
-        value: 'priceUp',
+        value: 'avgPrice',
+        kako: 'asc',
       },
       {
         name: 'Cena silazno',
         img: priceDown,
-        value: 'priceDown',
+        value: 'avgPrice',
+        kako: 'desc',
       }
     ]
     let dropDownItems = array.map((item, key) => {
@@ -73,20 +78,16 @@ class SelectFiltration extends React.Component{
     })
     return(
       <div>
-        {
-          // upitom gasim filtracuju jer za "closeToMe" nema query-ja
-          this.props.closeToMe.close ? null :
-          <div 
-            onClick={() => this.clickHandle()}
-            className={css.selectButton}>
-            <img src={arrowDown} alt='down arrow'/><p>{this.state.selectName}</p>
-            <div
-              style={{display:`${this.state.dropDown}`}} 
-              className={css.selectDropDown}>
-              {dropDownItems}
-            </div>
+        <div 
+          onClick={() => this.clickHandle()}
+          className={css.selectButton}>
+          <img src={arrowDown} alt='down arrow'/><p>{this.state.selectName}</p>
+          <div
+            style={{display:`${this.state.dropDown}`}} 
+            className={css.selectDropDown}>
+            {dropDownItems}
           </div>
-        }
+        </div>
       </div>
     )
   }

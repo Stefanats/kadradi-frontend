@@ -2,8 +2,37 @@ import React from 'react';
 import css from './styles/styles.scss';
 import { connect } from 'react-redux';
 import SelectFiltration from './selectFiltration';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+import arrowDown from '../images/kadole.png';
 
-@connect(state => ({ filter: state.filter }))
+@connect(state => ({ 
+  filter: state.filter,
+  countiesName: state.counties,
+}))
+
+@graphql(gql`
+  query location {
+  location {
+    id
+    name
+    childAreas {
+      id
+      name
+      lat
+      lng
+    }
+  }
+ } `,
+  {
+    options: (props) => {
+      return ({
+        variables: {
+        }
+      })
+    },
+  }
+)
 
 class WwListHeader extends React.Component{
   constructor(props){
@@ -11,6 +40,8 @@ class WwListHeader extends React.Component{
     this.state = {
       blizuMene: true,
       radiSada: false,
+      niz: [],
+      display: false,
     }
   }
   blizuMene = () => {
@@ -33,7 +64,25 @@ class WwListHeader extends React.Component{
       radiSada: !this.state.radiSada,
     })
   }
+  componentWillReceiveProps(nextProps) {
+    if(nextProps !== undefined) {
+      this.setState({
+        niz: nextProps.data.location[0].childAreas,
+      })
+    }
+  }
   render(){
+    let imeOpstine = this.props.countiesName.name;
+    let counties = this.state.niz.map((item, key) => {
+      return(
+        <div 
+          // POZOVI FUNKCIJU KOJA KLIKCE NE IMENA OPSTINE I UPISI U REDUX NA KLIK
+          key={key}>
+          {item.name}
+        </div>
+      )
+    })
+
     return(
       <div className={css.wwListHeader}>
         <div 
@@ -44,6 +93,17 @@ class WwListHeader extends React.Component{
           onClick={() => this.blizuMene()}
           className={!this.state.blizuMene ? css.wwListOn : css.wwListOff}
           >Blizu mene</div>
+          <div
+            onClick={() => {this.setState({display: !this.state.display})}}
+            className={css.counties}>
+            <p>{imeOpstine}</p>
+            <img src={arrowDown} width={15} alt='down arrow'/><p>{this.state.selectName}</p>
+            <div 
+              style={{display:`${this.state.display ? 'block' : 'none'}`}}
+              className={css.countiesWrapper}>
+              {counties}
+            </div>
+          </div>
         <div className={css.selectFiltration}>
           <SelectFiltration />
         </div>

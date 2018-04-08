@@ -1736,6 +1736,26 @@ a:visited {
   border-radius: 5px;
   margin: 0 auto 20px auto;
 }
+.counties{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #019f9f;
+}
+.countiesWrapper{
+  padding: 5px;
+  color: #019f9f;
+  background: #e2e2e2;
+  position: absolute;
+  overflow: hidden;
+  top: 100%;
+  border: .75px solid grey;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 1001;
+}
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////

@@ -29,6 +29,7 @@ import arrayCountReducer from 'reducers/arrayCount';
 import modalReducer from 'reducers/modal';
 import menuModalReducer from 'reducers/menuModal';
 import categoriesSwitch from 'reducers/categoriesSwitch';
+import countiesReducer from 'reducers/counties';
 
 // Main component -- i.e. the 'root' React component in our app
 import Main from 'components/main';
@@ -47,13 +48,14 @@ import categories from './components/categories';
 // `seamless-immutable` by the kit's Redux init code, so plain objects are
 // automatically immutable by default
 config.addReducer('counter', counterReducer, { count: 0 });
-config.addReducer('filter', filterReducer, { filter: 'name' });
+config.addReducer('filter', filterReducer, { filter: 'isWorking', kako: 'desc' });
 config.addReducer('categoriesId', categoriesIdReducer, { categoriesId: 0 });
 config.addReducer('closeToMe', closeToMeReducer, { radiSada: false, blizuMene: true });
 config.addReducer('arrayCount', arrayCountReducer, { count: 0 });
 config.addReducer('modal', modalReducer, { display: false });
 config.addReducer('menuModal', menuModalReducer, { display: false });
 config.addReducer('switch', categoriesSwitch, { switch: true });
+config.addReducer('counties', countiesReducer, { name: 'Opštine' });
 
 /* GRAPHQL */
 

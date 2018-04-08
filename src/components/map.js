@@ -15,13 +15,16 @@ import pola from '../images/Ocena15.png';
 import Rating from 'react-rating';
 import {geolocated} from 'react-geolocated';
 import { BarLoader } from 'react-spinners';
+import { EDESTADDRREQ } from 'constants';
 
+@connect(state => ({ closeToMe: state.closeToMe }))
 
 @graphql(gql`
  query
   nearestObjects($categoryId: Int, $lat: Float, $lng: Float, $distance: Float) {
     nearestObjects(categoryId: $categoryId, lat: $lat, lng: $lng, distance: $distance){
       name
+      isWorking
       avgRating
       ratingCount
       verified
@@ -43,49 +46,25 @@ import { BarLoader } from 'react-spinners';
         isWorking
       }
     }
-    objectCl(objectCategoryId: $categoryId) {
-      name
-      avgRating
-      ratingCount
-      verified
-      objectCategory {
-        id
-        nameJ
-      }
-      objectLocations {
-        address
-        lat
-        lng
-      }
-      images {
-        profileImage {
-          fileUrl
-        }
-      }
-      workingTimeInfo {
-        isWorking
-      }
-    }
   } `,
   {
     options: (props) => {
       let trimId = props.location.pathname;
       let id = trimId.split("/").pop();
+      let distance = props.closeToMe.blizuMene ? 5 : 20;
+      let {latitude, longitude} = props.coords || 0;
 
       return ({
         variables: {
-          lat: 44.78,
-          lng: 20.37,
-          distance: 3,
+          lat: latitude,
+          lng: longitude,
+          distance: distance,
           categoryId: id,
         }
       })
     },
   }
 )
-
-@connect(state => ({ closeToMe: state.closeToMe }))
-
 
 class GoogleMap extends React.Component {
   constructor(props) {
@@ -99,6 +78,7 @@ class GoogleMap extends React.Component {
       avgRating: null,
       objectName: '',
       objectLocations: '',
+      niz: [],
     }}
 
   onMarkerClick(event, marker) {
@@ -123,14 +103,26 @@ class GoogleMap extends React.Component {
       })
     }
   }
-
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.data.nearestObjects !== undefined) {
+      this.setState({niz: nextProps.data.nearestObjects})
+    }
+  }
   render() {
     let {latitude, longitude} = this.props.coords || [];
     let id = this.props.location.pathname.split("/").pop();
     let csss = this.props.css === 'map1' ? css.map1 : css.map;
-    let resultNear = this.props.data.nearestObjects || [];
-    let resultCl = this.props.data.objectCl || [];
-    let result = this.props.closeToMe.close ? resultNear : resultCl;
+
+
+
+    let resultNear = this.state.niz;
+
+    let resultWork = resultNear.filter(item => item.isWorking === 'true');
+
+    console.log('objects from map', this.state.niz)
+
+
+    let result = !this.props.closeToMe.radiSada ? resultNear : resultWork;
       return (
         <div className={csss}>
         { 
@@ -154,12 +146,12 @@ class GoogleMap extends React.Component {
               key={key}
               icon={
                 item.workingTimeInfo.isWorking && item.verified ? satRadiVip :
-                !item.workingTimeInfo.isWorking && item.verified ? satRadi :
-                item.workingTimeInfo.isWorking && !item.verified ? satNeRadiVip : satNeRadi
+                !item.workingTimeInfo.isWorking && item.verified ? satNeRadiVip :
+                item.workingTimeInfo.isWorking && !item.verified ? satRadi : satNeRadi
               }
               onClick={(event, marker) => this.onMarkerClick(event, marker)}
               name={item.name}
-              title={'sadasd'}
+              title={item.name}
               ratingCount={item.ratingCount}
               avgRating={item.avgRating}
               img={item.images.profileImage.fileUrl}
