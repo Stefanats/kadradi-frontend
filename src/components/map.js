@@ -119,7 +119,7 @@ class GoogleMap extends React.Component {
 
     let resultWork = resultNear.filter(item => item.isWorking === 'true');
 
-    console.log('objects from map', this.state.niz)
+
 
 
     let result = !this.props.closeToMe.radiSada ? resultNear : resultWork;

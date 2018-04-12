@@ -50,11 +50,21 @@ class WwListHeader extends React.Component{
       blizuMene: !this.state.blizuMene,
       radiSada: this.state.radiSada,
     });
+    this.props.dispatch({
+      type: "COUNTIES_NAME",
+      name: "Opštine",
+      id: 1,
+    });
     this.setState({
       blizuMene: !this.state.blizuMene,
     })
   }
   radiSada = () => {
+    this.props.dispatch({
+      type: "COUNTIES_NAME",
+      name: "Opštine",
+      id: 1,
+    });
     this.props.dispatch({
       type: "CLOSE_TOME",
       radiSada: !this.state.radiSada,
@@ -64,19 +74,22 @@ class WwListHeader extends React.Component{
       radiSada: !this.state.radiSada,
     })
   }
-  // componentWillReceiveProps(nextProps) {
-  //   if(nextProps.data !== undefined) {
-  //     this.setState({
-  //       niz: nextProps.data.location[0].childAreas,
-  //     })
-  //   }
-  // }
-  // componentWillUnmount() {
-  //   this.props.dispatch({
-  //     type: "COUNTIES_NAME",
-  //     name: "Opštine",
-  //   });
-  // }
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.data) {
+      if(nextProps.data.location) {
+        this.setState({
+          niz: nextProps.data.location[0].childAreas,
+        })
+      }
+    }
+  }
+  componentWillUnmount() {
+    this.props.dispatch({
+      type: "COUNTIES_NAME",
+      name: "Opštine",
+      id: 1,
+    });
+  }
   itemHandler = (item, e) => {
     e.stopPropagation();
     this.setState({
