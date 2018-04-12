@@ -17,6 +17,7 @@ import satNeRadiVip from '../images/Sat-ne-radi-placeno.png';
 import satRadiVip from '../images/Sat-radi-placeno.png';
 import SelectFiltration from './selectFiltration';
 import { BarLoader } from 'react-spinners';
+import ArrLength from './arrLength';
 
 @connect(state => ({ 
   filter: state.filter,
@@ -114,7 +115,6 @@ import { BarLoader } from 'react-spinners';
   }
 )
 
-
 class ObjectCard extends React.Component {
   constructor(props) {
     super(props);
@@ -133,16 +133,7 @@ class ObjectCard extends React.Component {
       blizuMene: true,
       radiSada: false,
     });
-    this.setState({
-      countiesId: 1,
-    })
   }
-  // locationFunction = async (e) => {
-  //   await this.props.data.refetch({
-  //     locationId: e.countiesName.id,
-  //   })
-  // }
-
   componentWillReceiveProps(nextProps) {
     if(nextProps.data) {
       //SETTING NEAREST OBJECTS IN STATE
@@ -160,48 +151,6 @@ class ObjectCard extends React.Component {
         }
       }
     }
-
-
-
-
-
-
-    // if(nextProps.data.nearestObjects !== undefined) {
-    //   console.log('nextProps', nextProps.data.nearestObjects.length)
-    // } else {
-    //   console.log('UNDEEEEEEEEEFIIIIIIIIIIINEEEEEEEED')
-    // }
-    // if(nextProps.data) {
-    //     countiesArr: nextProps.data.objectCl,
-    //   this.setState({
-    //     countiesId: nextProps.countiesName.id,
-    //   })
-    //   console.log('this/', nextProps.data.objectCl)
-    //   if(nextProps.countiesName !== this.props.countiesName) {
-    //     this.locationFunction(nextProps);
-    //   }
-    //   if(!nextProps.closeToMe.radiSada) {
-    //     if(nextProps.data.nearestObjects) {
-    //       this.setState({niz: nextProps.data.nearestObjects})
-    //       if(nextProps !== this.props){
-    //         this.props.dispatch({
-    //           type: "ARRAY_COUNT",
-    //           value: nextProps.data.nearestObjects.length,
-    //       });
-    //     }
-    //   }
-    //   }else{
-    //     if(nextProps !== this.props){
-    //       let nearestObjectsRadi = 
-    //       nextProps.data.nearestObjects.filter(item => item.isWorking === 'true');
-    //       this.setState({niz: nearestObjectsRadi})
-    //       this.props.dispatch({
-    //         type: "ARRAY_COUNT",
-    //         value: nearestObjectsRadi.length,
-    //       });
-    //     }
-    //   }
-    // }
   }
   slugify(text){
     return text.toString().toLowerCase()
@@ -212,7 +161,6 @@ class ObjectCard extends React.Component {
       .replace(/-+$/, '');            // Trim - from end of text
   }
   render(){
-    console.log('STEFAN', this.props.closeToMe.radiSada)
     let poCemu = this.props.filter.kako;
     let workNow = this.state.nearestObjects.filter(item => item.isWorking === 'true');
     let nearObject = this.props.closeToMe.radiSada ? workNow : this.state.nearestObjects;
@@ -283,6 +231,9 @@ class ObjectCard extends React.Component {
     )
     return(
       <div className={css.objectCard}>
+        <div style={{display:'none'}}>
+          <ArrLength  stefan={ordered.length} />
+        </div>
         { 
           this.props.data.loading ? 
           <div style={{height:'100%', display:'flex',justifyContent:'center',alignItems:'center'}}>
