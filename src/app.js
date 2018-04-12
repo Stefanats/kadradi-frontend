@@ -55,7 +55,7 @@ config.addReducer('arrayCount', arrayCountReducer, { count: 0 });
 config.addReducer('modal', modalReducer, { display: false });
 config.addReducer('menuModal', menuModalReducer, { display: false });
 config.addReducer('switch', categoriesSwitch, { switch: true });
-config.addReducer('counties', countiesReducer, { name: 'Opštine' });
+config.addReducer('counties', countiesReducer, { name: 'Opštine', id: 1 });
 
 /* GRAPHQL */
 

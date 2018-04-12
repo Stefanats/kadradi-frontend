@@ -64,12 +64,30 @@ class WwListHeader extends React.Component{
       radiSada: !this.state.radiSada,
     })
   }
-  componentWillReceiveProps(nextProps) {
-    if(nextProps !== undefined) {
-      this.setState({
-        niz: nextProps.data.location[0].childAreas,
-      })
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if(nextProps.data !== undefined) {
+  //     this.setState({
+  //       niz: nextProps.data.location[0].childAreas,
+  //     })
+  //   }
+  // }
+  // componentWillUnmount() {
+  //   this.props.dispatch({
+  //     type: "COUNTIES_NAME",
+  //     name: "Opštine",
+  //   });
+  // }
+  itemHandler = (item, e) => {
+    e.stopPropagation();
+    this.setState({
+      display: false,
+    })
+    this.props.dispatch({
+      type: "COUNTIES_NAME",
+      name: item.name,
+      id: item.id,
+    });
+    // console.log('izabrao', item.name)
   }
   render(){
     let imeOpstine = this.props.countiesName.name;
@@ -77,6 +95,7 @@ class WwListHeader extends React.Component{
       return(
         <div 
           // POZOVI FUNKCIJU KOJA KLIKCE NE IMENA OPSTINE I UPISI U REDUX NA KLIK
+          onClick={(e) => this.itemHandler(item, e)}
           key={key}>
           {item.name}
         </div>
